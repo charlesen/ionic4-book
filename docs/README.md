@@ -2,7 +2,7 @@
 disqus: false
 ---
 
-# Développez des applications multiplatformes avec Ionic 4
+# Développez des applications multiplateformes avec Ionic 4
 
 ### Ecrit par [Charles EDOU NZE](https://charlesen.fr) {#written-by-cody-lindley}
 
