@@ -10,6 +10,9 @@ Pour tout renseignement, merci de contacter l'auteur directement depuis son site
 
 * **Site internet** : [https://charlesen.fr](https://charlesen.fr)
 * **Twitter** : [https://twitter.com/charlesen7](https://twitter.com/charlesen7)
+* **LinkedIn** : [https://www.linkedin.com/in/charlesen/](https://www.linkedin.com/in/charlesen/)
+
+
 
 
 
