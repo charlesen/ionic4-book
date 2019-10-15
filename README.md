@@ -28,7 +28,7 @@ Lorsque j’ai commencé à m’intéresser au développement d’applications m
 
 A cette époque, la tendance était très portée sur le natif et les choix proposés n’était pas forcément les meilleurs . Créer une application mobile, même basique, relevait presque toujours du parcours du combattant, quand cela était tout simplement impossible pour le commun des mortels.
 
-Aujourd’hui la donne n’est absolument plus la même et tant mieux d’ailleurs. Tout le monde peu plus ou moins développer, sans trop de mal, une application mobile simple en seulement 24h et la publier sur le Google Play Store dans les heures qui suivent. J'ai d'ailleurs un ami, artiste profesionnel, qui va bientôt lancer sa propre application mobile à destination d'étudiants en musique. Le plus drôle est qu'il va la créer avec un niveau quasiment nul au départ en développement web et mobile.
+Aujourd’hui la donne n’est absolument plus la même et tant mieux d’ailleurs. Tout le monde peu plus ou moins développer, sans trop de mal, une application mobile simple en seulement 24h et la publier sur le Google Play Store dans les heures qui suivent. J'ai d'ailleurs un ami, artiste professionnel, qui va bientôt lancer sa propre application mobile à destination d'étudiants en musique. Le plus drôle est qu'il va la créer avec un niveau quasiment nul au départ en développement web et mobile.
 
 C'est pour dire à quel point les choses ont évolué. Ce qui était, il y a encore quelques années,  réservé aux professionnels du développement, les fameux _**"Ninja"**_, est désormais beaucoup plus accessible aux jeunes développeurs ou futurs d’entre eux.
 
