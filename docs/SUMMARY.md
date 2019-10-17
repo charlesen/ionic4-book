@@ -26,4 +26,6 @@
   * [Composant Cards](chap4/chap5-4.md)
   * [Composant FAB](chap4/chap4-5.md)
   * [Exercez-vous](chap4/chap4-6.md)
-
+* [Bugs courants](annexe/README.md)
+  * [Annexe 1 : Bugs courants et solutions](annexe/annexe1-2.md)
+* [Glossaire](GLOSSARY.md)
