@@ -1,8 +1,10 @@
-# Chap 4 - Templates et Customisation
+# Chap 5 - Utilisation des composants Ionic
 
-Dans le chapitre précédent nous avons installé Ionic et ses dépendances. Nous avons également pu créer notre application Duckcoin et nous nous sommes amusés à le modifier tant bien que mal.
+Ionic est constitué de blocs d’éléments de haut niveau appelés **composants**. Les composants vous permettent de créer rapidement de belles interfaces graphiques pour votre application.
 
-![](/assets/screen_duck_2.png)
+Le framework propose pléthore de composants, du bouton d'action au toast, en passant par des listes d'éléments, soit suffisamment d'UI pour développer à peu près tout type d'application.
 
-Dans ce chapitre, nous allons apprendre à customiser un peu plus notre application mobile et à créer de nouvelles pages.
+Chaque composant à sa propre API, ce qui permet de l'exploiter au maximum. Étudions quelques-uns d'entre eux qui nous seront bien utiles pour la suite de notre projet.
+
+Pour information, la liste de tous les composants actuellement disponibles se trouve à l'adresse  [https://ionicframework.com/docs/components/](https://ionicframework.com/docs/components/). N'hésitez pas à la visiter et faire un tour complet de la documentation.
 

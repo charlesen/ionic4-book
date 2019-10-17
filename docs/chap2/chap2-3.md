@@ -147,6 +147,25 @@ v10.16.3
 </ion-header>
 ```
 
+Vous pouvez bien évidemment utiliser l'éditeur de votre choix, mais s'il vous vient l'envie de tester autre chose, je vous propose ici deux éditeurs de code intéressants pour développer avec Ionic.
+
+#### Visual Studio Code
+
+![](/assets/vs_code.png)
+
+Éditeur de code extensible développé par Microsoft pour Windows, Linux et OS X. C'est l'éditeur que je recommande le mieux, car il vous facilitera énormément la vie, grâce notamment à des composants proposés par la communauté des développeurs Ionic à installer directement dans l'éditeur.
+
+**Télécharger :** [https://code.visualstudio.com/](https://code.visualstudio.com/)
+
+#### Atom
+
+![](/assets/atom-logo.png)
+
+Éditeur de texte libre pour OS X, GNU/Linux et Windows développé par GitHub.
+
+**Télécharger :** [https://atom.io/](https://atom.io/)
+
+
 Éditez ensuite le fichier **src/theme/variables.scss** comme ceci :
 ```css
   :root {
@@ -161,7 +180,7 @@ v10.16.3
     /** .... d'autres lignes de code en dessous **/
 ```
 
-Modifier également le fichier **src/app/home/home.page.scss** :
+Puis le fichier **src/app/home/home.page.scss** :
 
 ```css
 
@@ -182,30 +201,17 @@ Modifier également le fichier **src/app/home/home.page.scss** :
 
 ```
 
-Vous n'avez plus qu'à admirer le résultat :
+Retourner vers votre navigateur pour admirer l'étendue de votre génie :
 
 | AVANT | APRÈS |
 | :--- | :--- |
 | ![](/assets/ionic4_start_app.png) | ![](/assets/ionic4_start_app2.png) |
 
-Vous pouvez bien évidemment utiliser l'éditeur de votre choix, mais s'il vous vient l'envie de tester autre chose, je vous propose ici deux éditeurs de code intéressants pour développer avec Ionic.
-
-#### Visual Studio Code
-
-![](/assets/vs_code.png)
-
-Éditeur de code extensible développé par Microsoft pour Windows, Linux et OS X. C'est l'éditeur que je recommande le mieux, car il vous facilitera énormément la vie, grâce notamment à des composants proposés par la communauté des développeurs Ionic à installer directement dans l'éditeur.
-
-**Télécharger :** [https://code.visualstudio.com/](https://code.visualstudio.com/)
-
-#### Atom
-
-![](/assets/atom-logo.png)
-
-Éditeur de texte libre pour OS X, GNU/Linux et Windows développé par GitHub.
-
-**Télécharger :** [https://atom.io/](https://atom.io/)
-
 
 Félicitations, vous venez de créer votre première application mobile ! Facile n'est pas ?!
-Dans la suite du livre nous allons progressivement aborder des notions plus complexes du Framework en rendant, au passage, notre application beaucoup plus élégante et utile.
+
+Vous l'avez peut être remarqué, mais **DuckNote** est en réalité une réplique de l'application **Google Keep** que vous pouvez télécharger sur le Google Play Store ou l'Apple Store.
+
+![](/assets/google_keep_screen.png)
+
+Dans la suite du livre nous allons progressivement aborder des notions plus complexes du Framework en rendant, au passage, notre application **DuckNote** beaucoup plus élégante et utile.

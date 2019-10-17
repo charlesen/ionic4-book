@@ -1,62 +1,34 @@
-## Exercez-vous
+## Composant Select
 
-1\) Créez la page **Profile** précédente et configurez là pour quelle soit dans le thème de l'application. Corrigez les bugs éventuels.\(C.f Exercez-vous du chapitre précédent\)
-
-2\) Dans la fonction **gotoHome**, remplacez **"push"** par **"setRoot" **: **this.navCtrl.setRoot\(UnePage\)**. Que constatez-vous ?
-
-3\) Éditez le fichier **app.module.ts **de la manière suivante :
+Ce composant permet un rendu du tag html **&lt;select&gt;&lt;/select&gt;** et va donc nous permettre d'afficher une liste de choix. Affichons par exemple ici la liste des 5 premières cryptomonnaies par capitalisation boursière :
 
 ```js
-...
-@NgModule({
-  declarations: [
-    MyApp,
-    MiningPage,
-    WalletPage,
-    HomePage,
-    ProfilePage, // On la déclare ici
-    TabsPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp,{
-        tabsPlacement: 'top',
-        backButtonText: 'Retour'
-    })
-  ],
-  ...
+<ion-header>
+  <ion-navbar color="duckcoin">
+    <ion-title>Ma Page</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-list-header text-center>
+    TOP 10 des cryptos en Avril 2018
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Choisir dans la liste</ion-label>
+      <ion-select [(ngModel)]="gaming">
+        <ion-option value="btc">Bitcoin</ion-option>
+        <ion-option value="xrp">Ethereum</ion-option>
+        <ion-option value="xrp">Ripple</ion-option>
+        <ion-option value="bch">Bitcoin Cash</ion-option>
+        <ion-option value="eos">EOS</ion-option>
+        <ion-option value="ltc">Litecoin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
 ```
 
-Que remarquez-vous ?
+![](/assets/composant_select.png)
 
-4\) Allez à l'adresse suivante : [https://ionicframework.com/docs/components](https://ionicframework.com/docs/components)
-
-Comment à partir des informations qu'y s'y trouve peut-on rajouter une liste d'éléments en page d'accueil \(voir screen suivant\)
-
-![](/assets/screen_home_2.png)
-
-**Astuces :**
-
-```
-export class HomePage {
-  selected : any = '';
-  items : any = [];
-  constructor(public navCtrl: NavController) {
-    this.items = [
-      {'title':'Bitcoin', 'currency':'btc', 'price':'5000€'},
-      {'title':'Ethereum', 'currency':'eth', 'price':'500€'},
-      {'title':'Ripple', 'currency':'xrp', 'price':'0.4€'}
-    ];
-  }
-
-  itemSelected(item) {
-    this.selected =item;
-  }
-
-}
-```
-
-5\) Testez d'autres composants
-
-6\) Créez une page Setting et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...
+Documentation : [https://ionicframework.com/docs/components/\#select](https://ionicframework.com/docs/components/#select)
 
