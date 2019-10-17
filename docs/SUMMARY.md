@@ -2,6 +2,7 @@
 
 * [Développez des applications mobiles multiplatformes avec Ionic 4](README.md)
 * [Copyright](copyright.md)
+* [Sommaire](sommaire.md)
 * [A propos de l'auteur](a-propos-de-lauteur.md)
 * [Introduction](introduction.md)
 * [Chapitre 1 - Une brêve histoire du mobile](chap1/README.md)
@@ -25,3 +26,4 @@
   * [Composant Cards](chap4/chap5-4.md)
   * [Composant FAB](chap4/chap4-5.md)
   * [Exercez-vous](chap4/chap4-6.md)
+
