@@ -10,16 +10,6 @@ Il existe de nombreuses raisons d'utiliser Ionic et je vous en propose quelques 
 
 Un avantage non considérable, surtout si l'on souhaite customiser un peu son travail, l'adapter à son contexte professionnel,...Gratuit, mais pas bradé pour autant. En effet, l'inconvénient d'un outil Open Source à parfois été son absence d'évolution et d'adaptation aux défis technologiques toujours plus important dans le temps. Ce n'est pas le cas de Ionic, qui est par exemple passé d'une version 1 déjà révolutionnaire, à une version 3 extrêmement riche. Au moment de la rédaction de ce livre, une version 4 \(en phase alpha\) s’apprête à être lancé publiquement.
 
-### Une large communauté
-
-Qui n'a jamais connu la frustration de ne pas recevoir de réponse à sa question sur un forum destiné à vous accompagner dans l'utilisation de votre logiciel préféré ? Avec Ionic, il y a quasiment peu de chance que cela vous arrive. En plus d'une documentation déjà très riche et simple à prendre en main, le Framework fédère une très large communauté de développeurs enthousiastes près à vous aider en cas de pépin.
-
-Rien que sur Stackoverflow en ce moment, le tag  ["ionic framework"](https://stackoverflow.com/tags/ionic-framework/info) est associé à plus de 40700 questions.
-
-![](/assets/screen_ionic_stackoverflow.png)
-
-C'est pour dire l'intérêt que de nombreuses personnes portent au Framework.
-
 ### Fondations solides
 
 Ionic c'est d'abord Apache Cordova et ses nombreux plugins natifs, Angular de Google, NodeJS et bien d'autres technologies Open Source qui ont fait leur preuve depuis des années et ne cessent de croître à vitesse grand V.
@@ -55,5 +45,14 @@ Une autre force de Ionic est très certainement son large panel de produits à l
 * [**Ionic creator**](https://ionicframework.com/pro/creator) : pour créer une application sans saisir une seule ligne de code. Pratique quand on débute.
 * [**Ionic Market**](https://market.ionicframework.com/) : pour trouver l'inspiration grâce à des templates, des kits, des plugins,... gratuits et prêts à l'emploi. Vous pouvez aussi utiliser cette plateforme pour mettre à la vente vos propres réalisations
 
-[^1]: John Ronald Reuel Tolkien, plus connu sous la forme J. R. R. Tolkien, est un écrivain, poète, philologue, essayiste et professeur d’université anglais. Il est principalement connu pour ses romans _Le Hobbit_ et Le Seigneur des anneaux. \(Sources : [wikipédia](https://fr.wikipedia.org/wiki/J._R._R._Tolkien)\).
+### Une large communauté
 
+Qui n'a jamais connu la frustration de ne pas recevoir de réponse à sa question sur un forum destiné à vous accompagner dans l'utilisation de votre logiciel préféré ? Avec Ionic, il y a quasiment peu de chance que cela vous arrive. En plus d'une documentation déjà très riche et simple à prendre en main, le Framework fédère une très large communauté de développeurs enthousiastes près à vous aider en cas de pépin.
+
+Rien que sur Stackoverflow en ce moment, le tag  ["ionic framework"](https://stackoverflow.com/tags/ionic-framework/info) est associé à plus de 40700 questions.
+
+![](/assets/screen_ionic_stackoverflow.png)
+
+C'est pour dire l'intérêt que de nombreuses personnes portent au Framework.
+
+[^1]: John Ronald Reuel Tolkien, plus connu sous la forme J. R. R. Tolkien, est un écrivain, poète, philologue, essayiste et professeur d’université anglais. Il est principalement connu pour ses romans _Le Hobbit_ et Le Seigneur des anneaux. \(Sources : [wikipédia](https://fr.wikipedia.org/wiki/J._R._R._Tolkien)\).
