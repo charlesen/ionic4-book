@@ -29,7 +29,7 @@ Please select the JavaScript framework to use for your new app. To bypass this p
   React   | https://reactjs.org
 ```
 
-Pour le choix du Framework, nous allons saisir la touche **entrer** et choisir Angular. Nous aurons l'occasion de tester React un peu plus tard.
+Pour le choix du Framework, nous allons saisir la touche **entrer** et utiliser Angular. Nous aurons l'occasion de tester React un peu plus tard.
 
 Vous devrez ensuite choisir le template Ionic que vous souhaitez utiliser pour l'application.
 

@@ -1,15 +1,16 @@
 ## Exercez-vous
 
-1\) Créez, si ce n'est déjà fait, l'application duckcoin comme expliqué précédemment
+1\) Créez, si ce n'est déjà fait, l'application **ducknote** comme expliqué précédemment (Voir **_Première application Ionic_**) et démarrez-là
 
 ```
-$ ionic start duckcoin https://github.com/charlesen/duckcoin-starter
-$ cd duckcoin
+$ ionic start ducknote
+$ cd ducknote
+$ ionic lab
 ```
 
-2\) Faites le tour de l'application pour découvrir un petit peu son architecture
+2\) Faites le tour du dossier **ducknote** pour découvrir un petit peu l'architecture de l'application
 
-![](/assets/archi_duckcoin.png)
+![](/assets/archi_ducknote.png)
 
 3\) Renommer les différents onglets :
 
@@ -21,13 +22,6 @@ $ cd duckcoin
 
   * Que se passe t-il dans la console à chaque enregistrement ?
 
-4\) Faites les modifications suivantes dans les onglets
-
-* **Accueil** : changez le contenu de l'onglet par le contenu de la page d'accueil du site [https://duckcoin.charlesen.fr](https://duckcoin.charlesen.fr). Et renommer la page, de **Home** à _**Duckcoin**_. \(**src/pages/home/home.html\). **Les images sont à placer dans le dossier **src/assets/imgs**.
-
-* **Minage** : Changer l'intitulé de la page en _**Minage**_.
-
-* **Portefeuille** : Changer l'intitulé de la page en _**Portefeuille**_.
 
 5\) Éditez le fichier **theme/variables.scss** et modifier le contenu de la façon suivante :
 
@@ -46,7 +40,7 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  duckcoin :  #df4932 // <!-- ICI
+  ducknote :  #df4932 // <!-- ICI
 );
 ```
 
@@ -54,7 +48,7 @@ Enregistrez, puis dans le fichier **src/pages/home/home.html**, effectuez les mo
 
 ```
 <ion-header>
-  <ion-navbar color="duckcoin"><!-- ICI -->
+  <ion-navbar color="ducknote"><!-- ICI -->
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
@@ -68,7 +62,7 @@ Que s'est-il passé ?
 
 Faites la même chose pour l'ensemble des onglets.
 
-6\) Adaptez le code hexadécimal de la couleur duckcoin pour qu'il soit le plus proche de vos goûts. Le meilleur code couleur sera utilisé dans la suite du projet :-\)
+6\) Adaptez le code hexadécimal de la couleur ducknote pour qu'il soit le plus proche de vos goûts. Le meilleur code couleur sera utilisé dans la suite du projet :-\)
 
 7\) Renommez les fichiers **about.html** en **mining.html**, **about.scss** en **mining.scss**, **about.scss** en **mining.scss**, **about.ts** en **mining.ts**. Puis, renommer le dossier **about** \(src/pages/about\) en **mining** \(src/pages/mining\).
 
@@ -104,7 +98,7 @@ Il vous sera également proposé d'héberger votre application soit sur Github, 
 
 ```
 > ionic git remote
-> git remote add ionic git@git.ionicjs.com:charlesen/duckcoin-starter.git
+> git remote add ionic git@git.ionicjs.com:charlesen/ducknote-starter.git
 [OK] Added remote ionic.
 [OK] Project linked with app 94d675be!
 ```
@@ -114,4 +108,3 @@ Editez ensuite le fichier **ionic.config.json**. Que remarquez-vous ?
 [^1]: Ubuntu Ionic Installer : [https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu\_ionic\_installer.sh](https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu_ionic_installer.sh)
 
 [^2]: _How to prevent permission errors_ : [https://docs.npmjs.com/getting-started/fixing-npm-permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
-
