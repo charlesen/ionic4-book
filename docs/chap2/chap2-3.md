@@ -130,6 +130,63 @@ v10.16.3
 ```
 
 À l'aide de votre éditeur de code préféré, éditez le fichier **src/app/home/home.page.html** et remplacez **"Home"** par **"DuckNote"**.
+```html
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <!-- AVANT -->
+      <!-- Home -->
+
+      <!-- APRÈS -->
+      DuckNote
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+```
+
+Éditez ensuite le fichier **src/theme/variables.scss** comme ceci :
+```css
+  :root {
+    /** ducknote **/
+    --ion-color-ducknote: #f1b004;
+    --ion-color-ducknote-rgb: 244, 244, 244;
+    --ion-color-ducknote-contrast: #000000;
+    --ion-color-ducknote-contrast-rgb: 0, 0, 0;
+    --ion-color-ducknote-shade: #d7d8da;
+    --ion-color-ducknote-tint: #f5f6f9;
+
+    /** .... d'autres lignes de code en dessous **/
+```
+
+Modifier également le fichier **src/app/home/home.page.scss** :
+
+```css
+
+  .welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+
+  // Les modifications commencent ici : On applique le style à la page Home ici
+  .ion-color-ducknote {
+    --ion-color-base: var(--ion-color-ducknote);
+    --ion-color-base-rgb: var(--ion-color-ducknote-rgb);
+    --ion-color-contrast: var(--ion-color-ducknote-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-ducknote-contrast-rgb);
+    --ion-color-shade: var(--ion-color-ducknote-shade);
+    --ion-color-tint: var(--ion-color-ducknote-tint);
+  }
+
+```
+
+Vous n'avez plus qu'à admirer le résultat :
+
+| AVANT | APRÈS |
+| :--- | :--- |
+| ![](/assets/ionic4_start_app.png) | ![](/assets/ionic4_start_app2.png) |
 
 Vous pouvez bien évidemment utiliser l'éditeur de votre choix, mais s'il vous vient l'envie de tester autre chose, je vous propose ici deux éditeurs de code intéressants pour développer avec Ionic.
 
