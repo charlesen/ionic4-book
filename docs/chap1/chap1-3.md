@@ -2,6 +2,10 @@
 
 Ionic est un framework de développement d'applications mobiles et de bureaux, performantes et esthétiques à la fois. Le framework en lui-même est centré sur la conception d'interfaces utilisateur \(UI\), ce qui permet d'intégrer différents types de Frameworks JavaScript pour la gestion des actions de l'utilisateur \(UX : User eXperience\). On pourra ainsi, par exemple, prendre des photos \(plugin Camera\) ou encore géolocaliser un utilisateur.
 
+Actuellement, Ionic possède intégre officiellement les Framework Angular  et React. Le support de VueJs étant toujours en développement au moment de la rédaction de ce livre.
+
+Il existe de nombreuses raisons d'utiliser Ionic et je vous en propose quelques unes.
+
 ### Open Source et 100% gratuit
 
 Un avantage non considérable, surtout si l'on souhaite customiser un peu son travail, l'adapter à son contexte professionnel,...Gratuit, mais pas bradé pour autant. En effet, l'inconvénient d'un outil Open Source à parfois été son absence d'évolution et d'adaptation aux défis technologiques toujours plus important dans le temps. Ce n'est pas le cas de Ionic, qui est par exemple passé d'une version 1 déjà révolutionnaire, à une version 3 extrêmement riche. Au moment de la rédaction de ce livre, une version 4 \(en phase alpha\) s’apprête à être lancé publiquement.
