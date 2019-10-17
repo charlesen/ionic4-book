@@ -12,10 +12,10 @@ Un avantage non considérable, surtout si l'on souhaite customiser un peu son tr
 
 ### Fondations solides
 
-Le Framework Ionic s'appuie sur des technologies du web qui sont fiables et normalisées: HTML, CSS et JavaScript. Il est également construit à l'aide d'API Web modernes telles que les **Custom Elements** ou encore le **Shadow DOM**. De cette façon, les composants Ionic possède un API stable et ne sont pas à la merci d'un éditeur de librairie quelconque.  
+Le Framework Ionic s'appuie sur des technologies du web fiables et normalisées: HTML, CSS et JavaScript. Il est également construit à l'aide d'API Web modernes telles que les **Custom Elements** ou encore le **Shadow DOM**. De cette façon, les composants Ionic possède un API stable et ne sont pas à la merci d'un éditeur de librairie quelconque.  
 ![](/assets/capacitor-hero.jpg)
 
-De plus, Ionic utilise framework de développement mobile open-source Cordova et ses nombreux plugins natifs, Capacitor \(une version améliorée de Cordova maintenue par Ionic\), le Framework Angular de Google, NodeJS et bien d'autres technologies Open Source qui ont fait leur preuve depuis des années.
+De plus, Ionic utilise le framework de développement mobile open-source Cordova et ses nombreux plugins natifs, Capacitor \(une version améliorée de Cordova maintenue par Ionic\), le Framework Angular de Google, NodeJS et bien d'autres technologies Open Source qui ont fait leur preuve depuis des années.
 
 ![](/assets/cordova-ng-ionic.png)
 
