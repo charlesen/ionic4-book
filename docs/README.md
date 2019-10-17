@@ -6,7 +6,7 @@ disqus: false
 
 ### Ecrit par [Charles EDOU NZE](https://charlesen.fr) {#written-by-cody-lindley}
 
-De l'auteur du livre **Développement d’applications mobiles avec Ionic**[![](/assets/cover-1.jpg)](https://amzn.to/2MpZrPH)
+De l'auteur du livre [**Développement d’applications mobiles avec Ionic**](https://amzn.to/2MpZrPH)![](/assets/cover-1.jpg)
 
 ### Sommaire
 
