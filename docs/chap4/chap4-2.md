@@ -1,60 +1,75 @@
 ## Composant Liste
 
-Comme son nom peut le suggérer, ce composant va nous permettre d'ajouter une liste d'éléments à notre application. Affichons par exemple la liste des principales cryptomonnaies selon leur capitalisation en avril 2018 :
+Comme son nom peut le suggérer, ce composant va nous permettre d'ajouter une liste d'éléments à notre application. C'est ce composant qui est utilisé dans l'écran **Rappels** de l'application DuckNote, et celui qui servira à afficher nos listes de notes.
 
-**src/pages/mapage/mapage.html**
+**src/app/list/list.page.html**
 
-```js
+```html
 <ion-header>
-  <ion-navbar color="duckcoin">
-    <ion-title>Ma Page</ion-title>
-  </ion-navbar>
+  <ion-toolbar color="ducknote">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Rappels
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
-<ion-content padding>
+
+<ion-content>
   <ion-list>
-    <ion-list-header text-center>
-      TOP 10 des cryptos en Avril 2018
-    </ion-list-header>
-    <ion-item *ngFor="let crypto of cryptos">
-      <strong>{{ crypto.name }}</strong> vaut environ {{ crypto.price}}
+    <ion-item *ngFor="let item of items">
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      {{item.title}}
+      <div class="item-note" slot="end">
+        {{item.note}}
+      </div>
     </ion-item>
   </ion-list>
+  <!-- ... -->
 </ion-content>
+
 ```
 
-**src/pages/mapage/mapage.ts**
+**src/app/list/list.page.ts**
 
-```js
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+```javascript
+import { Component, OnInit } from '@angular/core';
 
-@IonicPage()
 @Component({
-  selector: 'page-mapage',
-  templateUrl: 'mapage.html',
+  selector: 'app-list',
+  templateUrl: 'list.page.html',
+  styleUrls: ['list.page.scss']
 })
-export class MaPagePage {
-  cryptos: any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.cryptos = [
-      { 'name': 'Bitcoin', 'price': '$8883,45' },
-      { 'name': 'Ethereum', 'price': '$$635,25' },
-      { 'name': 'Ripple', 'price': '$0,873466' },
-      { 'name': 'Bitcoin Cash', 'price': '$1 392,80' },
-      { 'name': 'EOS', 'price': '$11,57' },
-      { 'name': 'Litecoin', 'price': '$150,95' },
-      { 'name': 'Cardano', 'price': '$0,288146' },
-      { 'name': 'Stellar', 'price': '$0,373197' },
-      { 'name': 'IOTA', 'price': '$2,12' },
-      { 'name': 'NEO', 'price': '$76,89' }
-    ];
+export class ListPage implements OnInit {
+  private selectedItem: any;
+  private icons = [
+    'flask',
+    'wifi',
+    'beer',
+    'football',
+    'basketball',
+    'paper-plane',
+    'american-football',
+    'boat',
+    'bluetooth',
+    'build'
+  ];
+  public items: Array<{ title: string; note: string; icon: string }> = [];
+  constructor() {
+    for (let i = 1; i < 11; i++) {
+      this.items.push({
+        title: 'Item ' + i,
+        note: 'This is item #' + i,
+        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+      });
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingPage');
+  ngOnInit() {
   }
-
 }
+
 ```
 
 Qui donne :
@@ -62,4 +77,3 @@ Qui donne :
 ![](/assets/composant_liste_2.png)
 
 Documentation : [https://ionicframework.com/docs/components/\#lists](https://ionicframework.com/docs/components/#lists)
-

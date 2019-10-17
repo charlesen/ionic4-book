@@ -2,10 +2,10 @@
 
 Les cartes sont un bon moyen d'afficher des informations importantes à destination des utilisateurs. Ce pattern s'inspire des cartes de visite personnelles ou professionnelles que nous utilisons dans la vie courante.
 
-```js
+```html
 <ion-header>
 
-  <ion-navbar color="duckcoin">
+  <ion-navbar color="ducknote">
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 
@@ -33,9 +33,9 @@ Les cartes sont un bon moyen d'afficher des informations importantes à destinat
 
 Il est également possible de combiner carte et liste d'éléments comme ceci :
 
-```js
+```html
 <ion-header>
-  <ion-navbar color="duckcoin">
+  <ion-navbar color="ducknote">
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 </ion-header>
@@ -45,22 +45,22 @@ Il est également possible de combiner carte et liste d'éléments comme ceci :
       Formations en cours
     </ion-card-header>
     <ion-list>
-      <button ion-item>
-         <ion-icon name="logo-android" item-start></ion-icon>
+      <ion-button>
+         <ion-icon name="logo-android" slot="start"></ion-icon>
          Développer pour Android
-      </button>
-      <button ion-item>
-         <ion-icon name="logo-apple" item-start></ion-icon>
+      </ion-button>
+      <ion-button>
+         <ion-icon name="logo-apple" slot="start"></ion-icon>
          Développer pour iOS
-      </button>
-      <button ion-item>
-         <ion-icon name="logo-angular" item-start></ion-icon>
+      </ion-button>
+      <ion-button>
+         <ion-icon name="logo-angular" slot="start"></ion-icon>
          Développer avec Angular
-      </button>
-      <button ion-item>
-         <ion-icon name="bug" item-start></ion-icon>
+      </ion-button>
+      <ion-button>
+         <ion-icon name="bug" slot="start"></ion-icon>
          Déboggage avancé en JS
-      </button>
+      </ion-button>
     </ion-list>
   </ion-card>
 </ion-content>
@@ -70,15 +70,15 @@ Il est également possible de combiner carte et liste d'éléments comme ceci :
 
 Ou tout simplement reproduire un design assez proche de réseaux sociaux comme Instagram :
 
-```js
+```html
 <ion-header>
-  <ion-navbar color="duckcoin">
+  <ion-navbar color="ducknote">
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-card>
-    <img src="assets/imgs/duckcoin-mini.png" />
+    <img src="assets/imgs/ducknote-mini.png" />
     <ion-card-content>
       <ion-card-title>
         DuckCoin
@@ -89,14 +89,14 @@ Ou tout simplement reproduire un design assez proche de réseaux sociaux comme I
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="duckcoin" icon-medium icon-start>
+        <button ion-button clear small color="ducknote" icon-medium icon-start>
           J'aime <ion-icon name='heart'></ion-icon>
-        </button>
+        </ion-button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="duckcoin" icon-medium icon-start>
+        <button ion-button clear small color="ducknote" icon-medium icon-start>
           Partager <ion-icon name='share-alt'></ion-icon>
-        </button>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
@@ -106,4 +106,3 @@ Ou tout simplement reproduire un design assez proche de réseaux sociaux comme I
 ![](/assets/composant_card_3.png)
 
 Documentation : [https://ionicframework.com/docs/components/\#cards](https://ionicframework.com/docs/components/#cards)
-

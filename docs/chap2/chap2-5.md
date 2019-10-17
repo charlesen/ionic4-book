@@ -88,19 +88,37 @@ Que s'est-il passé ?
 
 L'image de fond utilisée dans la version finale se trouve à l'adresse : https://unsplash.com/photos/82TpEld0_e4
 
-6) Installer l'application Ionic Dev App sur votre téléphone. Lancez-là, en veillant à connecter votre téléphone au même réseau que celui de votre ordinateur.
+6) Après avoir testé notre application sur un navigateur, il est temps à présent de le tester sur smartphone. Pour cela, nous allons créer un compte Ionic AppFlow (version gratuite) sur https://ionicframework.com/appflow.
 
-Depuis un invite de commande, saisissez la commande suivante à la racine de votre projet
+Une fois le compte Appflow créé, vous pourrez installer l'application Ionic Dev App sur votre téléphone. Lancez-là, en veillant à connecter votre téléphone au même réseau wifi que celui de votre ordinateur.
+
+Puis, depuis un invite de commande, saisissez la commande suivante à la racine de votre projet
 
 ```bash
   $ ionic cordova platform add android # Si vous avez un smartphone Android
   $ ionic cordova platform add ios # Si vous avez un smartphone iOS
 ```
 
+Éditez le fichier **src/index.html** en ajoutant le fichier cordova.js nécessaire au bon fonctionnement Cordova :
+```html
+<head>
+  <!-- ... Autres tags HTML... -->
+
+  <script src="cordova.js"></script>
+</head>
+```
 
 Retournez dans votre invite de commandes et redémarrez votre application Ionic en saisissant cette fois la commande suivante :
 
 ```bash
   $ ionic serve --devapp
 ```
-Vérifier que l'application Ducknote s'affiche bien sur Ionic DevApp
+Vérifier que l'application Ducknote s'affiche bien dans Ionic DevApp.
+
+Si besoin, saisissez manuellement l'adresse ip **192.168.1.53** et le port **8100**
+
+| Niveau 1 | Niveau 2 |
+| :--- | :--- |
+| ![](/assets/ducknote_devapp1.png) | ![](/assets/ducknote_devapp2.png) |
+
+Faites des modifications dans votre application, et vérifiez qu'elles apparaissent automatiquement dans Ionic DevApp.

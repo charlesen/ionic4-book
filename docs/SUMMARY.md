@@ -23,7 +23,7 @@
   * [Composant Bouton](chap4/chap4-1.md)
   * [Composant Liste](chap4/chap4-2.md)
   * [Composant Select](chap4/chap4-3.md)
-  * [Composant Cards](chap4/chap5-4.md)
+  * [Composant Cards](chap4/chap4-4.md)
   * [Composant FAB](chap4/chap4-5.md)
   * [Exercez-vous](chap4/chap4-6.md)
 

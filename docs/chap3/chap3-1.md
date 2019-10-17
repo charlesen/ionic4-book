@@ -2,28 +2,28 @@
 
 ### Attributs de style
 
-Ionic met à disposition un ensemble d'attributs qui peuvent être utilisés sur n'importe quel élément pour de modifier du texte, le centrer ou encore gérer les marges. À la différence de Bootstrap où on fait usage de classes css \(row, col,...\), ici on utilisera plutôt des attributs.
+Ionic met à disposition un ensemble d'attributs qui peuvent être utilisés sur n'importe quel élément pour modifier du texte, le centrer ou encore gérer les marges. Tout comme des frameworks comme Bootstrap on va pouvoir utiliser des classes css \(ion-text-center, ion-text-start,...\), qui vont nous permet de modifier nos éléments.
 
-```js
-<h2 text-center>Un texte centré</h2>
+```html
+<h2 class="ion-text-center">Un texte centré</h2>
 ```
 
-| Attribut | Style CSS correspondant | Description |
+| Classe css | Style CSS | Description |
 | :--- | :--- | :--- |
-| text-left | text-align: left | Aligne du texte à gauche |
-| text-right | text-align:right | Aligne du texte à droite |
-| text-start | text-align:start | Identique à text-left si la direction d'écriture va de gauche vers la droite et text-right si la direction est de droite vers la gauche. |
-| text-end | text-align:end | Identique à text-right si la direction d'écriture est de gauche vers la droite et de text-left si la direction est de droite vers la gauche. |
-| text-center | text-align:center | Centre le contenu |
-| text-justify | text-align:justify | Justifie le contenu |
+| ion-text-left | text-align: left | Aligne du texte à gauche |
+| ion-text-right | text-align:right | Aligne du texte à droite |
+| ion-text-start | text-align:start | Identique à text-left si la direction d'écriture va de gauche vers la droite et text-right si la direction est de droite vers la gauche. |
+| ion-text-end | text-align:end | Identique à text-right si la direction d'écriture est de gauche vers la droite et de text-left si la direction est de droite vers la gauche. |
+| ion-text-center | text-align:center | Centre le contenu |
+| ion-text-justify | text-align:justify | Justifie le contenu |
 
-Une liste beaucoup plus exhaustive se trouve dans la documentation, qui est extrêmement bien faite [https://ionicframework.com/docs/theming/css-utilities/](https://ionicframework.com/docs/theming/css-utilities/)
+Une liste beaucoup plus exhaustive se trouve dans la documentation, qui est extrêmement bien faite [https://ionicframework.com/docs/layout/css-utilities/](https://ionicframework.com/docs/layout/css-utilities/)
 
 On va pouvoir utiliser ces attributs directement dans nos pages. Centrons par exemple le h2 de la page d'accueil et justifions le contenu du texte qui le suit :
 
 **src/pages/home/home.html**
 
-```js
+```html
 <ion-header>
   <ion-navbar color="duckcoin">
     <ion-title>Duckcoin</ion-title>
@@ -46,11 +46,11 @@ On va pouvoir utiliser ces attributs directement dans nos pages. Centrons par ex
 
 Ionic propose également un système de grille css pour permettre une meilleur gestion de blocs de contenus. Il est assez similaire dans sa syntaxe à celui que propose Bootstrap.
 
-```js
+```html
 <h2>Profil utilisateur</h2>
 <ion-grid>
   <ion-row>
-    <ion-col col-lg-1>
+    <ion-col size="2">
       <img src="assets/imgs/logo.jpg"/>
     </ion-col>
     <ion-col>
@@ -78,7 +78,7 @@ Ionic est construit sur Sass \(Syntactically Awesome Stylesheets\), un langage d
 
 La définition ou la redéfinition de style css dynamique se fait depuis le fichier **src/theme/variables.scss** :
 
-```js
+```html
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -99,7 +99,7 @@ $colors: (
 
 Vous pouvez ici effectuer des changements sur les valeurs par défaut des thèmes primaire, secondaire, ...Et ils s'appliqueront automatiquement à l'ensemble de vos composants.
 
-```
+```html
 <ion-header>
   <ion-navbar color="duckcoin">
     <ion-title>Duckcoin</ion-title>
@@ -111,7 +111,7 @@ Ici la barre de navigation aura comme couleur de fond \(background\) celle défi
 
 **src/theme/variables.scss**
 
-```
+```html
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
@@ -129,11 +129,11 @@ $colors: (
 
 Il est également possible d'appeler des variables définis dans ce fichier **src/theme/variables.scss** directement dans nos fichiers scss. Changeons par exemple la couleur du bouton présent dans l'onglet Profil :
 
-**src/pages/profile/profile.scss**
+**src/app/profile/profile.scss**
 
-```js
+```html
 page-profile {
-  button[ion-button] {
+  [ion-button] {
     background: color($colors, duckcoin, base);
   }
 }
@@ -143,7 +143,7 @@ qui est l'équivalent css de :
 
 ```js
 page-profile {
-  button[ion-button] {
+  [ion-button] {
     background: #df4932;
   }
 }
@@ -157,13 +157,13 @@ Supposons par exemple que l'on souhaite imposer une largeur maximale sur un cert
 
 **src/theme/variables.scss**
 
-```js
+```html
 $max-width: 400px;
 ```
 
 Puis dans une ou plusieurs feuilles de style scss invoquer notre variable :
 
-```js
+```html
 div {
     width:$max-width;
 }
@@ -171,11 +171,8 @@ div {
 
 On pourrait même faire des calculs sur la variable  :
 
-```js
+```html
 img {
     width : $max-width/10;
 }
 ```
-
-
-
