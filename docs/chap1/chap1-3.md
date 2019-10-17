@@ -37,7 +37,7 @@ Le framework proposent de nombreux composants et templates qui vous faciliteront
 
 ### Tests et debogage simples
 
-Tester une application mobile n'aura jamais été aussi simple. Ionic vous laisse le choix de tester votre application mobile soit directement depuis votre navigateur préféré, depuis un émulateur, votre téléphone connecté en USB ou alors via les applications [Ionic App Dev](https://ionicframework.com/docs/pro/devapp/) et [Ionic View](https://ionicframework.com/pro/view) \(qui vous permet en autre de faire tester votre application à distance sans passer par un app store\).
+Tester une application mobile n'aura jamais été aussi simple. Ionic vous laisse le choix de tester votre application mobile soit directement depuis votre navigateur web préféré, depuis un émulateur, votre téléphone connecté en USB ou alors via son application [Ionic App Dev](https://ionicframework.com/docs/pro/devapp/).
 
 ### Un ecosystème riche
 
