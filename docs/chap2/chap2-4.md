@@ -2,13 +2,16 @@
 
 ### Pour ne plus rien oublier
 
-Dans la suite de notre voyage, nous allons créer une application de prise de notes appellée DuckNote. Bien évidemment, toute ressemblance avec DeathNote ne serait que pure et fortuite coïncidence.
+Dans la suite de notre voyage, nous allons créer une application de prise de notes appellée DuckNote. Bien évidemment, toute ressemblance avec DeathNote ne serait que pure et fortuite coïncidence.  
 Car notre application, loin d'éliminer les personnes autour de nous, va nous à ne plus rien oublier, où que nous soyons. Vous pourrez noter tout ce qui vous passe par la tête. Vraiment tout !
 
 Grâce à DuckNote, nous allons pouvoir ajouter :
-- des notes simples avec du texte et/ou des images ;
-- des listes ;
-- et du contenu audio
+
+* des notes simples avec du texte et/ou des images ;
+* des listes ;
+* et du contenu audio
+
+![](/assets/screen_ducknotes_1.png)
 
 Pour créer votre première application, rien de plus simple, il suffit de saisir la commande suivante depuis votre invite de commandes :
 
@@ -77,3 +80,4 @@ Ionic devrait ensuite ouvrir votre application depuis votre navigateur préfér�
 Félicitations, vous avez créé votre première application mobile !
 
 Dans la suite du livre nous allons progressivement aborder des notions plus complexe du Framework en partant d'un exemple concret : la création d'une application mobile pour la gestion d'une cryptomonnaie nommé **DuckCoin**.
+
