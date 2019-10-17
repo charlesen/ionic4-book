@@ -11,8 +11,10 @@ Il existe de nombreuses raisons d'utiliser Ionic et je vous en propose quelques 
 Un avantage non considérable, surtout si l'on souhaite customiser un peu son travail, l'adapter à son contexte professionnel,...Gratuit, mais pas bradé pour autant. En effet, l'inconvénient d'un outil Open Source à parfois été son absence d'évolution et d'adaptation aux défis technologiques toujours plus important dans le temps. Ce n'est pas le cas de Ionic, qui est par exemple passé d'une version 1 déjà révolutionnaire, à une version 3 extrêmement riche. Au moment de la rédaction de ce livre, une version 4 \(en phase alpha\) s’apprête à être lancé publiquement.
 
 ### Fondations solides
+Le Framework Ionic s'appuie sur des technologies du web qui sont fiables et normalisées: HTML, CSS et JavaScript. Il est également construit à l'aide d'API Web modernes telles que les **Custom Elements** ou encore le **Shadow DOM**. De cette façon, les composants Ionic possède un API stable et ne sont pas à la merci d'un éditeur de librairie quelconque.
+![](/assets/capacitor-hero.jpg)
 
-Ionic c'est d'abord Apache Cordova et ses nombreux plugins natifs, Angular de Google, NodeJS et bien d'autres technologies Open Source qui ont fait leur preuve depuis des années et ne cessent de croître à vitesse grand V.
+De plus, le Ionic utilise framework de développement mobile open-source Cordova et ses nombreux plugins natifs, Capacitor (une version améliorée de Cordova maintenue par Ionic), le Framework Angular de Google, NodeJS et bien d'autres technologies Open Source qui ont fait leur preuve depuis des années.
 
 ![](/assets/cordova-ng-ionic.png)
 

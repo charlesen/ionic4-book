@@ -13,6 +13,9 @@ Une (ou un) blockchain, ou chaîne de blocs, est une technologie de stockage et 
 ## Browserify
 Permet l'analyse tout le code d'un projet et le regroupe en un seul fichier. Un outil qui lui est similaire est Webpack.
 
+## Capacitor
+Il s'agit de la version améliorée et faite maison de Cordova, par les créateurs de Ionic. Comme Cordova, Capacitor fait le pont entre applications Web multiplates-formes et les kits de développement logiciel (SDK) natifs pour iOS, Android, Electron et le Web. S'il est optimisé pour les applications Ionic, Capacitor peut être utilisé avec n'importe quel framework d'applications Web.
+
 ## CLI
 Une interface en ligne de commande ou CLI est une interface basée sur du texte pour interagir avec un programme. L'application en ligne de commande commune aux utilisateurs Mac est l'application Terminal et les utilisateurs Windows utilisent plutot l'invite de commandes CMD (Windows + R et CMD). La communauté ionique utilise souvent ce terme pour se référer au CLI d'Ionic qui peut être utilisée pour effectuer un certain nombre d'actions comme la création d'une application, l'exécution de l'application (**ionic serve**) et l'accès aux services Ionic (**ionic login** par exemple).
 
@@ -35,6 +38,8 @@ ES2015 / ES6 sont deux noms couramment utilisés pour qualifier la version la pl
 ## ES2016/ES7
 ES2016 / ES7 sont deux noms couramment utilisés pour la version expérimentale de JavaScript. Cette future version de JavaScript ajoutera un certain nombre de nouvelles fonctionnalités au langage dont les fonctions asynchrones et les objets typés. Il est constamment en cours de révision et n'est actuellement pas adapté aux applications de production.
 
+## Framework
+En programmation informatique, un framework (appelé aussi infrastructure logicielle1, socle d'applications2, infrastructure de développement3, ou cadre d'applications4 au Canada) désigne un ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel  **(Source : Wikipédia)**
 
 ## Git
 Git est un système de contrôle de version distribué, utilisé pour la gestion de code source. Il permet aux équipes de développement de contribuer au code d'un même projet sans provoquer (ou presque) de conflits entre participants
