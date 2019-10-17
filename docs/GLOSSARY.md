@@ -96,5 +96,8 @@ Les tests unitaires permettent de tester de petits morceaux de code pour voir s'
 ## Webpack
 Webpack regroupe des modules JavaScript et d'autres éléments. Il peut être utilisé pour créer des "morceaux" de code uniques ou multiples qui ne sont chargés que lorsque cela est nécessaire. Fondamentalement, vous pouvez utiliser Webpack pour prendre vos nombreux fichiers et dépendances et les regrouper dans un seul fichier, ou comme bon vous semble.
 
+## WebView
+Les applications Ionic sont conçues à l'aide de technologies classiques du Web (HTML, CSS et JavaScript) et affichées à l'aide d'une WebView, une sorte de navigateur Web en mode plein écran (touche F11) et aux performances optimales.
+
 ## Xcode
 Xcode est un EDI (environnement de développement intégré) Apple utilisé dans le développement de logiciels pour les systèmes d'exploitation Apple (macOS, iOS, watchOS et tvOS), avec des extensions disponibles pour d'autres langages et plates-formes.
