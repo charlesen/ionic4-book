@@ -38,6 +38,7 @@ Le framework proposent de nombreux composants et templates qui vous faciliteront
 ### Tests et debogage simples
 
 Tester une application mobile n'aura jamais été aussi simple. Ionic vous laisse le choix de tester votre application mobile soit directement depuis votre navigateur web préféré, depuis un émulateur, votre téléphone connecté en USB ou alors via son application [Ionic App Dev](https://ionicframework.com/docs/pro/devapp/).
+![](/assets/ionic_devapp_1.png)
 
 ### Un ecosystème riche
 
@@ -59,4 +60,3 @@ Rien que sur Stackoverflow en ce moment, le tag  ["ionic framework"](https://sta
 C'est pour dire l'intérêt que de nombreuses personnes portent au Framework.
 
 [^1]: John Ronald Reuel Tolkien, plus connu sous la forme J. R. R. Tolkien, est un écrivain, poète, philologue, essayiste et professeur d’université anglais. Il est principalement connu pour ses romans _Le Hobbit_ et Le Seigneur des anneaux. \(Sources : [wikipédia](https://fr.wikipedia.org/wiki/J._R._R._Tolkien)\).
-
