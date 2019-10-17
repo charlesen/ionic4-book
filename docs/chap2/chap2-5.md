@@ -1,6 +1,6 @@
 ## Exercez-vous
 
-1\) Créez, si ce n'est déjà fait, l'application **ducknote** comme expliqué précédemment (Voir **_Première application Ionic_**) et démarrez-là
+1\) Créez, si ce n'est déjà fait, l'application **ducknote** comme expliqué précédemment \(Voir le sous-chapitre [_**Première application Ionic**_](/chap2/chap2-3.md)\). Démarrez l'application avec _**ionic lab**_.
 
 ```
 $ ionic start ducknote
@@ -21,7 +21,6 @@ $ ionic lab
   * Contact en _**Portefeuille**_
 
   * Que se passe t-il dans la console à chaque enregistrement ?
-
 
 5\) Éditez le fichier **theme/variables.scss** et modifier le contenu de la façon suivante :
 
@@ -108,3 +107,4 @@ Editez ensuite le fichier **ionic.config.json**. Que remarquez-vous ?
 [^1]: Ubuntu Ionic Installer : [https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu\_ionic\_installer.sh](https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu_ionic_installer.sh)
 
 [^2]: _How to prevent permission errors_ : [https://docs.npmjs.com/getting-started/fixing-npm-permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
+
