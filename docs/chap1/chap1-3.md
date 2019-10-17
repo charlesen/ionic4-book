@@ -43,7 +43,7 @@ Tester une application mobile n'aura jamais été aussi simple. Ionic vous laiss
 
 Une autre force de Ionic est très certainement son large panel de produits à la disposition des développeurs. On peut citer par exemple :
 
-* [**Les outils de déboggages**](https://ionicframework.com/pro/view) : Ionic view et Ionic Dev app, comme vu précédemment.
+* [**Les outils de déboggages**](https://ionicframework.com/docs/appflow/devapp) : Ionic Dev app.
 * [**Ionic Appflow**](https://ionicframework.com/appflow)** :** pour l'hébergement de son code \(à la github\), la compilation, la publication sur les app stores et le monitoring \(bug, logs, statistiques,...\)
 * [**Ionic creator**](https://ionicframework.com/pro/creator) : pour créer une application sans saisir une seule ligne de code. Pratique quand on débute.
 * [**Ionic Market**](https://market.ionicframework.com/) : pour trouver l'inspiration grâce à des templates, des kits, des plugins,... gratuits et prêts à l'emploi. Vous pouvez aussi utiliser cette plateforme pour mettre à la vente vos propres réalisations
