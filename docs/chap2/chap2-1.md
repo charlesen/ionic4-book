@@ -2,13 +2,13 @@
 
 ### NodeJS en bref
 
-Depuis son commencement, JavaScript, a été, comme vous le savez très certainement, est un langage dit côté client. Mais les choses ont quelque peu évolué avec NodeJS : cette technologie permet en effet d'executer du code écrit en JavaScript, aussi bien sur un navigateur \(côté client\), que côté serveur, tout comme des langages comme le Python ou encore le PHP.
+Depuis son commencement, JavaScript, a été, comme vous le savez très certainement, un langage dit côté client. Mais les choses ont quelque peu évolué avec NodeJS : cette technologie permet en effet d’exécuter du code écrit en JavaScript, aussi bien sur un navigateur \(côté client\), que côté serveur, tout comme des langages comme Python ou encore PHP.
 
 De plus, NodeJS, à l'instar de Ionic, est Open Source, gratuit et disponible pour différentes plateformes \(Windows, Linux, Unix, Mac OS,...\)
 
 ### NPM : Node Package Manager
 
-Comme son nom peut le suggérer, NPM est le gestionnaire de packet de NodeJS, qui étant très modulaire, voit son ecosystème  constamment enrichi par des modules développés par les membres de sa large communauté.
+Comme son nom peut le suggérer, NPM est le gestionnaire de paquets de NodeJS, dont l'écosystème est constamment enrichi de modules développés par les membres de sa large communauté.
 
 ### Installation
 
@@ -86,6 +86,3 @@ Vous pouvez également rajouter de l'autocomplétion dans l'installation de vos 
 ```bash
 $ npm completion >> ~/.bashrc
 ```
-
-
-

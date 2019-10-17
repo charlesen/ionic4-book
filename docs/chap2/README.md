@@ -4,7 +4,7 @@ Ionic utilise un certain nombre d'outils permettant de créer rapidement une app
 
 Parmi ces outils nous pouvons citer principalement :
 
-* **Ionic CLI** : c'est le couteau suisse de Ionic, un en de fonction disponible en ligne de commandes pour créer une application, la compiler, la déployer,...
+* **Ionic CLI** : c'est le couteau suisse de Ionic, un ensemble de fonctions disponibles en ligne de commandes pour créer une application, la compiler, la déployer,...
 
 ![](/assets/2000px-Ionic_Logo.svg.png)
 
@@ -31,6 +31,3 @@ Parmi ces outils nous pouvons citer principalement :
 ![](/assets/sass.png)
 
 * ...
-
-
-
