@@ -67,54 +67,40 @@ Dans le fichier **src/app/home/home.page.html**, effectuez les modifications sui
 
 Que s'est-il passé ?
 
-4) Modifier le menu latéral pour obtenir le résultat ceci :
-![](/assets/ionic_error2.png)
+4) Modifier le menu latéral pour obtenir le résultat suivant :
+
+| AVANT | APRÈS |
+| :--- | :--- |
+| ![](/assets/ducknote_menulat_1.png) | ![](/assets/ducknote_menulat_2.png) |
 
 **Petite Astuce** : Saisissez la commande **git grep "List"** pour retrouver vos petits.
 
-6\) Adaptez le code hexadécimal de la couleur ducknote pour qu'il soit le plus proche de vos goûts. Le meilleur code couleur sera utilisé dans la suite du projet :-\)
 
-7\) Renommez les fichiers **about.html** en **mining.html**, **about.scss** en **mining.scss**, **about.scss** en **mining.scss**, **about.ts** en **mining.ts**. Puis, renommer le dossier **about** \(src/pages/about\) en **mining** \(src/pages/mining\).
+5\) Modifier la page d'accueil de manière à obtenir ce résultat :
 
-Dans le fichier **mining.ts**, remplacez **AboutPage** par **MiningPage**.
+| AVANT|
+| :--- |
+| ![](/assets/ducknote_home_hero_1.png)|
 
-Que se passe-t-il dans la console ? Dans votre navigateur ? Quelles solutions proposeriez-vous ? Voir par exemple le contenu du fichier src/pages/mining/mining.ts.
+| APRÈS|
+| :--- |
+| ![](/assets/ducknote_home_hero_2.png)|
 
-![](/assets/ionic_error2.png)
+L'image de fond utilisée dans la version finale se trouve à l'adresse : https://unsplash.com/photos/82TpEld0_e4
 
-8\) Éditer le fichier **src/app/app.module.ts** de manière à corriger le maximum d'erreurs.
+6) Installer l'application Ionic Dev App sur votre téléphone. Lancez-là, en veillant à connecter votre téléphone au même réseau que celui de votre ordinateur.
 
-9\) Effectuez les actions précédentes pour l'onglet Portefeuille \(renommage + résolutions de bugs\) : **contact.html** en **wallet.html**, **contact.scss** en **wallet.scss**, **contact.scss** en **wallet.scss**, **contact.ts** en **wallet.ts**.
+Depuis un invite de commande, saisissez la commande suivante à la racine de votre projet
 
-![](/assets/screen_duck_2.png)
-
-10\) Ajustez le style CSS de la page d'accueil pour rendre le contenu de l'onglet un peu plus joli : **src/pages/home/home.scss**. N'hésitez pas utiliser l'inspecteur de votre navigateur \(F12\).
-
-11\) Nous allons à présent lier notre application au service Ionic PRO. Dans votre invite de commandes, faites :
-
-```
-$ ionic link
-✔ Looking up your apps - done!
-
-? Which app would you like to link (Use arrow keys)
-❯ Create a new app
-  Duckcoin-starter (94d675be)
-  Duckcoin (20e8461e)
+```bash
+  $ ionic cordova platform add android # Si vous avez un smartphone Android
+  $ ionic cordova platform add ios # Si vous avez un smartphone iOS
 ```
 
-Dans la liste qui vous est proposée, choisir l'application que vous avez créée depuis votre espace Ionic PRO.
 
-Il vous sera également proposé d'héberger votre application soit sur Github, soit sur le cloud Ionic. Pour les raisons de ce TP nous utiliserons Ionic PRO, mais vous pouvez très bien aussi utilisé github \(votre code source sera alors public\).
+Retournez dans votre invite de commandes et redémarrez votre application Ionic en saisissant cette fois la commande suivante :
 
+```bash
+  $ ionic serve --devapp
 ```
-> ionic git remote
-> git remote add ionic git@git.ionicjs.com:charlesen/ducknote-starter.git
-[OK] Added remote ionic.
-[OK] Project linked with app 94d675be!
-```
-
-Editez ensuite le fichier **ionic.config.json**. Que remarquez-vous ?
-
-[^1]: Ubuntu Ionic Installer : [https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu\_ionic\_installer.sh](https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu_ionic_installer.sh)
-
-[^2]: _How to prevent permission errors_ : [https://docs.npmjs.com/getting-started/fixing-npm-permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
+Vérifier que l'application Ducknote s'affiche bien sur Ionic DevApp
