@@ -29,7 +29,7 @@ Alors que la plupart des outils de développement d'applications mobiles hybride
 
 ### Des composants qui donnent envie
 
-Le framework proposent de nombreux composants et templates qui vous faciliteront énormément la vie. Ils sont propres, simples et fonctionnels. Pas besoin donc d'être un expert UI/UX pour commencer à créer des applications mobiles élégantes et ergonomiques : quelques clics et quelques lignes de codes suffisent.
+Le framework proposent de nombreux composants et templates qui vous faciliteront énormément la vie. Ils sont propres, simples et fonctionnels. Pas besoin donc d'être un expert UI/UX pour commencer à créer des applications mobiles élégantes et ergonomiques : quelques clics et quelques lignes de codes suffisent. Et si vous êtes un expert en création d'interfaces graphiques, alors vous allez vous régaler.
 
 | ![](/assets/screenshot_6_tiny.png) | ![](/assets/screenshot_4_tiny.png) |
 | :--- | :--- |
