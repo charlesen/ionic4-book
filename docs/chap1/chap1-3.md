@@ -1,14 +1,15 @@
 ## Pourquoi choisir Ionic
+Ionic est un framework de développement d'applications mobiles et de bureaux, performantes et esthétiques à la fois. Le framework en lui-même est centré sur la conception d'interfaces utilisateur (UI), ce qui permet d'intégrer différents types de Frameworks JavaScript pour la gestion des actions de l'utilisateur (UX : User eXperience). On pourra ainsi, par exemple, prendre des photos (plugin Camera) ou encore géolocaliser un utilisateur.
 
 ### Open Source et 100% gratuit
 
-Un avantage non considérable, surtout si l'on souhaite customiser un peu son travail, l'adapter à son contexte professionnel,...Gratuit, mais pas bradé pour autant. En effet, l'inconvénient d'un outil Open Source à parfois été son absence d'évolution et d'adaptation aux défis technologiques toujours plus important dans le temps. Ce n'est pas le cas de Ionic, qui est par exemple passé d'une version 1 déjà révolutionnaire, à une version 3 extrêmement riche. Au moment de la rédaction de ce livre, une version 4 \(en phase alpha\) s'apprete à être lancé publiquement.
+Un avantage non considérable, surtout si l'on souhaite customiser un peu son travail, l'adapter à son contexte professionnel,...Gratuit, mais pas bradé pour autant. En effet, l'inconvénient d'un outil Open Source à parfois été son absence d'évolution et d'adaptation aux défis technologiques toujours plus important dans le temps. Ce n'est pas le cas de Ionic, qui est par exemple passé d'une version 1 déjà révolutionnaire, à une version 3 extrêmement riche. Au moment de la rédaction de ce livre, une version 4 \(en phase alpha\) s’apprête à être lancé publiquement.
 
 ### Une large communauté
 
-Qui n'a jamais connu la frustration de ne pas recevoir de réponse à sa question sur un forum destiné à vous accompagner dans l'utilisation de votre logiciel préféré ? Avec Ionic, il y a quasiment peu de chance que cela vous arrive. En plus d'une documentation déjà tres riche et simple à prendre en main, le Framework fèdère une très large communauté de développeurs enthousiastes près à vous aider en cas de pepin.
+Qui n'a jamais connu la frustration de ne pas recevoir de réponse à sa question sur un forum destiné à vous accompagner dans l'utilisation de votre logiciel préféré ? Avec Ionic, il y a quasiment peu de chance que cela vous arrive. En plus d'une documentation déjà très riche et simple à prendre en main, le Framework fédère une très large communauté de développeurs enthousiastes près à vous aider en cas de pépin.
 
-Rien que sur Stackoverflow en ce moment, le tag  ["ionic framework"](https://stackoverflow.com/tags/ionic-framework/info) est associé à plus de 31700 questions, c'est quasiment autant de réponses données sur ce site d'entraide.
+Rien que sur Stackoverflow en ce moment, le tag  ["ionic framework"](https://stackoverflow.com/tags/ionic-framework/info) est associé à plus de 40700 questions. C'est pour dire l'intérêt que de nombreuses personnes portent au Framework.
 
 ### Fondations solides
 
@@ -36,7 +37,7 @@ Le framework proposent de nombreux composants et templates qui vous faciliteront
 
 ### Tests et debogage simples
 
-Tester une application mobile n'aura jamais été aussi simple. Ionic vous laisse le choix de tester votre application mobile soit directement depuis votre navigateur préféré, depuis un emulateur, votre téléphone connecté en USB ou alors via les applications [Ionic App Dev](https://ionicframework.com/docs/pro/devapp/) et [Ionic View](https://ionicframework.com/pro/view) \(qui vous permet en autre de faire tester votre application à distance sans passer par un app store\).
+Tester une application mobile n'aura jamais été aussi simple. Ionic vous laisse le choix de tester votre application mobile soit directement depuis votre navigateur préféré, depuis un émulateur, votre téléphone connecté en USB ou alors via les applications [Ionic App Dev](https://ionicframework.com/docs/pro/devapp/) et [Ionic View](https://ionicframework.com/pro/view) \(qui vous permet en autre de faire tester votre application à distance sans passer par un app store\).
 
 ### Un ecosystème riche
 

@@ -5,6 +5,11 @@
 Dans la suite de notre voyage, nous allons créer une application de prise de notes appellée DuckNote. Bien évidemment, toute ressemblance avec DeathNote ne serait que pure et fortuite coïncidence.
 Car notre application, loin d'éliminer les personnes autour de nous, va nous à ne plus rien oublier, où que nous soyons. Vous pourrez noter tout ce qui vous passe par la tête. Vraiment tout !
 
+Grâce à DuckNote, nous allons pouvoir ajouter :
+- des notes simples avec du texte et/ou des images ;
+- des listes ;
+- et du contenu audio
+
 Pour créer votre première application, rien de plus simple, il suffit de saisir la commande suivante depuis votre invite de commandes :
 
 ```
