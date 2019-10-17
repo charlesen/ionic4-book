@@ -6,11 +6,9 @@ disqus: false
 
 ### Ecrit par [Charles EDOU NZE](https://charlesen.fr) {#written-by-charlesen}
 
-![](/assets/2560px-Ionic-logo-landscape.svg.png)
+Auteur du livre [**Développement d’applications mobiles avec Ionic**](https://amzn.to/2OWG3Lt)**.**
 
-De l'auteur du livre **Développement d’applications mobiles avec Ionic**
-
-
+![](/docs/assets/1.png)
 
 ### Sommaire
 
@@ -18,3 +16,6 @@ De l'auteur du livre **Développement d’applications mobiles avec Ionic**
 * [A propos de l'auteur](/a-propos-de-lauteur.md)
 * [Introduction](/introduction.md)
 * [Chapitre 1 - Une brève histoire du mobile](/chap1/README.md)
+
+
+
