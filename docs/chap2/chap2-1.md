@@ -1,4 +1,4 @@
-## NodeJS et NPM
+## NodeJS, NPM et Git
 
 ### NodeJS en bref
 
@@ -20,10 +20,12 @@ Pour installer NodeJS, il suffit simplement d'aller à l'adresse : [https://node
 
 ![](/assets/ionic-node-1.png)
 
-Ouvrez un invite de commande et saisissez :
+Ouvrez ensuite un invite de commande et saisissez :
 
 ```bash
-node -v
+$ node -v
+
+v10.16.3
 ```
 
 Vous devriez voir s'afficher la version actuelle de NodeJs.
@@ -49,17 +51,17 @@ Pour vérifier que tout s'est bien passé, il vous suffit de saisir la commande 
 ```bash
 $ node -v
 
-v8.11.1
+v10.16.3
 ```
 
-Si vous voulez changer le répetoire d'installation des packages NPM et le mettre par exemple dans votre répertoire _**home**_ il vous suffit de faire :
+Si vous voulez changer le répertoire d'installation des packages NPM et le mettre par exemple dans votre répertoire _**home**_ il vous suffit de faire :
 
 ```bash
 $ mkdir ~/.npm-global
 $ npm config set prefix '~/.npm-global'
 ```
 
-Cela vous évitera de saisir à chaque fois le mot clé **"**_**sudo"** _à chaque installation de paquet npm en mode global \(-g\) :
+Cela vous évitera de saisir à chaque fois le mot clé **"_sudo"_** à chaque installation de paquet npm en mode global \(-g\) :
 
 Il faut ensuite mettre à jour le path de votre ordinateur pour prendre en compte ce nouveau répertoire. Editez par exemple le fichier **~/.profile** et ajoutez la ligne suivante :
 
@@ -81,8 +83,20 @@ Vous pouvez à présent tester qu'une installation globale ne renvoie pas d'erre
 $ npm install -g ionic cordova
 ```
 
-Vous pouvez également rajouter de l'autocomplétion dans l'installation de vos packages :
+Vous pouvez également rajouter de l’auto-complétion dans l'installation de vos packages :
 
 ```bash
 $ npm completion >> ~/.bashrc
 ```
+
+### Git
+
+Ionic utilise le gestionnaire de dépôt Git dans son workflow de développement actuel. Pour l'installer, rien de plus simple, il vous suffit d'aller à la page de téléchargement suivante : [https://git-scm.com/downloads](https://git-scm.com/downloads) et choisir le paquet correspondant à votre OS.
+
+Sous Linux, il est également possible de l'installer en saisissant simplement la commande :
+
+```
+$ sudo apt install git
+```
+
+Ces éléments ajoutés à notre environnement de développement, nous allons pouvoir nous occuper d'installer Ionic, Cordova et Capacitor.

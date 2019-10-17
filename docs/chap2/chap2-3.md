@@ -1,216 +1,135 @@
-## Autres utilitaires
+## Première application Ionic
 
-### Java SDK
+### DuckNote : Pour ne plus rien oublier
 
-#### Windows et Mac OS
+Dans la suite de notre voyage, nous allons créer une application de prise de notes appelée **_DuckNote_**.
+Bien évidemment, toute ressemblance avec Death Note ne serait que pure et fortuite coïncidence.  
+Car notre application, loin d'éliminer les personnes autour de nous, va nous à ne plus rien oublier, où que nous soyons.
+Vous pourrez noter tout ce qui vous passe par la tête. Vraiment tout !
 
-Pour installer le SDK de Java sous Windows et Mac, il vous suffit de visiter le site de l'entreprise Oracle, qui détient et maintient le logiciel : [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) et de choisir le fichier \(**.exe** pour Windows ou **.dmg** pour MacOS\) adapté à votre machine \(32 ou 64 bits\)
+Grâce à **_DuckNote_**, nous allons pouvoir ajouter :
 
-#### Linux
+* des notes simples avec du texte et/ou des images ;
+* des listes ;
+* et du contenu audio
 
-##### Mise à jour des dépôts
+![](/assets/screen_ducknotes_1.png)
 
-```
-$ sudo add-apt-repository ppa:openjdk-r/ppa
-$ sudo apt-get update
-```
-
-Installation d'OpenJDK
-
-```
-sudo apt-get install openjdk-8-jdk
-```
-
-### Android SDK
-
-La meilleur façon d'installer le SDK d'Android est encore d'installer Android Studio. Pour ce faire, rien de plus simple, il suffit de visiter le site [https://developer.android.com/studio/index.html\#downloads](https://developer.android.com/studio/index.html#downloads) et de télécharger le paquet associé à votre OS.
-
-#### Windows
-
-Une fois le téléchargement effectué, vous n'aurez plus qu'à lancer l'installation en cliquant sur le fichier au format **.exe **et suivre le setup. L'installation du SDK se fera en même temps.
-
-Voilà, c'est tout.
-
-#### Mac OS
-
-1. Lancer l'installation en cliquant sur le fichier au format **.dmg** téléchargé précédemment.
-2. Glisser-déposer \(Drag-n-drop\) ensuite Android Studio dans le dossier Applications
-3. Le setup devrait ensuite finaliser l'installation du SDK
-
-Voilà.
-
-#### Linux
-
-1. Décompresser le fichier **.zip** téléchargé précédemment dans un dossier approprié. Je vous propose le dossier **/opt/** de manière à le partager entre les différents acteurs de votre OS.
-2. Ouvrez un invite de commandes \(CTRL + ALT + T\) et executer le fichier **/opt/android-studio/bin/studio.sh**.
-3. Suivez le setup
-
-Si votre OS est une machine 64-bit, vous aller devoir installer quelques dépendances logicielles :
+Pour créer votre première application, il vous suffit simplement de saisir **_ionic start ducknote_** depuis votre invite de commandes :
 
 ```
-$ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+$ ionic start ducknote
+Pick a framework! 😁
+
+Please select the JavaScript framework to use for your new app. To bypass this prompt next time, supply a value for the
+--type option.
+
+? Framework: (Use arrow keys)
+❯ Angular | https://angular.io
+  React   | https://reactjs.org
 ```
 
-### Xcode, ios-sim et ios-deploy \(Mac OS uniquement\)
+Pour le choix du Framework, nous allons saisir la touche **entrer** et choisir Angular. Nous aurons l'occasion de tester React un peu plus tard.
 
-Pour installer **Xcode**, il vous suffit de visiter l'url suivante [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/), de choisir la version correspondant à votre Mac \(voir le lien suivant : [https://en.wikipedia.org/wiki/Xcode\#Version\_comparison\_table](https://en.wikipedia.org/wiki/Xcode#Version_comparison_table)\) et de cliquer sur **"Download"**.
+Vous devrez ensuite choisir le template Ionic que vous souhaitez utiliser pour l'application.
 
-Pour l'émulateur **ios-sim**, depuis votre terminal, saisissez la commande suivante :
+```
+Let's pick the perfect starter template! 💪
+
+Starter templates are ready-to-go Ionic apps that come packed with everything you need to build your app. To bypass this
+prompt next time, supply template, the second argument to ionic start.
+
+? Starter template: (Use arrow keys)
+  tabs         | A starting project with a simple tabbed interface
+❯ sidemenu     | A starting project with a side menu with navigation in the content area
+  blank        | A blank starter project
+  my-first-app | An example application that builds a camera with gallery
+  conference   | A kitchen-sink application that shows off all Ionic has to offer
+```
+
+Nous allons choisir ici le template **_Sidemenu_**', qui va nous créer une application simple avec un menu latéral.
+
+Votre environnement va ensuite s'installer tranquillement au bout de quelques secondes.
+```
+? Starter template: sidemenu
+✔ Preparing directory ./ducknote - done!
+(node:18008) ExperimentalWarning: The http2 module is an experimental API.
+✔ Downloading and extracting sidemenu starter - done!
+
+Installing dependencies may take several minutes.
+```
+
+Il est également possible de créer une application vide (blank), avec des onglets ou autres encore \(voir la commande **ionic start --list** décrite dans la suite\)
+
+La syntaxe générique de création d'une application est la suivante :
+
+```
+$ ionic start [<name>] [<template>]
+```
+
+| Entrée | Description |
+| :--- | :--- |
+| name | C'est le nom de votre application au format Camel par ex. Vous pouvez également l'écrire tout en minuscule \(ce que je recommande\) |
+| template | C'est le template ionic de votre choix. Pour afficher la liste des templates disponible actuellement, vous pouvez saisir la commande **ionic start --list **\(voir ci-dessous\) |
 
 ```bash
-$ sudo npm install -g ios-sim
-$ ios-sim –version # Pour vérifier que tout s'est bien passé
+$ ionic start --list
+Starters for @ionic/angular (--type=angular)
+
+name         | description
+--------------------------------------------------------------------------------------
+tabs         | A starting project with a simple tabbed interface
+sidemenu     | A starting project with a side menu with navigation in the content area
+blank        | A blank starter project
+my-first-app | An example application that builds a camera with gallery
+conference   | A kitchen-sink application that shows off all Ionic has to offer
 ```
 
-On installe ensuite ios-deploy nécessaire pour tester votre application à partir de votre ipHOne par exemple :
+* tabs : permet la création d'une application avec un système d'onglets
+* sidemenu : application avec menu latéral
+* blank : application avec une simple page d'accueil
+* my-first-app : une application de galerie photo embarquant le module camera
+* conference : application complexe avec la plupart des composants et bonnes pratiques de Ionic
+
+![](/assets/start-app-template.png)
+
+il est également possible de créer une application à partir d'un dépot git :
 
 ```bash
-$ sudo npm install -g ios-deploy
+$ ionic start nomdelapplication https://github.com/charlesen/monappli_sur_git
 ```
 
-Si vous êtes sur une version de MacOS supérieur ou égale à El Capitain, il vous faudra rajouter le paramètre **--unsafe-perm**, sinon la commande précédente renverra un bug :
+Une fois votre application créée, vous pouvez accéder au dossier contenant le projet, puis le démarrer:
 
 ```bash
-$ sudo npm install -g ios-deploy --unsafe-perm=true
+$ cd ducknote
+$ ionic lab
 ```
 
-### Git
+S'il vous ait demandé d'installer Ionic Lab, choisissez **"Y"**.
 
-Ionic utilise le gestionnaire de dépôt Git dans son workflow de développement actuel. Pour l'installer, rien de plus simple, il vous suffit d'aller à la page de téléchargement suivante : [https://git-scm.com/downloads](https://git-scm.com/downloads) et choisir le paquet correspondant à votre OS.
+Ionic devrait ensuite ouvrir votre application depuis votre navigateur préféré.
 
-Sous Linux, il est également possible de l'installer en saisissant simplement la commande :
+![](/assets/ionic4_start_app.png)
 
-```
-$ apt install git
-```
-
-### Installation via un script Bash \(Ubuntu\)
-
-Un script trouvé sur github[^1] , et que j'ai un peu adapté, fait assez bien le travail, car il vous permet d'installer tous ces utilitaires via un seul fichier bash.
+L'utilitaire en ligne de commande de Ionic (Ionic CLI) utilise le module **Angular CLI** pour les étapes de compilation. La version minimum de NodeJS supporté par ce module au moment de la rédaction de ce livre est la **10.9**.
+Veillez-donc à ce que votre version de Node soit la bonne.
 
 ```bash
-#!/bin/bash
-# Ubuntu Developer Script For Ionic Framework
-# Created by Nic Raboy
-# http://www.nraboy.com
-#
-#
-# Télécharge et configure les logiciels suivants :
-#
-#   Java JDK
-#   Apache Ant
-#   Android
-#   Apache Cordova
-#   Ionic Framework
-#   Gradle
-
-HOME_PATH=$(cd ~/ && pwd)
-INSTALL_PATH=/opt
-ANDROID_SDK_PATH=/opt/android-sdk
-NODE_PATH=/opt/node
-GRADLE_PATH=/opt/gradle
-
-# x86_64 ou i686
-LINUX_ARCH="$(lscpu | grep 'Architecture' | awk -F\: '{ print $2 }' | tr -d ' ')"
-
-# Android Linux SDK pour les architectures x64 et x86
-ANDROID_SDK_X64="http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz"
-ANDROID_SDK_X86="http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz"
-
-
-# Gradle
-GRADLE_ALL="https://services.gradle.org/distributions/gradle-2.9-all.zip"
-
-if [ "$LINUX_ARCH" == "x86_64" ]; then
-    # Add i386 architecture
-    dpkg --add-architecture i386
-fi
-
-# Mise à jour des dépots Ubuntu
-apt-get update
-
-cd ~/Desktop
-
-if [ "$LINUX_ARCH" == "x86_64" ]; then
-
-    wget -c "$ANDROID_SDK_X64" -O "android-sdk.tgz" --no-check-certificate
-    wget -c "$GRADLE_ALL" -O "gradle.zip" --no-check-certificate
-
-    tar zxvf "android-sdk.tgz" -C "$INSTALL_PATH"
-    unzip "gradle.zip"
-    mv "gradle-2.9" "$INSTALL_PATH"
-
-    cd "$INSTALL_PATH" && mv "android-sdk-linux" "android-sdk"
-    cd "$INSTALL_PATH" && mv "gradle-2.9" "gradle"
-
-    # Dépendances pour les architecture x86
-    apt-get install -qq -y libc6:i386 libgcc1:i386 libstdc++6:i386 libz1:i386
-
-else
-
-    wget -c "$ANDROID_SDK_X86" -O "android-sdk.tgz" --no-check-certificate
-    wget -c "$GRADLE_ALL" -O "gradle.zip" --no-check-certificate
-
-    tar zxvf "android-sdk.tgz" -C "$INSTALL_PATH"
-    unzip "gradle.zip"
-    mv "gradle-2.9" "$INSTALL_PATH"
-
-    cd "$INSTALL_PATH" && mv "android-sdk-linux" "android-sdk"
-    cd "$INSTALL_PATH" && mv "gradle-2.9" "gradle"
-
-fi
-
-cd "$INSTALL_PATH" && chown root:root "android-sdk" -R
-cd "$INSTALL_PATH" && chmod 777 "android-sdk" -R
-
-cd ~/
-
-# MAJ du PATH de manière persistante
-echo "export PATH=\$PATH:$ANDROID_SDK_PATH/tools" >> ".profile"
-echo "export PATH=\$PATH:$ANDROID_SDK_PATH/platform-tools" >> ".profile"
-echo "export PATH=\$PATH:$GRADLE_PATH/bin" >> ".profile"
-
-# MAJ du PATH de manière temporaire le temps de l'installation
-export PATH=$PATH:$ANDROID_SDK_PATH/tools
-export PATH=$PATH:$ANDROID_SDK_PATH/platform-tools
-export PATH=$PATH:$GRADLE_PATH/bin
-
-# Installation du JDK, Apache Ant et Git
-apt-get -qq -y install default-jdk ant
-apt-get install git
-
-# MAJ de la variable d'environnement JAVA_HOME
-export JAVA_HOME="$(find /usr -type l -name 'default-java')"
-if [ "$JAVA_HOME" != "" ]; then
-    echo "export JAVA_HOME=$JAVA_HOME" >> ".profile"
-fi
-
-# Installation d'Apache Cordova et du framework Ioni
-npm install -g cordova
-npm install -g ionic
-
-cd "$INSTALL_PATH" && chmod 777 "node" -R
-cd "$INSTALL_PATH" && chmod 777 "gradle" -R
-
-# Suppression des fichiers d'installation
-cd ~/Desktop && rm "android-sdk.tgz"
-cd ~/Desktop && rm "nodejs.tgz"
-cd ~/Desktop && rm "gradle.zip"
-
-echo "----------------------------------"
-echo "Redémarrer votre session Ubuntu pour finaliser l'installation..."
+$ node -v
+v10.16.3
 ```
 
-Copier le code ci-dessus dans fichier install\_ionic.sh puis executer le :
+À défaut de cela, vous aurez une erreur du type **_[ng] You are running version v9.7.1 of Node.js, which is not supported by Angular CLI 8.0+._**:
 
 ```bash
-$ chmod u+x install_ionic.sh
-$ ./install_ionic.sh
+[ng] You are running version v9.7.1 of Node.js, which is not supported by Angular CLI 8.0+.
+[ng] The official Node.js version that is supported is 10.9 or greater.
+[ng] Please visit https://nodejs.org/en/ to find instructions on how to update Node.js.
+[ERROR] ng has unexpectedly closed (exit code 3).
 ```
 
-Redémarrez ensuite votre machine.
-
-### Editeur de code
+À l'aide de votre éditeur de code préféré, éditez le fichier **src/app/home/home.page.html** et remplacez **"Home"** par **"DuckNote"**.
 
 Vous pouvez bien évidemment utiliser l'éditeur de votre choix, mais s'il vous vient l'envie de tester autre chose, je vous propose ici deux éditeurs de code intéressants pour développer avec Ionic.
 
@@ -230,3 +149,6 @@ Vous pouvez bien évidemment utiliser l'éditeur de votre choix, mais s'il vous 
 
 **Télécharger :** [https://atom.io/](https://atom.io/)
 
+
+Félicitations, vous venez de créer votre première application mobile ! Facile n'est pas ?!
+Dans la suite du livre nous allons progressivement aborder des notions plus complexes du Framework en rendant, au passage, notre application beaucoup plus élégante et utile.

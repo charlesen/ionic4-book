@@ -1,83 +1,204 @@
-## Première application Ionic : DuckNote
+## Autres utilitaires
 
-### Pour ne plus rien oublier
+Cette étape n'est pas indispensable pour commencer à développer votre application. Vous pouvez donc passer au chapitre suivant et vous en occuper plus tard. Ou sinon vous lancer tout de suite pour ne plus avoir à y penser.
+Nous aurons surtout besoin des éléments décrits dans cette page au moment de la compilation finale de l'application, avant livraison sur les stores (Google ou Apple) ou en mode PWA.
 
-Dans la suite de notre voyage, nous allons créer une application de prise de notes appellée DuckNote. Bien évidemment, toute ressemblance avec DeathNote ne serait que pure et fortuite coïncidence.  
-Car notre application, loin d'éliminer les personnes autour de nous, va nous à ne plus rien oublier, où que nous soyons. Vous pourrez noter tout ce qui vous passe par la tête. Vraiment tout !
+### Java SDK
 
-Grâce à DuckNote, nous allons pouvoir ajouter :
+#### Windows et Mac OS
 
-* des notes simples avec du texte et/ou des images ;
-* des listes ;
-* et du contenu audio
+Pour installer le SDK de Java sous Windows et Mac, il vous suffit de visiter le site de l'entreprise Oracle, qui détient et maintient le logiciel : [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) et de choisir le fichier \(**.exe** pour Windows ou **.dmg** pour MacOS\) adapté à votre machine \(32 ou 64 bits\)
 
-![](/assets/screen_ducknotes_1.png)
+#### Linux
 
-Pour créer votre première application, rien de plus simple, il suffit de saisir la commande suivante depuis votre invite de commandes :
+##### Mise à jour des dépôts
 
 ```
-$ ionic start monAppli blank
-✔ Creating directory ./monAppli - done!
-✔ Downloading and extracting tabs starter - done!
-
-? Would you like to integrate your new app with Cordova to target native iOS and Android? (y/N)
+$ sudo add-apt-repository ppa:openjdk-r/ppa
+$ sudo apt-get update
 ```
 
-A la question _"Would you like to integrate your new app with Cordova to target native iOS and Android?"_ saisir **"y"**.
-
-Et à la question _"Install the free Ionic Pro SDK and connect your app?"_ , répondez aussi par un **"y"**.
-
-Vous allez devoir entrez vos identifiants et générer une paire clé privé/publique en choisissant _**"Automatically setup new a SSH key pair for Ionic Pro"**_
-
-Suivez ensuite le setup et garder les valeurs par défaut \(choisir **"Y"** à chaque fois\).
-
-La commande va créer une application la plus "vide" possible \(blank\). Mais il également possible de créer une application avec des onglet, un menu latéral et bien d'autres encore \(voir la commande **ionic start --list** décrite dans la suite\)
-
-La syntaxe générique de création d'une application est la suivante :
+Installation d'OpenJDK
 
 ```
-$ ionic start [<name>] [<template>]
+sudo apt-get install openjdk-8-jdk
 ```
 
-| Entrée | Description |
-| :--- | :--- |
-| name | C'est le nom de votre application au format Camel par ex. Vous pouvez également l'écrire tout en minuscule \(ce que je recommande\) |
-| template | C'est le template ionic de votre choix. Pour afficher la liste des templates disponible actuellement, vous pouvez saisir la commande **ionic start --list **\(voir ci-dessous\) |
+### Android SDK
+
+La meilleur façon d'installer le SDK d'Android est encore d'installer Android Studio. Pour ce faire, rien de plus simple, il suffit de visiter le site [https://developer.android.com/studio/index.html\#downloads](https://developer.android.com/studio/index.html#downloads) et de télécharger le paquet associé à votre OS.
+
+#### Windows
+
+Une fois le téléchargement effectué, vous n'aurez plus qu'à lancer l'installation en cliquant sur le fichier au format **.exe **et suivre le setup. L'installation du SDK se fera en même temps.
+
+Voilà, c'est tout.
+
+#### Mac OS
+
+1. Lancer l'installation en cliquant sur le fichier au format **.dmg** téléchargé précédemment.
+2. Glisser-déposer \(Drag-n-drop\) ensuite Android Studio dans le dossier Applications
+3. Le setup devrait ensuite finaliser l'installation du SDK
+
+Voilà.
+
+#### Linux
+
+1. Décompresser le fichier **.zip** téléchargé précédemment dans un dossier approprié. Je vous propose le dossier **/opt/** de manière à le partager entre les différents acteurs de votre OS.
+2. Ouvrez un invite de commandes \(CTRL + ALT + T\) et executer le fichier **/opt/android-studio/bin/studio.sh**.
+3. Suivez le setup
+
+Si votre OS est une machine 64-bit, vous aller devoir installer quelques dépendances logicielles :
 
 ```
-$ ionic start --list
-tabs ............... ionic-angular A starting project with a simple tabbed interface
-blank .............. ionic-angular A blank starter project
-sidemenu ........... ionic-angular A starting project with a side menu with navigation in the content area
-super .............. ionic-angular A starting project complete with pre-built pages, providers and best practices for Ionic development.
-conference ......... ionic-angular A project that demonstrates a realworld application
-tutorial ........... ionic-angular A tutorial based project that goes along with the Ionic documentation
-aws ................ ionic-angular AWS Mobile Hub Starter
-tabs ............... ionic1 A starting project for Ionic using a simple tabbed interface
-blank .............. ionic1 A blank starter project for Ionic
-sidemenu ........... ionic1 A starting project for Ionic using a side menu with navigation in the content area
-maps ............... ionic1 An Ionic starter project using Google Maps and a side menu
+$ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 ```
 
-il est également possible de créer une application à partir d'un dépot git :
+### Xcode, ios-sim et ios-deploy \(Mac OS uniquement\)
 
-```
-$ ionic start monappli_sur_git https://github.com/charlesen/monappli_sur_git
-```
+Pour installer **Xcode**, il vous suffit de visiter l'url suivante [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/), de choisir la version correspondant à votre Mac \(voir le lien suivant : [https://en.wikipedia.org/wiki/Xcode\#Version\_comparison\_table](https://en.wikipedia.org/wiki/Xcode#Version_comparison_table)\) et de cliquer sur **"Download"**.
 
-Une fois votre application créée, accédez au dossier nouvellement créé, puis démarrer le projet :
+Pour l'émulateur **ios-sim**, depuis votre terminal, saisissez la commande suivante :
 
-```
-$ cd monappli
-$ ionic lab
+```bash
+$ sudo npm install -g ios-sim
+$ ios-sim –version # Pour vérifier que tout s'est bien passé
 ```
 
-S'il vous ait demandé d'installer Ionic PRO, choisissez **"Y"**.
+On installe ensuite ios-deploy nécessaire pour tester votre application à partir de votre ipHOne par exemple :
 
-Ionic devrait ensuite ouvrir votre application depuis votre navigateur préféré.
+```bash
+$ sudo npm install -g ios-deploy
+```
 
-![](/assets/ionic_mon_appli_1.png)  
-Félicitations, vous avez créé votre première application mobile !
+Si vous êtes sur une version de MacOS supérieur ou égale à El Capitain, il vous faudra rajouter le paramètre **--unsafe-perm**, sinon la commande précédente renverra un bug :
 
-Dans la suite du livre nous allons progressivement aborder des notions plus complexe du Framework en partant d'un exemple concret : la création d'une application mobile pour la gestion d'une cryptomonnaie nommé **DuckCoin**.
+```bash
+$ sudo npm install -g ios-deploy --unsafe-perm=true
+```
 
+### Installation via un script Bash \(Ubuntu\)
+
+Un script trouvé sur github[^1] , et que j'ai un peu adapté, fait assez bien le travail, car il vous permet d'installer tous ces utilitaires via un seul fichier bash.
+
+```bash
+#!/bin/bash
+# Ubuntu Developer Script For Ionic Framework
+# Created by Nic Raboy
+# http://www.nraboy.com
+#
+#
+# Télécharge et configure les logiciels suivants :
+#
+#   Java JDK
+#   Apache Ant
+#   Android
+#   Apache Cordova
+#   Ionic Framework
+#   Gradle
+
+HOME_PATH=$(cd ~/ && pwd)
+INSTALL_PATH=/opt
+ANDROID_SDK_PATH=/opt/android-sdk
+NODE_PATH=/opt/node
+GRADLE_PATH=/opt/gradle
+
+# x86_64 ou i686
+LINUX_ARCH="$(lscpu | grep 'Architecture' | awk -F\: '{ print $2 }' | tr -d ' ')"
+
+# Android Linux SDK pour les architectures x64 et x86
+ANDROID_SDK_X64="http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz"
+ANDROID_SDK_X86="http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz"
+
+
+# Gradle
+GRADLE_ALL="https://services.gradle.org/distributions/gradle-2.9-all.zip"
+
+if [ "$LINUX_ARCH" == "x86_64" ]; then
+    # Add i386 architecture
+    dpkg --add-architecture i386
+fi
+
+# Mise à jour des dépots Ubuntu
+apt-get update
+
+cd ~/Desktop
+
+if [ "$LINUX_ARCH" == "x86_64" ]; then
+
+    wget -c "$ANDROID_SDK_X64" -O "android-sdk.tgz" --no-check-certificate
+    wget -c "$GRADLE_ALL" -O "gradle.zip" --no-check-certificate
+
+    tar zxvf "android-sdk.tgz" -C "$INSTALL_PATH"
+    unzip "gradle.zip"
+    mv "gradle-2.9" "$INSTALL_PATH"
+
+    cd "$INSTALL_PATH" && mv "android-sdk-linux" "android-sdk"
+    cd "$INSTALL_PATH" && mv "gradle-2.9" "gradle"
+
+    # Dépendances pour les architecture x86
+    apt-get install -qq -y libc6:i386 libgcc1:i386 libstdc++6:i386 libz1:i386
+
+else
+
+    wget -c "$ANDROID_SDK_X86" -O "android-sdk.tgz" --no-check-certificate
+    wget -c "$GRADLE_ALL" -O "gradle.zip" --no-check-certificate
+
+    tar zxvf "android-sdk.tgz" -C "$INSTALL_PATH"
+    unzip "gradle.zip"
+    mv "gradle-2.9" "$INSTALL_PATH"
+
+    cd "$INSTALL_PATH" && mv "android-sdk-linux" "android-sdk"
+    cd "$INSTALL_PATH" && mv "gradle-2.9" "gradle"
+
+fi
+
+cd "$INSTALL_PATH" && chown root:root "android-sdk" -R
+cd "$INSTALL_PATH" && chmod 777 "android-sdk" -R
+
+cd ~/
+
+# MAJ du PATH de manière persistante
+echo "export PATH=\$PATH:$ANDROID_SDK_PATH/tools" >> ".profile"
+echo "export PATH=\$PATH:$ANDROID_SDK_PATH/platform-tools" >> ".profile"
+echo "export PATH=\$PATH:$GRADLE_PATH/bin" >> ".profile"
+
+# MAJ du PATH de manière temporaire le temps de l'installation
+export PATH=$PATH:$ANDROID_SDK_PATH/tools
+export PATH=$PATH:$ANDROID_SDK_PATH/platform-tools
+export PATH=$PATH:$GRADLE_PATH/bin
+
+# Installation du JDK, Apache Ant et Git
+apt-get -qq -y install default-jdk ant
+apt-get install git
+
+# MAJ de la variable d'environnement JAVA_HOME
+export JAVA_HOME="$(find /usr -type l -name 'default-java')"
+if [ "$JAVA_HOME" != "" ]; then
+    echo "export JAVA_HOME=$JAVA_HOME" >> ".profile"
+fi
+
+# Installation d'Apache Cordova et du framework Ioni
+npm install -g cordova
+npm install -g ionic
+
+cd "$INSTALL_PATH" && chmod 777 "node" -R
+cd "$INSTALL_PATH" && chmod 777 "gradle" -R
+
+# Suppression des fichiers d'installation
+cd ~/Desktop && rm "android-sdk.tgz"
+cd ~/Desktop && rm "nodejs.tgz"
+cd ~/Desktop && rm "gradle.zip"
+
+echo "----------------------------------"
+echo "Redémarrer votre session Ubuntu pour finaliser l'installation..."
+```
+
+Copier le code ci-dessus dans fichier install\_ionic.sh puis executer le :
+
+```bash
+$ chmod u+x install_ionic.sh
+$ ./install_ionic.sh
+```
+
+Redémarrez ensuite votre machine.
