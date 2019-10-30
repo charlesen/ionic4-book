@@ -9,102 +9,116 @@ $ ionic lab
 ```
 
 2\) Faites le tour du dossier **ducknote** pour découvrir un petit peu l'architecture de l'application
-
-![](/assets/archi_ducknote.png)
-
-3\) Renommer les différents onglets :
-
-* Home en _**Accueil**_
-
-* About en _**Minage**_
-
-  * Contact en _**Portefeuille**_
-
-  * Que se passe t-il dans la console à chaque enregistrement ?
-
-5\) Éditez le fichier **theme/variables.scss** et modifier le contenu de la façon suivante :
-
-```js
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
-
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
-  ducknote :  #df4932 // <!-- ICI
-);
+```bash
+$ ls -al
+total 528
+-rw-rw-r--   1 charles charles   5260 oct.  17 19:04 angular.json
+-rw-rw-r--   1 charles charles    430 oct.  17 19:04 browserslist
+drwxrwxr-x   3 charles charles   4096 oct.  17 19:04 e2e
+-rw-rw-r--   1 charles charles     68 oct.  17 19:04 ionic.config.json
+-rw-rw-r--   1 charles charles    981 oct.  17 19:04 karma.conf.js
+-rw-rw-r--   1 charles charles   1073 oct.  17 19:04 LICENSE
+drwxrwxr-x 786 charles charles  24576 oct.  17 19:07 node_modules
+-rw-rw-r--   1 charles charles   1767 oct.  17 19:04 package.json
+-rw-rw-r--   1 charles charles 452257 oct.  17 19:04 package-lock.json
+-rw-rw-r--   1 charles charles     50 oct.  17 19:04 README.md
+drwxrwxr-x   6 charles charles   4096 oct.  17 19:04 src
+-rw-rw-r--   1 charles charles    210 oct.  17 19:04 tsconfig.app.json
+-rw-rw-r--   1 charles charles    546 oct.  17 19:04 tsconfig.json
+-rw-rw-r--   1 charles charles    295 oct.  17 19:04 tsconfig.spec.json
+-rw-rw-r--   1 charles charles   1847 oct.  17 19:04 tslint.json
 ```
 
-Enregistrez, puis dans le fichier **src/pages/home/home.html**, effectuez les modifications suivantes
+Étudiez en particulier le dossier **src**. Comment se compose la page d'accueil ?
 
+3\) Éditez le fichier **src/theme/variables.scss** pour créer la couleur **ducknote** présentée dans le sous-chapitre [_**Première application Ionic**_](/chap2/chap2-3.md):
+
+```css
+  :root {
+    /** ducknote **/
+    --ion-color-ducknote: #f1b004;
+    --ion-color-ducknote-rgb: 244, 244, 244;
+    --ion-color-ducknote-contrast: #000000;
+    --ion-color-ducknote-contrast-rgb: 0, 0, 0;
+    --ion-color-ducknote-shade: #d7d8da;
+    --ion-color-ducknote-tint: #f5f6f9;
+
+    /** .... d'autres lignes de code en dessous **/
 ```
+
+Dans le fichier **src/app/home/home.page.html**, effectuez les modifications suivantes
+
+```html
 <ion-header>
-  <ion-navbar color="ducknote"><!-- ICI -->
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-toolbar color="ducknote"> <!-- On ajoute la nouvelle couleur -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      DuckNote
+    </ion-title><!-- On change l'intitulé de la page-->
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  LE CONTENU QUE VOUS AVEZ MODIFIÉ JUSTE AVANT ;-)
+<ion-content>
+  ...
 </ion-content>
 ```
 
 Que s'est-il passé ?
 
-Faites la même chose pour l'ensemble des onglets.
+4) Modifier le menu latéral pour obtenir le résultat suivant :
 
-6\) Adaptez le code hexadécimal de la couleur ducknote pour qu'il soit le plus proche de vos goûts. Le meilleur code couleur sera utilisé dans la suite du projet :-\)
+| AVANT | APRÈS |
+| :--- | :--- |
+| ![](/assets/ducknote_menulat_1.png) | ![](/assets/ducknote_menulat_2.png) |
 
-7\) Renommez les fichiers **about.html** en **mining.html**, **about.scss** en **mining.scss**, **about.scss** en **mining.scss**, **about.ts** en **mining.ts**. Puis, renommer le dossier **about** \(src/pages/about\) en **mining** \(src/pages/mining\).
+**Petite Astuce** : Saisissez la commande **git grep "List"** pour retrouver vos petits.
 
-Dans le fichier **mining.ts**, remplacez **AboutPage** par **MiningPage**.
 
-Que se passe-t-il dans la console ? Dans votre navigateur ? Quelles solutions proposeriez-vous ? Voir par exemple le contenu du fichier src/pages/mining/mining.ts.
+5\) Modifier la page d'accueil de manière à obtenir ce résultat :
 
-![](/assets/ionic_error2.png)
+| AVANT|
+| :--- |
+| ![](/assets/ducknote_home_hero_1.png)|
 
-8\) Éditer le fichier **src/app/app.module.ts** de manière à corriger le maximum d'erreurs.
+| APRÈS|
+| :--- |
+| ![](/assets/ducknote_home_hero_2.png)|
 
-9\) Effectuez les actions précédentes pour l'onglet Portefeuille \(renommage + résolutions de bugs\) : **contact.html** en **wallet.html**, **contact.scss** en **wallet.scss**, **contact.scss** en **wallet.scss**, **contact.ts** en **wallet.ts**.
+L'image de fond utilisée dans la version finale se trouve à l'adresse : https://unsplash.com/photos/82TpEld0_e4
 
-![](/assets/screen_duck_2.png)
+6) Après avoir testé notre application sur un navigateur, il est temps à présent de le tester sur smartphone. Pour cela, nous allons créer un compte Ionic AppFlow (version gratuite) sur https://ionicframework.com/appflow.
 
-10\) Ajustez le style CSS de la page d'accueil pour rendre le contenu de l'onglet un peu plus joli : **src/pages/home/home.scss**. N'hésitez pas utiliser l'inspecteur de votre navigateur \(F12\).
+Une fois le compte Appflow créé, vous pourrez installer l'application Ionic Dev App sur votre téléphone. Lancez-là, en veillant à connecter votre téléphone au même réseau wifi que celui de votre ordinateur.
 
-11\) Nous allons à présent lier notre application au service Ionic PRO. Dans votre invite de commandes, faites :
+Puis, depuis un invite de commande, saisissez la commande suivante à la racine de votre projet
 
-```
-$ ionic link
-✔ Looking up your apps - done!
-
-? Which app would you like to link (Use arrow keys)
-❯ Create a new app
-  Duckcoin-starter (94d675be)
-  Duckcoin (20e8461e)
-```
-
-Dans la liste qui vous est proposée, choisir l'application que vous avez créée depuis votre espace Ionic PRO.
-
-Il vous sera également proposé d'héberger votre application soit sur Github, soit sur le cloud Ionic. Pour les raisons de ce TP nous utiliserons Ionic PRO, mais vous pouvez très bien aussi utilisé github \(votre code source sera alors public\).
-
-```
-> ionic git remote
-> git remote add ionic git@git.ionicjs.com:charlesen/ducknote-starter.git
-[OK] Added remote ionic.
-[OK] Project linked with app 94d675be!
+```bash
+  $ ionic cordova platform add android # Si vous avez un smartphone Android
+  $ ionic cordova platform add ios # Si vous avez un smartphone iOS
 ```
 
-Editez ensuite le fichier **ionic.config.json**. Que remarquez-vous ?
+Éditez le fichier **src/index.html** en ajoutant le fichier cordova.js nécessaire au bon fonctionnement Cordova :
+```html
+<head>
+  <!-- ... Autres tags HTML... -->
 
-[^1]: Ubuntu Ionic Installer : [https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu\_ionic\_installer.sh](https://github.com/nraboy/ubuntu-ionic-installer/blob/master/ubuntu_ionic_installer.sh)
+  <script src="cordova.js"></script>
+</head>
+```
 
-[^2]: _How to prevent permission errors_ : [https://docs.npmjs.com/getting-started/fixing-npm-permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
+Retournez dans votre invite de commandes et redémarrez votre application Ionic en saisissant cette fois la commande suivante :
 
+```bash
+  $ ionic serve --devapp
+```
+Vérifier que l'application Ducknote s'affiche bien dans Ionic DevApp.
+
+Si besoin, saisissez manuellement l'adresse ip **192.168.1.53** et le port **8100**
+
+| Niveau 1 | Niveau 2 |
+| :--- | :--- |
+| ![](/assets/ducknote_devapp1.png) | ![](/assets/ducknote_devapp2.png) |
+
+Faites des modifications dans votre application, et vérifiez qu'elles apparaissent automatiquement dans Ionic DevApp.

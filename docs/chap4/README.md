@@ -6,5 +6,4 @@ Le framework propose pléthore de composants, du bouton d'action au toast, en pa
 
 Chaque composant à sa propre API, ce qui permet de l'exploiter au maximum. Étudions quelques-uns d'entre eux qui nous seront bien utiles pour la suite de notre projet.
 
-Pour information, la liste de tous les composants actuellement disponibles se trouve à l'adresse  [https://ionicframework.com/docs/components/](https://ionicframework.com/docs/components/). N'hésitez pas à la visiter et faire un tour complet de la documentation.
-
+Pour information, la liste de tous les composants actuellement disponibles se trouve à l'adresse  [https://ionicframework.com/docs/components/](https://ionicframework.com/docs/components/). N'hésitez pas à la consulter et faire un tour complet de la documentation.

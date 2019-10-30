@@ -201,7 +201,7 @@ Puis le fichier **src/app/home/home.page.scss** :
 
 ```
 
-Retourner vers votre navigateur pour admirer l'étendue de votre génie :
+Retournez vers votre navigateur pour admirer l'étendue de votre génie :
 
 | AVANT | APRÈS |
 | :--- | :--- |
