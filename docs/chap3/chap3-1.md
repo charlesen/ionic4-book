@@ -19,7 +19,7 @@ Ionic met à disposition un ensemble d'attributs qui peuvent être utilisés sur
 
 Une liste beaucoup plus exhaustive se trouve dans la documentation, qui est extrêmement bien faite [https://ionicframework.com/docs/layout/css-utilities/](https://ionicframework.com/docs/layout/css-utilities/)
 
-On va pouvoir utiliser ces attributs directement dans nos pages. 
+On va pouvoir utiliser ces attributs directement dans nos pages.
 
 Ajoutons par exemple un peu de texte à notre page d'accueil. Grâce aux classes utilitaires, on va pouvoir centrer notre texte ou encore l'afficher en majuscule
 
@@ -99,11 +99,13 @@ Ionic propose également un système de grille css pour permettre une meilleur g
 
 <ion-content>
   <ion-grid class="ion-text-center">
+  
     <ion-row>
       <ion-col>
         <img src="assets/author.jpg"/>
       </ion-col>
-    </ion-row>
+    </ion-row><!-- Ligne 1-->
+    
     <ion-row>
       <ion-col>
         Charles E.
@@ -111,20 +113,21 @@ Ionic propose également un système de grille css pour permettre une meilleur g
       <ion-col>
         Développeur Web et Mobile
       </ion-col>
-    </ion-row>
+    </ion-row><!-- Ligne 2-->
+    
     <ion-row>
       <ion-col>
         Intérêt pour la finance, la blockchain, les technologies mobiles et le O'tacos
       </ion-col>
-    </ion-row>
+    </ion-row><!-- Ligne 3-->
+    
   </ion-grid>
 </ion-content>
-
 ```
 
 ![](/assets/ionic_demo_grid_1.png)
 
-Pour plus de détails, merci de consulter la documentation correspondante : [https://ionicframework.com/docs/theming/responsive-grid/](https://ionicframework.com/docs/theming/responsive-grid/)
+Pour plus de détails, vous pouvez consulter la documentation correspondante : [https://ionicframework.com/docs/theming/responsive-grid/](https://ionicframework.com/docs/theming/responsive-grid/)
 
 ### Utilisation de SASS
 
