@@ -19,56 +19,110 @@ Ionic met à disposition un ensemble d'attributs qui peuvent être utilisés sur
 
 Une liste beaucoup plus exhaustive se trouve dans la documentation, qui est extrêmement bien faite [https://ionicframework.com/docs/layout/css-utilities/](https://ionicframework.com/docs/layout/css-utilities/)
 
-On va pouvoir utiliser ces attributs directement dans nos pages. Centrons par exemple le h2 de la page d'accueil et justifions le contenu du texte qui le suit :
+On va pouvoir utiliser ces attributs directement dans nos pages. 
+
+Ajoutons par exemple un peu de texte à notre page d'accueil. Grâce aux classes utilitaires, on va pouvoir centrer notre texte ou encore l'afficher en majuscule
 
 **src/pages/home/home.html**
 
 ```html
 <ion-header>
-  <ion-navbar color="duckcoin">
-    <ion-title>Duckcoin</ion-title>
-  </ion-navbar>
+  <ion-toolbar color="ducknote">
+    <!-- On ajoute la nouvelle couleur -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      DuckNote
+    </ion-title><!-- On change l'intitulé de la page-->
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h2 text-center>La monnaie solidaire</h2> <!-- ICI -->
-  <p text-justify> <!-- Et Là -->
-    DuckCoin, c'est la monnaie qui rend aimable, redonne le sourire et change la face du monde.
-    Elle a été faite pour des gens sympas, juste comme toi.
-  </p>
-  ...
+<ion-content>
+  <ion-card class="welcome-card">
+    <!-- <img src="/assets/shapes.svg" alt="" /> -->
+    <img src="/assets/ducknote_hero.jpg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Pour ne rien oublier, où que vous soyez</ion-card-subtitle>
+      <ion-card-title>Essayez DuckNote</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Notez tout ce qui vous passe par la tête. Ajoutez des notes, des listes, des photos et des contenus audio.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Un Texte centré -->
+  <div class="ion-text-center">
+    <h3>text-center</h3>
+    <p>Je suis un texte centré !</p>
+  </div>
+
+  <!-- Un texte en majuscule -->
+  <div class="ion-text-uppercase ion-padding">
+    <h3>
+      text-uppercase
+    </h3>
+    <p>
+      Le contenu de ce texte est en majuscule <strong>(ion-text-uppercase)</strong> <br />
+      et possède une marge de 16px <strong>(ion-padding)</strong> de chaque côté.
+    </p>
+  </div>
+
 </ion-content>
 ```
 
-![](/assets/screen_home_5.png)
+| Exemple de Texte centré | Exemple de texte en majuscule |
+| :--- | :--- |
+| ![](/assets/ionic_text_center.png) | ![](/assets/ionic_text_upper.png) |
 
 ### Grille CSS responsive
 
 Ionic propose également un système de grille css pour permettre une meilleur gestion de blocs de contenus. Il est assez similaire dans sa syntaxe à celui que propose Bootstrap.
 
 ```html
-<h2>Profil utilisateur</h2>
-<ion-grid>
-  <ion-row>
-    <ion-col size="2">
-      <img src="assets/imgs/logo.jpg"/>
-    </ion-col>
-    <ion-col>
-      Charles E.
-    </ion-col>
-    <ion-col>
-      Développeur Web et Mobile
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Intérêt pour la finance, la blockchain, les technologies mobiles et le O'tacos
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-header>
+  <ion-toolbar color="ducknote">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <img src="assets/author.jpg"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Charles E.
+      </ion-col>
+      <ion-col>
+        Développeur Web et Mobile
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Intérêt pour la finance, la blockchain, les technologies mobiles et le O'tacos
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
 ```
 
-![](/assets/screen_profile_5.png)
+![](/assets/ionic_demo_grid_1.png)
 
 Pour plus de détails, merci de consulter la documentation correspondante : [https://ionicframework.com/docs/theming/responsive-grid/](https://ionicframework.com/docs/theming/responsive-grid/)
 
@@ -176,3 +230,6 @@ img {
     width : $max-width/10;
 }
 ```
+
+
+
