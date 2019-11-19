@@ -99,13 +99,13 @@ Ionic propose également un système de grille css pour permettre une meilleur g
 
 <ion-content>
   <ion-grid class="ion-text-center">
-  
+
     <ion-row>
       <ion-col>
         <img src="assets/author.jpg"/>
       </ion-col>
     </ion-row><!-- Ligne 1-->
-    
+
     <ion-row>
       <ion-col>
         Charles E.
@@ -114,13 +114,13 @@ Ionic propose également un système de grille css pour permettre une meilleur g
         Développeur Web et Mobile
       </ion-col>
     </ion-row><!-- Ligne 2-->
-    
+
     <ion-row>
       <ion-col>
         Intérêt pour la finance, la blockchain, les technologies mobiles et le O'tacos
       </ion-col>
     </ion-row><!-- Ligne 3-->
-    
+
   </ion-grid>
 </ion-content>
 ```
