@@ -146,7 +146,7 @@ Pour le moment, ce gardien n'est pas vraiment utile. Pour qu'il le soit, il va n
 
 **src/app/app-routing.module.ts**
 
-```
+```js
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -227,7 +227,7 @@ export class AuthGuard implements CanActivate {
 
     if (userAuthenticated) {
       // return true;
-      // Déjà connecté : on redirige l'utilisateur vers la page de Login
+      // Déjà connecté : on redirige l'utilisateur vers la page d'accueil
       this.router.navigate(['/home']);
     } else {
       // return false;
@@ -236,7 +236,6 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
-
 ```
 
 Voilà, on a désormais les bonnes redirections en fonction du statut de connexion. Beaucoup mieux.
