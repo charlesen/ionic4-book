@@ -173,6 +173,8 @@ C'est dans ce fichier que l'ont pourra apporter des changements sur les valeurs 
 
 Il est également possible de créer sa propre couleur. Définissons par exemple une nouvelle couleur que nous appellerons **ducknote**.
 
+**src/theme/variables.scss**
+
 ```css
 /** Ionic CSS Variables **/
 :root {
@@ -188,7 +190,50 @@ Il est également possible de créer sa propre couleur. Définissons par exemple
   /** .... **/
 ```
 
-Il suffit ensuite d'appler cette couleur dans notre application, depuis la barre de navigation par exemple :
+Vous devez ensuite appeler cette couleur dans le fichier scss de votre page \(**src/app/mapage/home.page.scss**\) ou alors dans le fichier **global.scss** si vous souhaitez utiliser cette couleur n'importe où dans l'application.
+
+**src/app/home/home.page.scss**
+
+```css
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+// On applique le style à la page d'accueil uniquement
+.ion-color-ducknote {
+  --ion-color-base: var(--ion-color-ducknote);
+  --ion-color-base-rgb: var(--ion-color-ducknote-rgb);
+  --ion-color-contrast: var(--ion-color-ducknote-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-ducknote-contrast-rgb);
+  --ion-color-shade: var(--ion-color-ducknote-shade);
+  --ion-color-tint: var(--ion-color-ducknote-tint);
+}
+
+```
+
+**src/global.scss**
+
+```css
+// ...
+
+// On applique le style à toutes les pages
+.ion-color-ducknote {
+  --ion-color-base: var(--ion-color-ducknote);
+  --ion-color-base-rgb: var(--ion-color-ducknote-rgb);
+  --ion-color-contrast: var(--ion-color-ducknote-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-ducknote-contrast-rgb);
+  --ion-color-shade: var(--ion-color-ducknote-shade);
+  --ion-color-tint: var(--ion-color-ducknote-tint);
+}
+
+```
+
+Une fois votre couleur définit dans votre fichier scss, il vous suffira de l'appler dans le composant[^1] de votre choix. 
+
+Modifions par exemple la couleur du composant _barre de navigation_ de la page d'accueil:
+
+**src/app/home/home.page.html**
 
 ```html
 <ion-header>
@@ -198,25 +243,17 @@ Il suffit ensuite d'appler cette couleur dans notre application, depuis la barre
 </ion-header>
 ```
 
-Ici la barre de navigation aura comme couleur de fond \(background\) celle définie dans le fichier de variables scss et comme couleur de texte du blanc. Si vous voulez autre chose que du blanc, disons du jaune, vous devriez modifier votre style comme ceci :
+Ici la barre de navigation aura comme couleur de fond \(background\) du jaune \(**\#f1b004** ou **244, 244, 244**\) et comme couleur de texte du noir \(**\#000000** ou **0,0,0** en RGB\). 
+
+Vous êtes tout à fait libre de mettre les codes couleurs de votre choix. Et pour générer de manière plus efficace vos thèmes, vous pouvez utiliser l'outil que propose Ionic sur son site internet : [https://ionicframework.com/docs/theming/colors\#new-color-creator](https://ionicframework.com/docs/theming/colors#new-color-creator) : 
+
+![](/assets/ionic_color_generator.png)
+
+Une fois la modification, vous n'avez plus qu'à ajouter les codes générés dans le fichier variables.scss : 
 
 **src/theme/variables.scss**
 
-```html
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
-  duckcoin: (
-    base: #df4932,
-    contrast: yellow
-  )
-);
-```
 
-![](/assets/screen_home_4.png)
 
 Il est également possible d'appeler des variables définis dans ce fichier **src/theme/variables.scss** directement dans nos fichiers scss. Changeons par exemple la couleur du bouton présent dans l'onglet Profil :
 
@@ -269,4 +306,6 @@ img {
 ```
 
 
+
+[^1]: Nous étudierons la notion de composant plus loin dans ce livre.
 
