@@ -203,5 +203,11 @@ Puis dans le fichier html, apportons les modifications suivantes dans le composa
 </ion-content>
 ```
 
+Ce qui donne le résultat :
+
+![](/assets/ducknote_list.png)
+
+Pour l'instant on affiche simplement dans la _vue html_ \(_**src/app/home/home.page.html**_\), les notes que nous avons définie dans le _controleur_ de la page \(_**src/app/home/home.page.ts**_\). A présent, nous souhaitons aussi pouvoir cliquer sur une note pour en afficher les détails. Pour cela, nous allons créer une nouvelle page que nous nommerons simplement Note, qui permettra d'effectuer ces actions.
+
 
 
