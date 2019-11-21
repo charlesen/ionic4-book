@@ -63,12 +63,12 @@ import { IonicStorageModule } from '@ionic/storage';
 export class AppModule { }
 ```
 
-Une fois le module installé et configuré, il ne vous reste plus qu'à l'appeler dans n'importe laquelle de vos pages ou composant \(notion que l'on étudieras plus tard\).
+Une fois le module installé et configuré, il ne vous reste plus qu'à l'appeler dans n'importe quelle page ou composant \(notion que l'on étudiera plus tard\).
 
 ```js
 import { Storage } from '@ionic/storage';
 
-export class MyApp {
+export class MaPage {
   constructor(private storage: Storage) { }
 
   ...
