@@ -213,7 +213,7 @@ Mais nous souhaitons aussi pouvoir cliquer sur une note pour en afficher les dé
 
 Depuis votre invite de commandes, faites ceci :
 
-```
+```bash
 $ ionic g page Note
 
 CREATE src/app/note/note.module.ts (533 bytes)
@@ -225,5 +225,39 @@ UPDATE src/app/app-routing.module.ts (753 bytes)
 [OK] Generated page!
 ```
 
-Notre page a correctement été créé, et la page de routage a automatiquement été mise à jour
+Notre page a correctement été créé, et la page de routage a automatiquement été mise à jour. Modifier le fichier de routage comme ceci : 
+
+**src/app/app-routing.module.ts**
+
+```js
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  //... le reste du routage reste inchangé
+  
+  //... On configure la Page Note
+  // locahost/note redirigera vers la page d'accueil
+  { path: 'note', redirectTo: 'home', pathMatch: 'full' },
+
+  // locahost/note:id affichera le détail de la note
+  { path: 'note/:id', loadChildren: './note/note.module#NotePageModule' },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
+Dans cette nouvelle configuration, on dit simplement que :
+
+* L'url **/note** nous redirigera vers la page d'accueil
+* L'url **/note/UnID** renverra vers la note dont l'identifiant est **UnID**.
+
+cd
 
