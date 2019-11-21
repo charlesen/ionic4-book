@@ -28,7 +28,6 @@ Comme son nom peut le suggérer, ce composant va nous permettre d'ajouter une li
   </ion-list>
   <!-- ... -->
 </ion-content>
-
 ```
 
 **src/app/list/list.page.ts**
@@ -69,11 +68,11 @@ export class ListPage implements OnInit {
   ngOnInit() {
   }
 }
-
 ```
 
 Qui donne :
 
-![](/assets/composant_liste_2.png)
+![](/assets/composant_list.png)
 
 Documentation : [https://ionicframework.com/docs/components/\#lists](https://ionicframework.com/docs/components/#lists)
+
