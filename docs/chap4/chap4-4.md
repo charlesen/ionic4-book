@@ -12,7 +12,7 @@ Les cartes sont un bon moyen d'afficher des informations importantes à destinat
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-card>
 
     <ion-card-header>
@@ -39,9 +39,9 @@ Il est également possible de combiner carte et liste d'éléments comme ceci :
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
   <ion-card>
-    <ion-card-header text-center>
+    <ion-card-header class="ion-text-center">
       Formations en cours
     </ion-card-header>
     <ion-list>
@@ -72,11 +72,11 @@ Ou tout simplement reproduire un design assez proche de réseaux sociaux comme I
 
 ```html
 <ion-header>
-  <ion-navbar color="ducknote">
+  <ion-navbar color="duckcoin">
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
   <ion-card>
     <img src="assets/imgs/ducknote-mini.png" />
     <ion-card-content>
@@ -87,15 +87,16 @@ Ou tout simplement reproduire un design assez proche de réseaux sociaux comme I
         C'est la monnaie qui rend aimable, redonne le sourire et change la face du monde. Elle a été faite pour des gens sympas, juste comme toi.
       </p>
     </ion-card-content>
-    <ion-row no-padding>
+    <ion-row>
       <ion-col>
-        <button ion-button clear small color="ducknote" icon-medium icon-start>
-          J'aime <ion-icon name='heart'></ion-icon>
+        <ion-button fill="clear" size="small" color="duckcoin">
+          J'aime <ion-icon name="heart" slot="start"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="ducknote" icon-medium icon-start>
-          Partager <ion-icon name='share-alt'></ion-icon>
+        <ion-button fill="clear" size="small" color="duckcoin">          
+          Partager
+          <ion-icon name='share-alt' slot="start"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
@@ -103,6 +104,7 @@ Ou tout simplement reproduire un design assez proche de réseaux sociaux comme I
 </ion-content>
 ```
 
-![](/assets/composant_card_3.png)
+![](/assets/composant_card.png)
 
 Documentation : [https://ionicframework.com/docs/components/\#cards](https://ionicframework.com/docs/components/#cards)
+
