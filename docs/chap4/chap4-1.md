@@ -64,4 +64,5 @@ Ou encore retirer les bordures du boutons avec la directive **clear** :
 
 ![](/assets/composant_boutons_2.png)
 
-Documentation : [https://ionicframework.com/docs/api/button](https://ionicframework.com/docs/api/button)
+Pour plus d'information, vous pouvez consulter la documentation Ionic à l'adresse : [https://ionicframework.com/docs/api/button](https://ionicframework.com/docs/api/button)
+
