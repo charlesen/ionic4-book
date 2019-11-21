@@ -22,5 +22,5 @@ Que remarquez-vous ?
 
 6\) Créez une page Setting et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
 
-7\) Testez votre application depuis Ionic Dev App.
+7\) Testez votre application depuis [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp).
 
