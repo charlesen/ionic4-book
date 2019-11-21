@@ -219,10 +219,7 @@ Une fois votre couleur définie dans le fichier **variables.scss **, vous devez 
 **src/app/home/home.page.scss**
 
 ```css
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
-}
+// ..
 
 // On applique le style à la page d'accueil uniquement
 .ion-color-ducknote {
