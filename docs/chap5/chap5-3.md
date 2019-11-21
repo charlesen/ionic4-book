@@ -30,3 +30,15 @@ $ ionic g guard guards/auth
 
 Faites en sorte qu'on ne puisse afficher la page d'accueil qu'à la seule condition d'être «connecté»
 
+5\) Depuis votre terminal, saisissez les commandes suivantes :
+
+```
+$ ionic integrations enable cordova --add
+$ ionic cordova plugin add cordova-sqlite-storage
+$ npm install --save @ionic/storage
+```
+
+Editez ensuite le fichier **src/app/app.module.ts** :
+
+
+
