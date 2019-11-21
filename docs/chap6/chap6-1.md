@@ -85,7 +85,7 @@ export class MaPage {
   storage.set('notes', mesNotes);
 
 
-  // On peut récupérer des valeurs
+  // On peut récupérer des valeurs de tout type
   storage.get('age').then((age) => {
     console.log(`J'ai ${age} ans`);
   });
