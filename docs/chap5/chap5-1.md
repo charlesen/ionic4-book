@@ -1,6 +1,6 @@
 ## Principes de bases
 
-Lorsque vous lancez une application Ionic, c'est le fichier **src/index.hmlt** qui est appellé en premier.
+Lorsque vous lancez une application Ionic, c'est le fichier **src/index.html** qui est appellé en premier.
 
 ```html
 <!DOCTYPE html>
@@ -66,10 +66,9 @@ C'est ce composant qui permet d'appeler le module de routage, comme on peut le v
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
-
 ```
 
-Ce module est défini dans le fichier **src/app/app-routing.module.ts. **On y retrouve toutes les routes de notre application : 
+Ce module est défini dans le fichier **src/app/app-routing.module.ts. **On y retrouve toutes les routes de notre application :
 
 ```js
 import { NgModule } from '@angular/core';
@@ -96,7 +95,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 ```
 
 * La première entrée permet de rediriger toutes les urls "vide" \(path:' '\), mal formées ou celle par défaut, vers la page d'accueil
@@ -106,7 +104,7 @@ Dans la définition du routage, nous avons une clé _**loadChildren**_ dans laqu
 
 Grâce au tag **&lt;ion-router-outlet main&gt;&lt;/ion-router-outlet&gt;**, le routeur Angular remplacera toutes les entrées définies dans la table de routage par les informations du module associé \(HomePageModule, ProfilePageModule,...\).
 
-Pour plus d'information sur le routage Angular, n'hésitez pas à consulter les documentations officielles :
+Pour plus d'information sur le routage Angular, n'hésitez pas à consulter la documentation officielle :
 
 * [https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/](https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/)
 
