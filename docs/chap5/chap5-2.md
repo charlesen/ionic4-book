@@ -77,7 +77,7 @@ Comme prévu, en affichant la page de login \([http://localhost:8100/login](http
 
 Pour le moment la page d'accueil reste quand même la page par défaut.Nous allons pouvoir faire en sorte que la page par défaut soit désormais la page de login. Pour cela, modifions notre table de routage comme ceci :
 
-src/app/app.
+**src/app/app-routing.module.ts**
 
 ```js
 const routes: Routes = [
@@ -86,17 +86,17 @@ const routes: Routes = [
   //   redirectTo: 'home',
   //   pathMatch: 'full'
   // },
-  
-  
+
+
   // La page par défaut devient la page de Login
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  
+
   // ... Autres routes
-  
+
 ]
 ```
 
@@ -104,5 +104,105 @@ Voilà, après rafraichissement, vous constaterez que toute ouverture de l'appli
 
 ### Protection de pages avec les Guards angular
 
-Il est souvent nécessaire de protéger certains contenus et ne les afficher que selon certaines conditions : utilisateur connecté, abonnement, ... Dans ce cas, Angular propose une solution très pratique appelée Guards. Ceux-ci vont permettre de contrôler l'accès à une "route" particulière ou le fait de passer d'une route à une autre  \(sortie d'un formulaire non enregistré, perte de connection au moment de la validation d'une action,...\).
+Il est souvent nécessaire de protéger certains contenus et ne les afficher que selon certaines conditions : utilisateur connecté, abonnement premium, ... Dans ces cas là, Angular propose une solution très pratique appelée Guards. Ceux-ci vont permettre de contrôler l'accès à une "route" particulière ou encore s'assurer que le passage d'une route à une autre se déroule selon les standards : alerte en cas de sortie d'un formulaire non enregistré ou de perte de connection au moment de la validation d'une action,...
+
+Pour mettre en place ce mécanisme de protection, nous allons saisir la commande suivante :
+
+```bash
+$ ionic g guard guards/auth
+```
+
+
+
+Puis modifions le fichier qui a été généré pour qu'il ressemble à ceci:
+
+**src/app/guards/auth.guard.ts**
+
+```js
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+
+    let userAuthenticated = false; // Pour le moment nous allons garder cette valeur à false
+
+    if (userAuthenticated) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+```
+
+Notre **«gardien»** n'implémente qu'une seule méthode : _**canActivate. **_Celle-ci permet, selon un critère donné, d'afficher ou non une route. Ici notre condition est simplement basée sur la valeur de la variable  _**userAuthenticated**_, que l'on pourra plus tard récupérer depuis la session ou en base de données.
+
+
+
+Pour le moment, ce gardien n'est pas vraiment utile. Pour qu'il le soit, il va nous falloir l'appeler depuis la table de routage :
+
+ **src/app/app-routing.module.ts**
+
+```
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
+  // La page par défaut devient la page de Login
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  
+  // Pas d'accès la page d'accueil si non connecté
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+
+  //... On configure la Page Note
+  // locahost/note redirigera vers la page d'accueil
+  { path: 'note', redirectTo: 'home', pathMatch: 'full' },
+
+  // locahost/note:id affichera le détail de la note
+  { path: 'note/:id', loadChildren: './note/note.module#NotePageModule' },
+
+  // Composants Ionic
+  { path: 'composants', loadChildren: './composants/composants.module#ComposantsPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
+Dans cette nouvelle configuration, nous interdisons tout accès à la page d'accueil si l'on est pas connecté \(userAuthenticated à false\). 
+
+Si vous tenter de nouveau de cliquer sur le bouton de connexion, rien ne se passe. En modifiant la valeur de la variable  _**userAuthenticated**_ en la passant à _**true**_, on peut de nouveau d'afficher la page d'accueil.
 
