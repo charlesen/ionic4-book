@@ -150,6 +150,10 @@ Pour le moment, ce gardien n'est pas vraiment utile. Pour qu'il le soit, il va n
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+// On appelle notre gardien ici
+import { AuthGuard } from './guards/auth.guard';
+
+
 const routes: Routes = [
   // {
   //   path: '',
@@ -166,25 +170,11 @@ const routes: Routes = [
   // Pas d'accès la page d'accueil si non connecté
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-
-  //... On configure la Page Note
-  // locahost/note redirigera vers la page d'accueil
-  { path: 'note', redirectTo: 'home', pathMatch: 'full' },
-
-  // locahost/note:id affichera le détail de la note
-  { path: 'note/:id', loadChildren: './note/note.module#NotePageModule' },
-
-  // Composants Ionic
-  { path: 'composants', loadChildren: './composants/composants.module#ComposantsPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  // ... Autres routes....
+  
 ];
 
 @NgModule({
@@ -194,6 +184,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 ```
 
 Dans cette nouvelle configuration, nous interdisons tout accès à la page d'accueil si l'on est pas connecté \(userAuthenticated à false\).
