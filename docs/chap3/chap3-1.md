@@ -227,9 +227,9 @@ Vous devez ensuite appeler cette couleur dans le fichier scss de votre page \(**
 }
 ```
 
-Une fois votre couleur définit dans votre fichier scss, il vous suffira de l'appler dans le composant[^1] de votre choix.
+Une fois votre couleur définie dans votre fichier scss, il vous suffira de l'appler dans le composant[^1] de votre choix.
 
-Modifions par exemple la couleur du composant _barre de navigation_ de la page d'accueil:
+Modifions par exemple la couleur du composant _barre de navigation_ \(**ion-navbar**\) de la page d'accueil:
 
 **src/app/home/home.page.html**
 
@@ -241,7 +241,9 @@ Modifions par exemple la couleur du composant _barre de navigation_ de la page d
 </ion-header>
 ```
 
-Ici la barre de navigation aura comme couleur de fond \(background\) du jaune \(**\#f1b004** ou **244, 244, 244**\) et comme couleur de texte du noir \(**\#000000** ou **0,0,0** en RGB\).
+Ici la barre de navigation aura comme couleur de fond \(background\) du jaune \(**\#f1b004** ou **244, 244, 244 **en RGB\) et comme couleur de texte du noir \(**\#000000** ou **0,0,0** en RGB\).
+
+![](/assets/ducknote_color.png)
 
 Vous êtes tout à fait libre de mettre les codes couleurs de votre choix. Et pour générer de manière plus efficace vos thèmes, vous pouvez utiliser l'outil que propose Ionic sur son site internet : [https://ionicframework.com/docs/theming/colors\#new-color-creator](https://ionicframework.com/docs/theming/colors#new-color-creator) :
 
