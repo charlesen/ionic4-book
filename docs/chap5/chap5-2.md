@@ -226,10 +226,9 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
-
 ```
 
 Voilà, on a désormais les bonnes redirections en fonction du statut de connexion. Beaucoup mieux.
 
-Attention cependant à ne pas considérer les gardiens comme des barrières de protection infaillible, surtout si vous afficher des données ultra sensibles dans votre application. Priviligiez une authentification côté serveur forte, puis ajoutez les gardiens en complément de celle-ci.
+Attention cependant à ne pas considérer les gardiens comme des barrières de protection infaillibles, surtout si vous affichez des données ultra sensibles dans votre application. Priviligiez plutôt une authentification côté serveur forte, puis ajoutez les gardiens en complément de celle-ci.
 
