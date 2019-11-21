@@ -97,13 +97,12 @@ Dans le fichier **src/app/login/login.page.html**, apportez les ajustements suiv
   <!-- <ion-button expand="block" routerLink="/home" routerDirection="root" color="ducknote">
     Se connecter
   </ion-button> -->
-  
+
   <ion-button expand="block" color="ducknote" (click)="login()">
     Se connecter
   </ion-button>
-  
-</ion-content>
 
+</ion-content>
 ```
 
 Puis le fichier **src/app/login/login.page.ts**
@@ -130,7 +129,7 @@ export class LoginPage implements OnInit {
   ** Permet de stocker l'état de connexion + Redirection vers la page d'accueil
   **/
   login() {
-    
+
     // Sauvegarde de l'état de connexion
     storage.set('userAuthenticated', true);
 
@@ -141,9 +140,105 @@ export class LoginPage implements OnInit {
 }
 ```
 
-6\) Nous allons faire en sorte que le gards que nous avons créé plus haut prenne en cpmpte l'état de connexion de l'utilisateur stockée en base de données. Modifions le fichier comme ceci : 
+6\) Nous allons faire en sorte que le gards que nous avons créé plus haut prenne en cpmpte l'état de connexion véritable de l'utilisateur stockée en base de données. Modifions le fichier _**src/app/guards/auth.guard.ts**_ comme ceci :
 
+```js
+import { Injectable } from '@angular/core';
+// On rajoute le Router
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
+// Import du module de stockage ici
+import { Storage } from '@ionic/storage';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+  // Dans le constructeur on déclare notre variable de routage
+  constructor(private router: Router, private storage: Storage) { }
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+
+    // let userAuthenticated = true; // Pour le moment nous allons garder cette valeur à false
+
+    // On récupère la valeur de userAuthenticated en BDD
+    return this.storage.get('userAuthenticated').then((userAuthenticated) => {
+      if (userAuthenticated) {
+        // Déjà connecté : on redirige l'utilisateur vers la page d'accueil
+        return true;
+      } else {
+        // return false;
+        // Non connecté : on redirige l'utilisateur vers la page de Login
+        this.router.navigate(['/login']);
+      }
+    });
+
+  }
+}
+```
+
+Voilà, désormais si vous avez cliqué sur le bouton de connexion et donc que vous êtes passé en mode «connecté», vous pourrez afficher la page d'accueil sans être redirigé vers la page de login.
+
+Une petite vérification depuis le navigateur chrome permet de voir la valeur stockée en base de données \(IndexedDB\) 
+
+![](/assets/ionic_sql_indexeddb.png)
+
+7\) Ajoutons un bouton de déconnexion en modifiant le fichier src/app/app.
+
+Modifiez à présent le fichier **src/app/app.component.ts** en ajoutant une méthode logout permettant de supprimer l'état de connexion
+
+```js
+// ... Autres imports ...
+
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-root', // Il ne vous dit rien ce tag html (selecteur) ?
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
+})
+export class AppComponent {
+  // ...
+
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private router : Router,
+    private storage: Storage
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
+  // Bouton de déconnexion : suppression du statut de connexion
+  logout() {
+    this.storage.remove('userAuthenticated');
+    this.router.navigate(['/login']);
+  }
+}
+
+```
+
+Puis le fichier html :
+
+**src/app/app.component.html**
+
+```
+
+```
+
+Cliquez sur le bouton de Déconnexion. Que se passe t-il ?
 
 
 
