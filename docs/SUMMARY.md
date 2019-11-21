@@ -28,6 +28,8 @@
   * [Exercez-vous](chap4/chap4-6.md)
 
 * [Chap 5 - Système de routage](chap5/README.md)
+  * [Principes de base](chap5/chap5-1.md)
+  * [Principes de base](chap5/chap5-2.md)
   * [Exercez-vous](chap5/chap5-6.md)
 
 * [Chap 6 - Persistance des données](chap6/README.md)
