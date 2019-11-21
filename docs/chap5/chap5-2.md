@@ -112,8 +112,6 @@ Pour mettre en place ce mécanisme de protection, nous allons saisir la commande
 $ ionic g guard guards/auth
 ```
 
-
-
 Puis modifions le fichier qui a été généré pour qu'il ressemble à ceci:
 
 **src/app/guards/auth.guard.ts**
@@ -140,16 +138,13 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
-
 ```
 
-Notre **«gardien»** n'implémente qu'une seule méthode : _**canActivate. **_Celle-ci permet, selon un critère donné, d'afficher ou non une route. Ici notre condition est simplement basée sur la valeur de la variable  _**userAuthenticated**_, que l'on pourra plus tard récupérer depuis la session ou en base de données.
-
-
+Notre **«gardien»** n'implémente qu'une seule méthode : _**canActivate. **\_Celle-ci permet, selon un critère donné, d'afficher ou non une route. Ici notre condition est simplement basée sur la valeur de la variable  _**userAuthenticated**\_, que l'on pourra plus tard récupérer depuis la session ou en base de données.
 
 Pour le moment, ce gardien n'est pas vraiment utile. Pour qu'il le soit, il va nous falloir l'appeler depuis la table de routage :
 
- **src/app/app-routing.module.ts**
+**src/app/app-routing.module.ts**
 
 ```
 import { NgModule } from '@angular/core';
@@ -167,7 +162,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  
+
   // Pas d'accès la page d'accueil si non connecté
   {
     path: 'home',
@@ -199,10 +194,52 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+```
+
+Dans cette nouvelle configuration, nous interdisons tout accès à la page d'accueil si l'on est pas connecté \(userAuthenticated à false\).
+
+Si vous tenter de nouveau de cliquer sur le bouton de connexion, rien ne se passe. En modifiant la valeur de la variable  _**userAuthenticated**_ en la passant à _**true**_, on peut de nouveau d'afficher la page d'accueil.
+
+Notre gardien fais plutôt bien son travail. Mais le fait qu'il ne se passe rien au clic sur le bbouton de connexion peut être source d'incompréhension pour un utilisateur qui pourrait penser à un bug de l'application. De plus, si l'on décide d'afficher la page d'accueil en y accédant via l'url [http://localhost:8100/home](http://localhost:8100/home), on a droit cette fois à une belle page blanche.
+
+Modifons donc un peu notre guard, pour rediriger l'utilisateur vers la page d'accueil si l'on est déjà connecté, et vers la page de login dans le cas contraire.
+
+```js
+import { Injectable } from '@angular/core';
+// On rajoute le Router
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+  // Dans le constructeur on déclare notre variable de routage
+  constructor(private router: Router) {
+    }
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+
+    let userAuthenticated = false; // Pour le moment nous allons garder cette valeur à false
+
+    if (userAuthenticated) {
+      // return true;
+      // Déjà connecté : on redirige l'utilisateur vers la page de Login
+      this.router.navigate(['/home']);
+    } else {
+      // return false;
+      // Non connecté : on redirige l'utilisateur vers la page de Login
+      this.router.navigate(['/login']);
+    }
+  }
+}
 
 ```
 
-Dans cette nouvelle configuration, nous interdisons tout accès à la page d'accueil si l'on est pas connecté \(userAuthenticated à false\). 
+Voilà, on a désormais les bonnes redirections en fonction du statut de connexion. Beaucoup mieux.
 
-Si vous tenter de nouveau de cliquer sur le bouton de connexion, rien ne se passe. En modifiant la valeur de la variable  _**userAuthenticated**_ en la passant à _**true**_, on peut de nouveau d'afficher la page d'accueil.
+Attention cependant à ne pas considérer les gardiens comme des barrières de protection infaillible, surtout si vous afficher des données ultra sensibles dans votre application. Priviligiez une authentification côté serveur forte, puis ajoutez les gardiens en complément de celle-ci.
 
