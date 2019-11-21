@@ -339,7 +339,6 @@ export class NotePage implements OnInit {
   }
 
 }
-
 ```
 
 On importe tout d'abord la class ActivatedRoute, qui va nous permettre de récupérer l'Identifiant de la note à partir de l'url.
@@ -360,9 +359,81 @@ interface Note {
 }
 ```
 
-cd 
+Dans la classe NotePage, on redéclare à nouveau la variables notes contenant un tableau de notes \(le même que celui en page d'accueil\). Plus tard, lorsque nous aborderons les notions de services et de persistance de données, nous n'aurons plus besoin doublonner cette variable.
+
+On déclare également un objet note du type de l'interface Note. 
+
+```js
+// Cette déclaration ne sera plus nécessaire lorsque l'on utilisera les services et la persistance des données
+  notes: { id: number, title: string, content: string }[] = [
+    { "id": 1, "title": "Faire les courses", "content": "Acheter de quoi faire une bonne raclette. Diversifier les types de fromages." },
+    { "id": 2, "title": "Faire du sport", "content": "Pensez à bien m'étirer avant de commencer, pour éviter toute courbature ou fracture." },
+    { "id": 3, "title": "IUT", "content": "Préparer la soutenance de stage et contacter mon tuteur." }
+  ];
+  note: Note;
+```
+
+Dans le construteur de la classe, on initialise la note à vide. Cette déclaration aura surtout du sens lorsque l'on ira chercher des données de manière asynchrone \(via un API ou depuis la base de données du téléphone\).
+
+```js
+constructor(private route: ActivatedRoute) {
+    // Initialisation d'une note à vide
+    this.note = {
+      id: '',
+      title: '',
+      content: ''
+    };
+}
+```
+
+La méthode ngOnInit est appelé après l'initialisation de la page. C'est donc dans cette méthode là que l'on récupera l'identifiant de la note, avant de récupérer tous les détails de la note grâce la méthode getNoteById.
+
+```js
+ngOnInit() {
+    // On récupère l'identifiant de la
+    let noteId = this.route.snapshot.paramMap.get('id');
+    this.note = this.getNoteById(noteId);
+  }
+
+  /**
+  ** Renvoie une note en fonction de son identifiant
+  ** @param id : identifiant de la note
+  **/
+  getNoteById(id) {
+    // La méthode find va rerchercher la première note dont l'identifiant est égal à id
+    return this.notes.find(function(note) {
+      return note.id == parseInt(id);
+    });
+  }
+```
 
 
 
+Il ne reste plus qu'à modifier le fichier html, pour afficher les données de la note :
 
+**src/app/note/note.page.html**
+
+```html
+<ion-header>
+  <ion-toolbar color="ducknote">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{note.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  {{note.content}}
+</ion-content>
+
+```
+
+On obtient le résulat suivant :
+
+![](/assets/ducknote_note_details.png)
+
+Bravo ! Vous pouvez à présent afficher une liste d'éléments et les affichers de manière détaillée.
+
+Dans la suite nous verrons comment habiller un peu plus notre application grâce aux nombreux composants que proposent Ionic, mais aussi créer, modifier ou supprimer nos notes grâce aux Services et à Ionic Storage.
 
