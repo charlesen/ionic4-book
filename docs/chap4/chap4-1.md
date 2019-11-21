@@ -13,7 +13,7 @@ Il est possible de customiser un bouton grâce à de nombreuses [directives, con
 ```html
 <!-- Composant Bouton -->
 
-<h2 class="ion-text-center">Le bouton dans tous ses états</h2>
+<h2 class="ion-text-center">Composant Bouton</h2>
 <ion-button>Mon bouton</ion-button>
 
 <!-- Un bouton avec un lien -->
