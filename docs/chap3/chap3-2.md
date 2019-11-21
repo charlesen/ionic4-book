@@ -225,7 +225,7 @@ UPDATE src/app/app-routing.module.ts (753 bytes)
 [OK] Generated page!
 ```
 
-Notre page a correctement été créé, et la page de routage a automatiquement été mise à jour. Modifier le fichier de routage comme ceci : 
+Notre page a correctement été créé, et la page de routage a automatiquement été mise à jour. Modifier le fichier de routage comme ceci :
 
 **src/app/app-routing.module.ts**
 
@@ -235,7 +235,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   //... le reste du routage reste inchangé
-  
+
   //... On configure la Page Note
   // locahost/note redirigera vers la page d'accueil
   { path: 'note', redirectTo: 'home', pathMatch: 'full' },
@@ -251,13 +251,118 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 ```
 
 Dans cette nouvelle configuration, on dit simplement que :
 
-* L'url **/note** nous redirigera vers la page d'accueil
-* L'url **/note/UnID** renverra vers la note dont l'identifiant est **UnID**.
+* L'url [**http://localhost:8100/note**](http://localhost:8100/note) nous redirigera vers la page d'accueil
+* L'url [**http://localhost:8100/note/UnID**](http://localhost:8100/note/1) renverra vers la note dont l'identifiant est **UnID**.
 
-cd
+Maintenant que nous avons créé notre page Note, nous allons pouvoir faire en sorte qu'un clic sur une note en page d'accueil nous renvoie vers le détail de celle-ci.
+
+Pour cela, modifions à nouveau le fichier **src/app/home/home.page.html** en ajoutant les directives \[routerLink\] et routerDirection comme ceci :
+
+**src/app/home/home.page.html**
+
+```html
+<!-- ...Le reste de la page reste inchangé ... --> 
+
+<!-- ...On rajoute nos notes ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
+<!-- Petite nouveauté : la présence de [routerLink] et routerDirection -->
+  <ion-card *ngFor="let note of notes" [routerLink]="'/note/' + note.id" routerDirection="forward">
+    <ion-card-header>
+      <ion-card-title>{{note.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{note.content}}</p>
+    </ion-card-content>
+  </ion-card>
+```
+
+Nous avons donc ajouter un lien de routage grâce à la directive **routerLink** avec la valeur **/note/ID**. Voyez cela comme l'équivalent d'un href. La directive **routerDirection **permet de jouer sur l'animation du changement de page.
+
+Editons ensuite notre page Note, pour afficher les détails en fonction d'un identifiant :
+
+**src/app/note/note.page.ts**
+
+```js
+import { Component, OnInit } from '@angular/core';
+
+// On importe cette classe
+import { ActivatedRoute } from '@angular/router';
+
+
+// Cette interface permet de caractériser un objet note
+interface Note {
+  id: number;
+  title: string;
+  content: string;
+}
+
+@Component({
+  selector: 'app-note',
+  templateUrl: './note.page.html',
+  styleUrls: ['./note.page.scss'],
+})
+export class NotePage implements OnInit {
+  // Cette déclaration ne sera plus nécessaire lorsque l'on utilisera les services et la persistance des données
+  notes: { id: number, title: string, content: string }[] = [
+    { "id": 1, "title": "Faire les courses", "content": "Acheter de quoi faire une bonne raclette. Diversifier les types de fromages." },
+    { "id": 2, "title": "Faire du sport", "content": "Pensez à bien m'étirer avant de commencer, pour éviter toute courbature ou fracture." },
+    { "id": 3, "title": "IUT", "content": "Préparer la soutenance de stage et contacter mon tuteur." }
+  ];
+  note: Note;
+  constructor(private route: ActivatedRoute) {
+    // Initialisation d'une note à vide
+    this.note = {
+      id: '',
+      title: '',
+      content: ''
+    };
+  }
+
+  ngOnInit() {
+    // On récupère l'identifiant de la
+    let noteId = this.route.snapshot.paramMap.get('id');
+    this.note = this.getNoteById(noteId);
+  }
+
+  /**
+  ** Renvoie une note en fonction de son identifiant
+  ** @param id : identifiant de la note
+  **/
+  getNoteById(id) {
+    // La méthode find va rerchercher la première note dont l'identifiant est égal à id
+    return this.notes.find(function(note) {
+      return note.id == parseInt(id);
+    });
+  }
+
+}
+
+```
+
+On importe tout d'abord la class ActivatedRoute, qui va nous permettre de récupérer l'Identifiant de la note à partir de l'url.
+
+```js
+// On importe cette classe
+import { ActivatedRoute } from '@angular/router';
+```
+
+On déclare ensuite d'abord une interface qui va nous permettre de caractériser notre note : un objet possédant un identifiant \(id\) un titre \(title\) et du contenu \(content\).
+
+```js
+// Cette interface permet de caractériser un objet note
+interface Note {
+  id: number;
+  title: string;
+  content: string;
+}
+```
+
+cd 
+
+
+
+
 
