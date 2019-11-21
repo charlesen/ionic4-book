@@ -54,17 +54,16 @@ Il est possible de customiser un bouton grâce à de nombreuses [directives, con
 <ion-button size="large">Taille large</ion-button>
 <ion-button>Taille par défaut</ion-button>
 <ion-button size="small">Petite taille</ion-button>
-
 ```
 
+![](/assets/ionic_composant_bouton.png)
 
-
-on peut également retirer le background pour n'afficher que la bordure dans la couleur définie grâce à la directive **fill="outline"** :
+on peut ainsi retirer le background pour n'afficher que la bordure dans la couleur définie grâce à la directive **fill="outline"** :
 
 ```html
 <ion-header>
 
-  <ion-navbar color="ducknote">
+  <ion-navbar color="duckcoin">
     <ion-title>Ma Page</ion-title>
   </ion-navbar>
 
