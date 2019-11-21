@@ -18,8 +18,9 @@ Ajustez votre code de façon à obtenir le résultat suivant :
 | :--- | :--- |
 | ![](/assets/ducknote_login_1.png) | ![](/assets/page_accueil.png) |
 
-
 3\) Modifier la page de routage pour faire de la page de Login la page par défaut
+
+[http://localhost:8100/](http://localhost:8100/) Redirige vers [http://localhost:8100/login](http://localhost:8100/)
 
 4\) Mettez en place le système de gards présenté dans ce chapitre.
 
@@ -28,3 +29,4 @@ $ ionic g guard guards/auth
 ```
 
 Faites en sorte qu'on ne puisse afficher la page d'accueil qu'à la seule condition d'être «connecté»
+
