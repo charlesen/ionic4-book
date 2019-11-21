@@ -2,6 +2,8 @@
 
 1\) Créez la page Note comme expliqué précédemment.
 
+![](/assets/ducknote_note_details.png)
+
 2\) Créez la page **Profile** précédente et configurez là pour quelle soit dans le thème de l'application. Corrigez les bugs éventuels.
 
 Ajustez les fichiers **src/app/app.component.t**s et **src/app/app.component.html** pour obtenir le résultat suivant :
