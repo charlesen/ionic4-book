@@ -64,7 +64,17 @@ _**"g"**_ pour _**"generate"**_.
 
 Dans cet exemple, j'ai créé une nouvelle page qui va nous permettre d'afficher un profil utilisateur. Cette commande m'a automatiquement générer un certain nombre de fichiers dont le triplet : **fichier .ts + fichier .html + fichier .scss**.
 
-![](/assets/screen_22.png)
+```bash
+$ ls -al src/app/profile/
+total 24
+drwxrwxr-x 2 charles charles 4096 nov.  18 17:00 .
+drwxrwxr-x 5 charles charles 4096 nov.  18 17:00 ..
+-rw-rw-r-- 1 charles charles  548 nov.  18 17:00 profile.module.ts
+-rw-rw-r-- 1 charles charles 1020 nov.  18 17:36 profile.page.html
+-rw-rw-r-- 1 charles charles    0 nov.  18 17:00 profile.page.scss
+-rw-rw-r-- 1 charles charles  698 nov.  18 17:00 profile.page.spec.ts
+-rw-rw-r-- 1 charles charles  260 nov.  18 17:00 profile.page.ts
+```
 
 **src/app/profile/profile.page.ts**
 
@@ -123,5 +133,5 @@ const routes: Routes = [
 ];
 ```
 
-Allez à l'adresse : [http://localhost:8200/profile](http://localhost:8200/profile) pour afficher votre page de profil.
+Allez à l'adresse : [http://localhost:8100/profile](http://localhost:8100/profile) pour afficher votre page de profil.
 
