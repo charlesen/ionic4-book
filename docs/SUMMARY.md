@@ -28,7 +28,7 @@
   * [Exercez-vous](chap4/chap4-6.md)
 * [Chap 5 - Système de routage](chap5/README.md)
   * [Principes de base](chap5/chap5-1.md)
-  * [N avigation entre les pages](chap5/chap5-2.md)
+  * [Navigation entre les pages](chap5/chap5-2.md)
   * [Exercez-vous](chap5/chap5-6.md)
 * [Chap 6 - Persistance des données](chap6/README.md)
   * [Ionic storage](chap6/chap6-1.md)
