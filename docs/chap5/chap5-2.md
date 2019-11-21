@@ -60,17 +60,14 @@ Editons à présent la page de Login, de manière à être redirigé vers la pag
     Se connecter
   </ion-button>
 </ion-content>
-
 ```
-
-
 
 En cliquant sur le bouton de Connexion, on est tout de suite redirigé vers la page. la directive _**routerDirection="root"**_ permet une animation de faire une animation de type "changement de page principale" entre les pages. On aurait également utiliser les valeurs suivantes :
 
 * _routerDirection="forward"_ : fondu en entrée
-* _routerDirection="backward" : _fondu en sortie
+* \_routerDirection="backward" : \_fondu en sortie
 
+![](/assets/ducknote_login_1.png)
 
-
-
+cd
 
