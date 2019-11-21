@@ -79,5 +79,5 @@ Pour le moment la page d'accueil reste quand même la page par défaut.Nous allo
 
 ### Protection de pages avec les Guards angular
 
-u
+Il est souvent nécessaire de protéger certains contenus et ne les afficher que selon certaines conditions : utilisateur connecté, abonnement, ... Dans ce cas, Angular propose une solution très pratique appelée Guards. Ceux-ci vont permettre de contrôler l'accès à une "route" particulière ou le fait de passer d'une route à une autre  \(sortie d'un formulaire non enregistré, perte de connection au moment de la validation d'une action,...\).
 
