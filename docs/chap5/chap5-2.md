@@ -173,8 +173,9 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     canActivate: [AuthGuard]
   },
-  // ... Autres routes....
   
+  // ... Autres routes....
+
 ];
 
 @NgModule({
@@ -184,7 +185,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 ```
 
 Dans cette nouvelle configuration, nous interdisons tout accès à la page d'accueil si l'on est pas connecté \(userAuthenticated à false\).
