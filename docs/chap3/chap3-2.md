@@ -207,7 +207,23 @@ Ce qui donne le résultat suivant :
 
 ![](/assets/ducknote_list.png)
 
-Pour l'instant on affiche simplement dans la _vue html_ \(_**src/app/home/home.page.html**_\), les notes que nous avons définie dans le _controleur_ de la page \(_**src/app/home/home.page.ts**_\). 
+Pour l'instant on affiche simplement dans la _vue html_ \(_**src/app/home/home.page.html**_\), les notes que nous avons définie dans le _controleur_ de la page \(_**src/app/home/home.page.ts**_\).
 
-Mais nous souhaitons aussi pouvoir cliquer sur une note pour en afficher les détails. Pour cela, nous allons créer une nouvelle page que nous nommerons simplement Note, qui permettra d'effectuer ces actions.
+Mais nous souhaitons aussi pouvoir cliquer sur une note pour en afficher les détails. Pour cela, nous allons créer une nouvelle page que nous nommerons simplement **Note**, qui permettra d'effectuer ces actions.
+
+Depuis votre invite de commandes, faites ceci :
+
+```
+$ ionic g page Note
+
+CREATE src/app/note/note.module.ts (533 bytes)
+CREATE src/app/note/note.page.scss (0 bytes)
+CREATE src/app/note/note.page.html (123 bytes)
+CREATE src/app/note/note.page.spec.ts (677 bytes)
+CREATE src/app/note/note.page.ts (248 bytes)
+UPDATE src/app/app-routing.module.ts (753 bytes)
+[OK] Generated page!
+```
+
+Notre page a correctement été créé, et la page de routage a automatiquement été mise à jour
 
