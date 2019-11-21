@@ -62,7 +62,7 @@ Editons à présent la page de Login, de manière à être redirigé vers la pag
 </ion-content>
 ```
 
-En cliquant sur le bouton de Connexion, on est tout de suite redirigé vers la page. la directive _**routerDirection="root"**_ permet une animation de faire une animation de type "changement de page principale" entre les pages. On aurait également utiliser les valeurs suivantes :
+En cliquant sur le bouton **"Se connecter"**, on est tout de suite redirigé vers la page, presque sans transition. C'est la directive _**routerDirection="root"**_ qui permet cette animation de type "changement de page principale" entre les pages. On aurait pu également utiliser les transition forward et backward suivantes :
 
 * _routerDirection="forward"_ : fondu en entrée
 * \_routerDirection="backward" : \_fondu en sortie
