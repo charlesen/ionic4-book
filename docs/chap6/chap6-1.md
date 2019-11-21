@@ -87,7 +87,7 @@ export class MyApp {
 
   // On peut récupérer des valeurs
   storage.get('age').then((age) => {
-    console.log(`J'ai ${age} an`);
+    console.log(`J'ai ${age} ans`);
   });
 }
 ```
