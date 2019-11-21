@@ -177,6 +177,7 @@ Il est également possible de créer sa propre couleur. Définissons par exemple
 
 ```css
 /** Ionic CSS Variables **/
+/* root Permet d'appliquer le style à tous les OS */
 :root {
 
   /** ducknote **/
@@ -190,7 +191,30 @@ Il est également possible de créer sa propre couleur. Définissons par exemple
   /** .... **/
 ```
 
-Vous devez ensuite appeler cette couleur dans le fichier scss de votre page \(**src/app/mapage/home.page.scss**\) ou alors dans le fichier **global.scss** si vous souhaitez utiliser cette couleur n'importe où dans l'application.
+Toutes les définitions de style dans le sélecteur **:root** s'appliqueront à tous les systèmes d'exploitation \(android, ios\). Il est aussi possible de spécifier un style par OS.
+
+```css
+/* S'appliquera à tous les OS */
+:root {
+  /* On applique une couleur d'arrière-plan à l'ensemble de l'application */
+  --ion-background-color: #ff3700;
+
+  /* On applique une police de caractère à toute l'application */
+  --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+}
+
+/* S'appliquera uniquement aux smartphones iOS */
+.ios {
+  --ion-text-color: #000;
+}
+
+/* S'appliquera uniquement aux smartphones Android  */
+.md {
+  --ion-text-color: #222;
+}
+```
+
+Une fois votre couleur définie dans le fichier **variables.scss **, vous devez ensuite l'appeler dans le fichier scss de votre page \(**src/app/mapage/home.page.scss**\) ou alors dans le fichier **global.scss** si vous souhaitez utiliser cette couleur n'importe où dans l'application.
 
 **src/app/home/home.page.scss**
 
@@ -249,37 +273,11 @@ Vous êtes tout à fait libre de mettre les codes couleurs de votre choix. Et po
 
 ![](/assets/ionic_color_generator.png)
 
-Une fois la modification, vous n'avez plus qu'à ajouter les codes générés dans le fichier variables.scss :
+Une votre couleur générée, il ne vous suffira plus qu'à la rajouter au fichier variables.scss, ainsi que dans le fichier scss de la page de votre choix.
 
-**src/theme/variables.scss**
+Il est également possible de définir des variables dans le fichier **src/theme/variables.scss**, puis de l'utiliser dans d'autres fichiers scss. Une variable commence toujours par un signe dollar \($\) et est initialisé comme une propriété CSS classique.
 
-Il est également possible d'appeler des variables définis dans ce fichier **src/theme/variables.scss** directement dans nos fichiers scss. Changeons par exemple la couleur du bouton présent dans l'onglet Profil :
-
-**src/app/profile/profile.scss**
-
-```html
-page-profile {
-  [ion-button] {
-    background: color($colors, duckcoin, base);
-  }
-}
-```
-
-qui est l'équivalent css de :
-
-```js
-page-profile {
-  [ion-button] {
-    background: #df4932;
-  }
-}
-```
-
-![](/assets/screenprofile_1.png)
-
-De manière générale, les Variables Sass vous permettent de définir une valeur une fois, puis de l'utiliser à plusieurs endroits différents. Une variable commence toujours par un signe dollar \($\) et est initialisé comme une propriété CSS classique.
-
-Supposons par exemple que l'on souhaite imposer une largeur maximale sur un certain nombre de composants de notre application \(des images, boutons,...\). On pourrait par exemple faire ceci dans le fichier variables.css :
+Supposons par exemple que l'on souhaite imposer une largeur maximale à un certain nombre de composants de notre application \(des images, boutons,...\). On pourrait par exemple faire ceci dans le fichier variables.css :
 
 **src/theme/variables.scss**
 
