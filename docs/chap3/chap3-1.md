@@ -209,7 +209,6 @@ Vous devez ensuite appeler cette couleur dans le fichier scss de votre page \(**
   --ion-color-shade: var(--ion-color-ducknote-shade);
   --ion-color-tint: var(--ion-color-ducknote-tint);
 }
-
 ```
 
 **src/global.scss**
@@ -226,10 +225,9 @@ Vous devez ensuite appeler cette couleur dans le fichier scss de votre page \(**
   --ion-color-shade: var(--ion-color-ducknote-shade);
   --ion-color-tint: var(--ion-color-ducknote-tint);
 }
-
 ```
 
-Une fois votre couleur définit dans votre fichier scss, il vous suffira de l'appler dans le composant[^1] de votre choix. 
+Une fois votre couleur définit dans votre fichier scss, il vous suffira de l'appler dans le composant[^1] de votre choix.
 
 Modifions par exemple la couleur du composant _barre de navigation_ de la page d'accueil:
 
@@ -243,17 +241,15 @@ Modifions par exemple la couleur du composant _barre de navigation_ de la page d
 </ion-header>
 ```
 
-Ici la barre de navigation aura comme couleur de fond \(background\) du jaune \(**\#f1b004** ou **244, 244, 244**\) et comme couleur de texte du noir \(**\#000000** ou **0,0,0** en RGB\). 
+Ici la barre de navigation aura comme couleur de fond \(background\) du jaune \(**\#f1b004** ou **244, 244, 244**\) et comme couleur de texte du noir \(**\#000000** ou **0,0,0** en RGB\).
 
-Vous êtes tout à fait libre de mettre les codes couleurs de votre choix. Et pour générer de manière plus efficace vos thèmes, vous pouvez utiliser l'outil que propose Ionic sur son site internet : [https://ionicframework.com/docs/theming/colors\#new-color-creator](https://ionicframework.com/docs/theming/colors#new-color-creator) : 
+Vous êtes tout à fait libre de mettre les codes couleurs de votre choix. Et pour générer de manière plus efficace vos thèmes, vous pouvez utiliser l'outil que propose Ionic sur son site internet : [https://ionicframework.com/docs/theming/colors\#new-color-creator](https://ionicframework.com/docs/theming/colors#new-color-creator) :
 
 ![](/assets/ionic_color_generator.png)
 
-Une fois la modification, vous n'avez plus qu'à ajouter les codes générés dans le fichier variables.scss : 
+Une fois la modification, vous n'avez plus qu'à ajouter les codes générés dans le fichier variables.scss :
 
 **src/theme/variables.scss**
-
-
 
 Il est également possible d'appeler des variables définis dans ce fichier **src/theme/variables.scss** directement dans nos fichiers scss. Changeons par exemple la couleur du bouton présent dans l'onglet Profil :
 
@@ -305,7 +301,5 @@ img {
 }
 ```
 
-
-
-[^1]: Nous étudierons la notion de composant plus loin dans ce livre.
+[^1]: Nous étudierons la notion de composant au chapitre 4.
 
