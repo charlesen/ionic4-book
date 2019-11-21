@@ -6,19 +6,58 @@ Pour ajouter un composant de type bouton à votre application mobile, il suffit 
 <ion-button>Mon bouton</ion-button>
 ```
 
-Tada ! Ce n'est pas plus compliqué que ça. Il s'agit en fait d'un élément html button avec un attribut ionic **ion-button **qui permettent simple de rajouter du style css.
+Voilà. C'est tout.
 
-On peut aussi customiser un peu ce bouton grâce à des [directives, concept abordé au chapitre 8](/chap8). Ajustons par exemple la couleur des différents boutons grâce à la directive **"color"**:
+Il est possible de customiser un bouton grâce à de nombreuses [directives, concept abordé au chapitre 8](/chap8).  :
 
 ```html
-<ion-button color="light">Mon bouton clair</ion-button>
-<ion-button>Mon bouton par défaut (primary)</ion-button>
-<ion-button color="secondary">Mon bouton avec couleur secondaire</ion-button>
-<ion-button color="danger">Mon bouton rouge</ion-button>
-<ion-button color="dark">Mon bouton noir</ion-button>
+<!-- Composant Bouton -->
+
+<h2 class="ion-text-center">Le bouton dans tous ses états</h2>
+<ion-button>Mon bouton</ion-button>
+
+<!-- Un bouton avec un lien -->
+<ion-button href="/monlien">Un Lien fort</ion-button>
+
+<!-- Un bouton avec la couleur primary -->
+<ion-button color="primary">Couleur primary</ion-button>
+
+<!-- Un bouton qui occupe toute la largeur -->
+<ion-button expand="full">Bouton sur toute la largeur</ion-button>
+
+<!-- Un bouton arrondi -->
+<ion-button shape="round">Bouton rond</ion-button>
+
+<!-- Un bouton avec une icône à gauche -->
+<ion-button>
+  <ion-icon slot="start" name="star"></ion-icon>
+  Une icone de gauche
+</ion-button>
+
+<!-- Un bouton avec une icône à droite -->
+<ion-button>
+  Une icone de droite
+  <ion-icon slot="end" name="star"></ion-icon>
+</ion-button>
+
+<!-- Un bouton avec une icône uniquement -->
+<ion-button>
+  <ion-icon slot="icon-only" name="star"></ion-icon>
+</ion-button>
+
+<!-- Fill -->
+<ion-button expand="full" fill="outline">Sans couleur de fond + Sur toute la largeur</ion-button>
+<ion-button expand="block" fill="outline">Sans couleur de fond + Bloc en Pleine largeur</ion-button>
+<ion-button shape="round" fill="outline">Sans couleur de fond + Rond</ion-button>
+
+<!-- différentes tailles de boutons -->
+<ion-button size="large">Taille large</ion-button>
+<ion-button>Taille par défaut</ion-button>
+<ion-button size="small">Petite taille</ion-button>
+
 ```
 
-![](/assets/composant_boutons_1.png)
+
 
 on peut également retirer le background pour n'afficher que la bordure dans la couleur définie grâce à la directive **fill="outline"** :
 
