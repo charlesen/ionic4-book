@@ -127,7 +127,7 @@ Ionic propose également un système de grille css pour permettre une meilleur g
 
 ![](/assets/ionic_demo_grid_1.png)
 
-Pour plus de détails, vous pouvez consulter la documentation correspondante : [https://ionicframework.com/docs/theming/responsive-grid/](https://ionicframework.com/docs/theming/responsive-grid/)
+Pour plus de détails, vous pouvez consulter la documentation correspondante : [https://ionicframework.com/docs/layout/grid](https://ionicframework.com/docs/layout/grid)
 
 ### Utilisation de SASS
 
