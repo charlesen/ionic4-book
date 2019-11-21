@@ -40,5 +40,31 @@ $ npm install --save @ionic/storage
 
 Editez ensuite le fichier **src/app/app.module.ts** :
 
+```js
+//...Autres imports...
 
+// Import du module de Storage ICi
+import { IonicStorageModule } from '@ionic/storage';
+
+
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot() // Ajout du module de storage ici
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+cd
 
