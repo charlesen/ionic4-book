@@ -30,7 +30,7 @@ $ ionic g guard guards/auth
 
 Faites en sorte qu'on ne puisse afficher la page d'accueil qu'à la seule condition d'être «connecté»
 
-5\) Nous allons à présent installer le module Ionic Storage pour sauvegarder l'état de connexion en base de donnée. 
+5\) Nous allons à présent installer le module Ionic Storage pour sauvegarder l'état de connexion en base de donnée.
 
 Pour cela, saisissez les commandes suivantes depuis votre terminal:
 
@@ -67,6 +67,11 @@ import { IonicStorageModule } from '@ionic/storage';
 })
 export class AppModule {}
 ```
+
+Nous allons à présent modifier l'action qui s'effectuer au clic sur le bouton de connexion pour dans l'ordre :
+
+* Sauvegarder le statut de connexion de l'utilisateur
+* Rediriger ensuite vers la page d'accueil
 
 
 
