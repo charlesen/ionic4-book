@@ -278,23 +278,28 @@ Supposons par exemple que l'on souhaite imposer une largeur maximale à un certa
 
 **src/theme/variables.scss**
 
-```html
-$max-width: 400px;
+```css
+:root {
+
+
+  --maxWidth: 800px;
+  
+  /** ... **/
 ```
 
 Puis dans une ou plusieurs feuilles de style scss invoquer notre variable :
 
-```html
+```css
 div {
-    width:$max-width;
+    width:var(--maxWidth);
 }
 ```
 
 On pourrait même faire des calculs sur la variable  :
 
-```html
+```css
 img {
-    width : $max-width/10;
+    width:var(--maxWidth)/5;
 }
 ```
 
