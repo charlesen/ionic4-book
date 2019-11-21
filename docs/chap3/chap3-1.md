@@ -283,11 +283,11 @@ Supposons par exemple que l'on souhaite imposer une largeur maximale à un certa
 
 
   --maxWidth: 800px;
-  
+
   /** ... **/
 ```
 
-Puis dans une ou plusieurs feuilles de style scss invoquer notre variable :
+Puis dans une ou plusieurs feuilles de style scss invoquer notre variable avec la méthode var[^2] :
 
 ```css
 div {
@@ -304,4 +304,6 @@ img {
 ```
 
 [^1]: Nous étudierons la notion de composant au chapitre 4.
+
+[^2]: La fonction var\(\) permet d'insérer la valeur d'une propriété personnalisée \(custom property\) à l'intérieur d'un style css. Pour plus d'information, vous pouvez consulter la documentation en ligne : https://developer.mozilla.org/fr/docs/Web/CSS/var\(\) 
 
