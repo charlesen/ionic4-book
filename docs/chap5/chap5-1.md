@@ -28,7 +28,6 @@ Lorsque vous lancez une application Ionic, c'est le fichier **src/index.hmlt** q
 </body>
 
 </html>
-
 ```
 
 Ce point d'entrée de l'application permet de préciser  l'URL de base à utiliser pour recomposer toutes les URL relatives contenues dans l'application.
@@ -37,15 +36,25 @@ Ce point d'entrée de l'application permet de préciser  l'URL de base à utilis
 <base href="/" />
 ```
 
-On appelle ensuite le composant root dans le corps de la page html :
+On appelle ensuite le composant **AppComponent** dans le corps de la page html :
 
 ```html
 <app-root></app-root>
 ```
 
+Ce composant est lui-même définit dans le fichier **src/app/app.component.ts** :
 
-
-
+```js
+@Component({
+  selector: 'app-root', // Il ne vous dit rien ce selecteur ?
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
+})
+export class AppComponent {
+  public appPages = [
+  ...
+  ];
+```
 
 Pour plus d'information sur le routage Angular, n'hésitez pas à consulter les documentations officielles :
 
