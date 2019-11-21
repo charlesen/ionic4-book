@@ -73,5 +73,77 @@ Nous allons à présent modifier l'action qui s'effectuer au clic sur le bouton 
 * Sauvegarder le statut de connexion de l'utilisateur
 * Rediriger ensuite vers la page d'accueil
 
+Dans le fichier **src/app/login/login.page.html**, apportez les ajustements suivants :
+
+```html
+<ion-header>
+  <ion-toolbar color="ducknote">
+    <ion-title>Ducknote</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Connexion</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="ion-text-center">
+    Bienvenue sur DuckNote : <br />
+    Le pense-bête qu'il vous faut !
+  </ion-card-content>
+</ion-card>
+
+  <!-- <ion-button expand="block" routerLink="/home" routerDirection="root" color="ducknote">
+    Se connecter
+  </ion-button> -->
+  
+  <ion-button expand="block" color="ducknote" (click)="login()">
+    Se connecter
+  </ion-button>
+  
+</ion-content>
+
+```
+
+Puis le fichier **src/app/login/login.page.ts**
+
+```js
+import { Component, OnInit } from '@angular/core';
+
+// On importer le router + module de stockage
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+})
+export class LoginPage implements OnInit {
+
+  constructor(private router: Router, private storage: Storage) { }
+
+  ngOnInit() {}
+
+  /**
+  ** Permet de stocker l'état de connexion + Redirection vers la page d'accueil
+  **/
+  login() {
+    
+    // Sauvegarde de l'état de connexion
+    storage.set('userAuthenticated', true);
+
+    // Redirection vers la page d'accueil
+    this.router.navigate(['/home']);
+  }
+
+}
+```
+
+6\) Nous allons faire en sorte que le gards que nous avons créé plus haut prenne en cpmpte l'état de connexion de l'utilisateur stockée en base de données. Modifions le fichier comme ceci : 
+
+
+
 
 
