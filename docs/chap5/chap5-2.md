@@ -71,9 +71,8 @@ Comme prévu, en affichant la page de login \([http://localhost:8100/login](http
 
 | Page de login | Page d'accueil |
 | :--- | :--- |
-|  | ![](/assets/page_accueil.png) |
+|  ![](/assets/ducknote_login_1.png)| ![](/assets/page_accueil.png) |
 
-![](/assets/ducknote_login_1.png)
+
 
 cd
-
