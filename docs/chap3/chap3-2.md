@@ -135,7 +135,7 @@ const routes: Routes = [
 
 Allez à l'adresse : [http://localhost:8100/profile](http://localhost:8100/profile) pour afficher votre page de profil.
 
-### Création d'une page d'une page de consultation des notes
+### Création d'une page de consultation des notes
 
 Modifions un peu notre page d'accueil pour qu'elle affiche un ensemble de notes statiques et non persistantes pour le moment \(nous verrons plus tard comment créer des notes, les sauvegarder ou les supprimer\).
 
@@ -361,7 +361,7 @@ interface Note {
 
 Dans la classe NotePage, on redéclare à nouveau la variables notes contenant un tableau de notes \(le même que celui en page d'accueil\). Plus tard, lorsque nous aborderons les notions de services et de persistance de données, nous n'aurons plus besoin doublonner cette variable.
 
-On déclare également un objet note du type de l'interface Note. 
+On déclare également un objet note du type de l'interface Note.
 
 ```js
 // Cette déclaration ne sera plus nécessaire lorsque l'on utilisera les services et la persistance des données
@@ -407,8 +407,6 @@ ngOnInit() {
   }
 ```
 
-
-
 Il ne reste plus qu'à modifier le fichier html, pour afficher les données de la note :
 
 **src/app/note/note.page.html**
@@ -426,7 +424,6 @@ Il ne reste plus qu'à modifier le fichier html, pour afficher les données de l
 <ion-content class="ion-padding">
   {{note.content}}
 </ion-content>
-
 ```
 
 On obtient le résulat suivant :

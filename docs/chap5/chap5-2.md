@@ -1,5 +1,7 @@
 ## Navigation entre les pages
 
+### Ajout de nouvelles pages et navigation entre elles
+
 Parce qu'une seule page  ne suffit pas toujours à faire une application, nous en avons besoin de plus ! Pour ce faire, vous pouvez utiliser l'outil en ligne de commande de Ionic, qui est une extension de celui proposé par Angular. Mais rien ne vous empêche de créer votre page manuellement, même si je ne conseille pas cette méthode.
 
 Créons donc nos pages en ligne de commande :
@@ -67,12 +69,15 @@ En cliquant sur le bouton **"Se connecter"**, on est tout de suite redirigé ver
 * _routerDirection="forward"_ : fondu en entrée
 * routerDirection="back" :  fondu en sortie
 
-Comme prévu, en affichant la page de login \([http://localhost:8100/login](http://localhost:8100/login)\) et en cliquant sur le bouton _**"Se connecter**", _on arrive bien sur la page d'accueil.
+Comme prévu, en affichant la page de login \([http://localhost:8100/login](http://localhost:8100/login)\) et en cliquant sur le bouton \_**"Se connecter**", \_on arrive bien sur la page d'accueil.
 
 | Page de login | Page d'accueil |
 | :--- | :--- |
-|  ![](/assets/ducknote_login_1.png)| ![](/assets/page_accueil.png) |
+| ![](/assets/ducknote_login_1.png) | ![](/assets/page_accueil.png) |
 
+Pour le moment la page d'accueil reste quand même la page par défaut.Nous allons pouvoir faire en sorte que la page par défaut soit désormais la page de login. Pour cela, modifions notre table de routage comme ceci :
 
+### Protection de pages avec les Guards angular
 
-cd
+u
+
