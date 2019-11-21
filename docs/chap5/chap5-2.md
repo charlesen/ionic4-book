@@ -67,6 +67,12 @@ En cliquant sur le bouton **"Se connecter"**, on est tout de suite redirigé ver
 * _routerDirection="forward"_ : fondu en entrée
 * routerDirection="back" :  fondu en sortie
 
+Comme prévu, en affichant la page de login \([http://localhost:8100/login](http://localhost:8100/login)\) et en cliquant sur le bouton _**"Se connecter**", _on arrive bien sur la page d'accueil.
+
+| Page de login | Page d'accueil |
+| :--- | :--- |
+|  | ![](/assets/page_accueil.png) |
+
 ![](/assets/ducknote_login_1.png)
 
 cd
