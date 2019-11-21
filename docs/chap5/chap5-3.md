@@ -30,7 +30,9 @@ $ ionic g guard guards/auth
 
 Faites en sorte qu'on ne puisse afficher la page d'accueil qu'à la seule condition d'être «connecté»
 
-5\) Depuis votre terminal, saisissez les commandes suivantes :
+5\) Nous allons à présent installer le module Ionic Storage pour sauvegarder l'état de connexion en base de donnée. 
+
+Pour cela, saisissez les commandes suivantes depuis votre terminal:
 
 ```
 $ ionic integrations enable cordova --add
@@ -66,5 +68,5 @@ import { IonicStorageModule } from '@ionic/storage';
 export class AppModule {}
 ```
 
-cd
+
 
