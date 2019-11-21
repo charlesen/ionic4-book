@@ -8,21 +8,23 @@ Notre application commence à prendre forme. N'hésitez pas à revenir sur les n
 $ ionic g page login
 ```
 
-Ajustez votre code de façon à obtenir le résultat suivant : 
+Ajustez votre code de façon à obtenir le résultat suivant :
 
 ![](/assets/ducknote_login_1.png)
 
 2\) Faites en sorte qu'au clic sur le bouton "Se connecter" on puisse accéder à la page d'accueil.
 
+| Page de login | Page d'accueil |
+| :--- | :--- |
+| ![](/assets/ducknote_login_1.png) | ![](/assets/page_accueil.png) |
 
 
 3\) Modifier la page de routage pour faire de la page de Login la page par défaut
 
-4\) Mettez en place le système de gards présenté dans ce chapitre. 
+4\) Mettez en place le système de gards présenté dans ce chapitre.
 
 ```
 $ ionic g guard guards/auth
 ```
 
 Faites en sorte qu'on ne puisse afficher la page d'accueil qu'à la seule condition d'être «connecté»
-
