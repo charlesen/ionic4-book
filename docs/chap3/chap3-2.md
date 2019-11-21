@@ -162,7 +162,6 @@ export class HomePage {
   }
 
 }
-
 ```
 
 Nous avons simplement défini une variable nommée _**notes**_, de type tableau et contenant, comme vous vous en doutez, des notes.
@@ -171,7 +170,7 @@ Puis dans le fichier html, apportons les modifications suivantes dans le composa
 
 **src/app/home/home.page.html**
 
-```js
+```html
 <!-- ...Le header ne change pas -->
 
 <!-- ...Modification du contenu de la page -->
@@ -187,7 +186,7 @@ Puis dans le fichier html, apportons les modifications suivantes dans le composa
       <p>Notez tout ce qui vous passe par la tête. Ajoutez des notes, des listes, des photos et des contenus audio.</p>
     </ion-card-content>
   </ion-card>
-  
+
 <!-- ...On rajoute nos notes ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
 
   <ion-card *ngFor="let note of notes">
@@ -202,14 +201,7 @@ Puis dans le fichier html, apportons les modifications suivantes dans le composa
   <!-- ...le reste de la page -->
 
 </ion-content>
-
 ```
-
-
-
-
-
-
 
 
 
