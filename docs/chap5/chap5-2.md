@@ -65,7 +65,7 @@ Editons à présent la page de Login, de manière à être redirigé vers la pag
 En cliquant sur le bouton **"Se connecter"**, on est tout de suite redirigé vers la page, presque sans transition. C'est la directive _**routerDirection="root"**_ qui permet cette animation de type "changement de page principale" entre les pages. On aurait pu également utiliser les transition forward et backward suivantes :
 
 * _routerDirection="forward"_ : fondu en entrée
-* \_routerDirection="backward" : \_fondu en sortie
+* \_routerDirection="back" :  fondu en sortie
 
 ![](/assets/ducknote_login_1.png)
 
