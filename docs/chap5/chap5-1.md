@@ -46,7 +46,7 @@ Ce composant est lui-même définit dans le fichier **src/app/app.component.ts**
 
 ```js
 @Component({
-  selector: 'app-root', // Il ne vous dit rien ce selecteur ?
+  selector: 'app-root', // Il ne vous dit rien ce tag html (selecteur) ? 
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
