@@ -20,7 +20,7 @@ UPDATE src/app/app-routing.module.ts (1235 bytes)
 $ ionic g page pages/settings
 ```
 
-Ces nouvelles pages seront automatiquement ajouté à la table de routage de notre application : 
+Ces nouvelles pages seront automatiquement ajouté à la table de routage de notre application :
 
 **src/app/app-routing.module.ts**
 
@@ -30,12 +30,10 @@ Ces nouvelles pages seront automatiquement ajouté à la table de routage de not
 { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
 
 
-// ... 
+// ...
 ```
 
-Nous souhaitons faire en sorte qu'au démarrage de l'application on soit d'abord diriger vers la page de login, avant d'être redirigé vers la page d'accueil au clic sur le bouton de connexion.
-
-
+Editons à présent la page de Login, de manière à être redirigé vers la page d'accueil au clic sur le bouton de connexion : 
 
 
 
