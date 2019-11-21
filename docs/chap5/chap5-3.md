@@ -183,7 +183,7 @@ export class AuthGuard implements CanActivate {
 
 Voilà, désormais si vous avez cliqué sur le bouton de connexion et donc que vous êtes passé en mode «connecté», vous pourrez afficher la page d'accueil sans être redirigé vers la page de login.
 
-Une petite vérification depuis le navigateur chrome permet de voir la valeur stockée en base de données \(IndexedDB\) 
+Une petite vérification depuis le navigateur chrome permet de voir la valeur stockée en base de données \(IndexedDB\)
 
 ![](/assets/ionic_sql_indexeddb.png)
 
@@ -227,7 +227,6 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 }
-
 ```
 
 Puis le fichier html :
@@ -235,10 +234,19 @@ Puis le fichier html :
 **src/app/app.component.html**
 
 ```
+<ion-list>
+  <!-- ...Autres éléments de la liste --> 
 
+  <ion-menu-toggle auto-hide="false">
+    <ion-button expand="block" color="ducknote" (click)="logout()">
+      Se déconnecter
+    </ion-button>
+  </ion-menu-toggle>
+
+</ion-list>
 ```
 
+![](/assets/ducknote_logout.png)
+
 Cliquez sur le bouton de Déconnexion. Que se passe t-il ?
-
-
 
