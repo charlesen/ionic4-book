@@ -9,7 +9,7 @@ Il est également tout à fait possible préciser un tout ordre que celui par d�
 
 ### Installation et exemples d'utilisation
 
-Pour installer Ionic Storage, nous allons successivement les commandes suivantes :
+Pour installer Ionic Storage, nous allons saisir successivement les commandes suivantes :
 
 ```bash
 $ ionic cordova plugin add cordova-sqlite-storage
