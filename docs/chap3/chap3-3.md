@@ -2,9 +2,11 @@
 
 1\) Créez la page **Profile** précédente et configurez là pour quelle soit dans le thème de l'application. Corrigez les bugs éventuels.
 
-Ajustez les fichiers src/app/app.component.ts et src/app/app.component.html pour obtenir le résultat suivant : 
+Ajustez les fichiers **src/app/app.component.t**s et **src/app/app.component.html** pour obtenir le résultat suivant :
 
 ![](/docs/assets/screen_ducknote_menu.png)
+
+Ionic utilise la bibliothèque d'iĉones _**ionicons**_, dont la documentation est disponible à l'adresse : [https://ionicframework.com/docs/v3/ionicons/](https://ionicframework.com/docs/v3/ionicons/)
 
 2\) Ionic permet de modifier les styles de n'importe quel élément de notre application. Faites des modifications sur les propriétés suivantes depuis le fichier **src/theme/variables.scss** : _--ion-background-color_, _--ion-background-color-rgb_, _--ion-text-color, --ion-text-color-rgb_ et _--ion-toolbar-color._
 
