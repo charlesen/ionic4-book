@@ -167,7 +167,7 @@ C'est dans ce fichier que l'ont pourra apporter des changements sur les valeurs 
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
   --ion-color-tertiary-shade: #633ce0;
   --ion-color-tertiary-tint: #7e57ff;
-  
+
   /** ... **/
 ```
 
@@ -184,7 +184,7 @@ Il est également possible de créer sa propre couleur. Définissons par exemple
   --ion-color-ducknote-contrast-rgb: 0, 0, 0;
   --ion-color-ducknote-shade: #d7d8da;
   --ion-color-ducknote-tint: #f5f6f9;
-  
+
   /** .... **/
 ```
 
@@ -192,8 +192,8 @@ Il suffit ensuite d'appler cette couleur dans notre application, depuis la barre
 
 ```html
 <ion-header>
-  <ion-navbar color="duckcoin">
-    <ion-title>Duckcoin</ion-title>
+  <ion-navbar color="ducknote">
+    <ion-title>Ducknote</ion-title>
   </ion-navbar>
 </ion-header>
 ```
