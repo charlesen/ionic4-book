@@ -76,7 +76,7 @@ export class MaPage {
   // Sauvegarde la valeur du login
   storage.set('login', 'charles');
 
-  // On peut aussi stocker des éléments plus complexe
+  // On peut aussi stocker des éléments plus complexes
   let mesNotes = [
       { 'id': 1, 'title': 'Une note', 'content': 'son contenu' },
       { 'id': 2, 'title': 'Une note 2', 'content': 'son contenu 2' }
