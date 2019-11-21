@@ -33,7 +33,44 @@ Ces nouvelles pages seront automatiquement ajouté à la table de routage de not
 // ...
 ```
 
-Editons à présent la page de Login, de manière à être redirigé vers la page d'accueil au clic sur le bouton de connexion : 
+Editons à présent la page de Login, de manière à être redirigé vers la page d'accueil au clic sur le bouton de connexion :
+
+**src/app/login/login.page.html**
+
+```html
+<ion-header>
+  <ion-toolbar color="ducknote">
+    <ion-title>Ducknote</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Connexion</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="ion-text-center">
+    Bienvenue sur DuckNote : <br />
+    Le pense-bête qu'il vous faut !
+  </ion-card-content>
+</ion-card>
+
+  <ion-button expand="block" routerLink="/home" routerDirection="root" color="ducknote">
+    Se connecter
+  </ion-button>
+</ion-content>
+
+```
+
+
+
+En cliquant sur le bouton de Connexion, on est tout de suite redirigé vers la page. la directive _**routerDirection="root"**_ permet une animation de faire une animation de type "changement de page principale" entre les pages. On aurait également utiliser les valeurs suivantes :
+
+* _routerDirection="forward"_ : fondu en entrée
+* _routerDirection="backward" : _fondu en sortie
+
+
 
 
 
