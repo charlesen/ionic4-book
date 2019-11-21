@@ -173,7 +173,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     canActivate: [AuthGuard]
   },
-  
+
   // ... Autres routes....
 
 ];
@@ -214,12 +214,11 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    let userAuthenticated = false; // Pour le moment nous allons garder cette valeur à false
+    let userAuthenticated = true; // Pour le moment nous allons garder cette valeur à false
 
     if (userAuthenticated) {
-      // return true;
       // Déjà connecté : on redirige l'utilisateur vers la page d'accueil
-      this.router.navigate(['/home']);
+      return true;
     } else {
       // return false;
       // Non connecté : on redirige l'utilisateur vers la page de Login
@@ -227,6 +226,7 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+
 ```
 
 Voilà, on a désormais les bonnes redirections en fonction du statut de connexion. Beaucoup mieux.
