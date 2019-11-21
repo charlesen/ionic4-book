@@ -131,30 +131,64 @@ Pour plus de détails, vous pouvez consulter la documentation correspondante : [
 
 ### Utilisation de SASS
 
-Ionic est construit sur Sass \(Syntactically Awesome Stylesheets\), un langage de génération de feuilles de style, robuste et facile à prendre en main. En fait si vous savez déjà définir une feuille de style, ce langage ne vous choquera pas trop. Grâce à cette technologie embarquée dans Ionic, nous allons non seulement pouvoir définir des styles génériques pour notre application, qui pourront être utilisé à plusieurs endroits différents, mais nous pourrons également changer les styles par défaut des attributs et composants Ionic.
+Ionic utilise Sass \(Syntactically Awesome Stylesheets\) pour sa gestion de styles CSS. Sass est un langage de génération de feuilles de style, robuste et facile à prendre en main. En fait si vous savez déjà définir une feuille de style, ce langage ne vous choquera pas trop. Grâce à cette technologie embarquée dans Ionic, nous allons non seulement pouvoir définir des styles génériques pour notre application, qui pourront être utilisé à plusieurs endroits différents, mais nous pourrons également changer les styles par défaut des attributs et composants Ionic.
 
-La définition ou la redéfinition de style css dynamique se fait depuis le fichier **src/theme/variables.scss** :
+La définition ou la redéfinition de style css dynamique se fait depuis le fichier **src/theme/variables.scss. **
 
-```html
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
+C'est dans ce fichier que l'ont pourra apporter des changements sur les valeurs par défaut des thèmes de couleurs proposés par Ionic. Nos modifications pourront ensuite être appliquées automatiquement à l'ensemble de nos composants.
 
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
-  duckcoin:   #df4932 // Notre première valeur SASS
-);
+```css
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
+
+  /** tertiary **/
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
+  
+  /** ... **/
 ```
 
-Vous pouvez ici effectuer des changements sur les valeurs par défaut des thèmes primaire, secondaire, ...Et ils s'appliqueront automatiquement à l'ensemble de vos composants.
+Il est également possible de créer sa propre couleur. Définissons par exemple une nouvelle couleur que nous appellerons **ducknote**.
+
+```css
+/** Ionic CSS Variables **/
+:root {
+
+  /** ducknote **/
+  --ion-color-ducknote: #f1b004;
+  --ion-color-ducknote-rgb: 244, 244, 244;
+  --ion-color-ducknote-contrast: #000000;
+  --ion-color-ducknote-contrast-rgb: 0, 0, 0;
+  --ion-color-ducknote-shade: #d7d8da;
+  --ion-color-ducknote-tint: #f5f6f9;
+  
+  /** .... **/
+```
+
+Il suffit ensuite d'appler cette couleur dans notre application, depuis la barre de navigation par exemple :
 
 ```html
 <ion-header>
