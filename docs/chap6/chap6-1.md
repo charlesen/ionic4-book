@@ -9,7 +9,7 @@ Il est également tout à fait possible préciser un tout ordre que celui par d�
 
 ### Installation et exemples d'utilisation
 
-Pour installer Ionic Storage, nous allons successivement les commandes suivantes : 
+Pour installer Ionic Storage, nous allons successivement les commandes suivantes :
 
 ```bash
 $ ionic cordova plugin add cordova-sqlite-storage
@@ -43,9 +43,7 @@ import { IonicStorageModule } from '@ionic/storage';
 export class AppModule {}
 ```
 
-
-
-Si vous souhaitez adapter la configuration du module, vous pouvez le faire depuis le module principale \(AppModule\) : 
+Si vous souhaitez adapter la configuration du module, vous pouvez le faire depuis le module principale \(AppModule\) :
 
 ```js
 import { IonicStorageModule } from '@ionic/storage';
@@ -77,22 +75,22 @@ export class MyApp {
 
   // Sauvegarde la valeur du login
   storage.set('login', 'charles');
-  
+
   // On peut aussi stocker des éléments plus complexe
-  let mesNotes = [{'id':1, 'title':'Une note', 'content':'son contenu'}],
-                  {'id':2, 'title':'Une note 2', 'content':'son contenu 2'}]
+  let mesNotes = [
+      { 'id': 1, 'title': 'Une note', 'content': 'son contenu' },
+      { 'id': 2, 'title': 'Une note 2', 'content': 'son contenu 2' }
+    ];
 
-  storage.set('notes', mesNotes); 
+  storage.set('notes', mesNotes);
 
 
-  // On peut récupérer cette valeur
+  // On peut récupérer des valeurs
   storage.get('age').then((age) => {
     console.log(`J'ai ${age} an`);
   });
 }
 ```
-
-
 
 [^1]: Voir la documentation de LocalForage à cette adresse : [https://github.com/localForage/localForage\#configuration](https://github.com/localForage/localForage#configuration) 
 
