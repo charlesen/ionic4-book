@@ -274,22 +274,22 @@ Une votre couleur générée, il ne vous suffira plus qu'à la rajouter au fichi
 
 ### Variables de composants Ionic
 
-Ionic fournit des variables existant pour l'ensemble de ses composant. On retrouve des variable telles que --background pour ajuster l'arrière plan d'un composant ou encore  --color. La liste complète des propriétés personnalisées qu'un composant accepte est disponible à l'adresse [https://ionicframework.com/docs/api/](https://ionicframework.com/docs/api/) . 
+Ionic fournit des variables existant pour l'ensemble de ses composant. On retrouve des variable telles que --background pour ajuster l'arrière plan d'un composant ou encore  --color. La liste complète des propriétés personnalisées qu'un composant accepte est disponible à l'adresse [https://ionicframework.com/docs/api/](https://ionicframework.com/docs/api/) .
 
 Prenons par exemple les propriétés du bouton CSS.
 
 | Nom de la propriété \(variable\) | Description |
 | :--- | :--- |
-| --background	 | Permet de gérer l'arrière plan d'un bouton |
-| --background-activated	 | Arrière-plan du bouton lorsque l'on clic dessus |
-| --background-hover	 | Arrière-plan du bouton au survol |
-| --border-color	 | Couleur de bordure |
-| --color	 | Couleur du texte |
-| --color-activated	 | Couleur du texte au clic sur le bouton |
-| --padding-top	 | Padding du haut |
+| --background | Permet de gérer l'arrière plan d'un bouton |
+| --background-activated | Arrière-plan du bouton lorsque l'on clic dessus |
+| --background-hover | Arrière-plan du bouton au survol |
+| --border-color | Couleur de bordure |
+| --color | Couleur du texte |
+| --color-activated | Couleur du texte au clic sur le bouton |
+| --padding-top | Padding du haut |
 | ... | ... |
 
-Vous trouverez la liste de toutes les propriétés d'un bouton à l'adresse [https://ionicframework.com/docs/api/button\#css-custom-properties](https://ionicframework.com/docs/api/button#css-custom-properties)
+Vous trouverez la liste de toutes les propriétés d'un bouton à l'adresse [https://ionicframework.com/docs/api/button\#css-custom-properties](https://ionicframework.com/docs/api/button#css-custom-properties). 
 
 ### Création de variables personnalisées
 
@@ -326,5 +326,5 @@ img {
 
 [^1]: Nous étudierons la notion de composant au chapitre 4.
 
-[^2]: La fonction var\(\) permet d'insérer la valeur d'une propriété personnalisée \(custom property\) à l'intérieur d'un style css. Pour plus d'information, vous pouvez consulter la documentation en ligne : [https://developer.mozilla.org/fr/docs/Web/CSS/var\(\](https://developer.mozilla.org/fr/docs/Web/CSS/var%28\)\) 
+[^2]: La fonction var\(\) permet d'insérer la valeur d'une propriété personnalisée \(custom property\) à l'intérieur d'un style css. Pour plus d'information, vous pouvez consulter la documentation en ligne : [https://developer.mozilla.org/fr/docs/Web/CSS/var\(\](https://developer.mozilla.org/fr/docs/Web/CSS/var%28%29\) 
 
