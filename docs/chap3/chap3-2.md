@@ -135,3 +135,81 @@ const routes: Routes = [
 
 Allez à l'adresse : [http://localhost:8100/profile](http://localhost:8100/profile) pour afficher votre page de profil.
 
+### Création d'une page d'une page de consultation des notes
+
+Modifions un peu notre page d'accueil pour qu'elle affiche un ensemble de notes statiques et non persistantes pour le moment \(nous verrons plus tard comment créer des notes, les sauvegarder ou les supprimer\).
+
+**src/app/home/home.page.ts**
+
+```js
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+  notes: { id: number, title: string, content: string }[] = [
+    { "id": 1, "title": "Faire les courses", "content": "Acheter de quoi faire une bonne raclette. Diversifier les types de fromages." },
+    { "id": 2, "title": "Faire du sport", "content": "Pensez à bien m'étirer avant de commencer, pour éviter toute courbature ou fracture." },
+    { "id": 3, "title": "IUT", "content": "Préparer la soutenance de stage et contacter mon tuteur." }
+  ];
+  constructor() { }
+
+  getNoteById(id) {
+    return this.notes.filter(note => note.id = id);
+  }
+
+}
+
+```
+
+Nous avons simplement défini une variable nommée _**notes**_, de type tableau et contenant, comme vous vous en doutez, des notes.
+
+Puis dans le fichier html, apportons les modifications suivantes dans le composant ion-content:
+
+**src/app/home/home.page.html**
+
+```js
+<!-- ...Le header ne change pas -->
+
+<!-- ...Modification du contenu de la page -->
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <img src="/assets/ducknote_hero.jpg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Pour ne rien oublier, où que vous soyez</ion-card-subtitle>
+      <ion-card-title>Essayez DuckNote</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Notez tout ce qui vous passe par la tête. Ajoutez des notes, des listes, des photos et des contenus audio.</p>
+    </ion-card-content>
+  </ion-card>
+  
+<!-- ...On rajoute nos notes ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
+
+  <ion-card *ngFor="let note of notes">
+    <ion-card-header>
+      <ion-card-title>{{note.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{note.content}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ...le reste de la page -->
+
+</ion-content>
+
+```
+
+
+
+
+
+
+
+
+
