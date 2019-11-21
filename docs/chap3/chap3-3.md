@@ -14,11 +14,13 @@ Pour plus d'informations, vous pouvez consulter la documentation complète à l'
 
 Que remarquez-vous ?
 
-2\) Dans la fonction **gotoHome**, remplacez **"push"** par **"setRoot" **: **this.navCtrl.setRoot\(UnePage\)**. Que constatez-vous ?
+3\) Dans la fonction **gotoHome**, remplacez **"push"** par **"setRoot" **: **this.navCtrl.setRoot\(UnePage\)**. Que constatez-vous ?
 
-3\) A l'aide des composants Ionic, créez une page de profil pour notre application. Laissez libre cours à votre imagination en vous inspirant des composants Ionic : [https://ionicframework.com/docs/components](https://ionicframework.com/docs/components)
+4\) A l'aide des composants Ionic, créez une page de profil pour notre application. Laissez libre cours à votre imagination en vous inspirant des composants Ionic : [https://ionicframework.com/docs/components](https://ionicframework.com/docs/components)
 
-4\) Testez d'autres composants
+5\) Testez d'autres composants
 
-5\) Créez une page Setting et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
+6\) Créez une page Setting et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
+
+7\) Testez votre application depuis Ionic Dev App.
 
