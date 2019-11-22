@@ -51,12 +51,11 @@ A partir de la documentation officielle \([https://angular.io/api/common/DatePip
 
 4\) Créez une page de login avec un nom d'utilisateur et un E-mail. Faites en sorte qu'elle soit la page par défaut. Mettez en place le système de Guards présenté au [chapitre 5](/chap5/README.md).
 
-4\) Comme avec les notes, mettez en place un Service pour la gestion des Tweets, qui va donc nous permettre :
+5\) Comme avec les notes, mettez en place un Service pour la gestion des Tweets, qui va donc nous permettre :
 
 * De créer de nouveaux tweets avec du texte et des images. Puis les stocker en base de données
 * D'afficher la liste de tous les derniers tweets
 * Afficher un tweet particulier
 * Supprimer un tweet
 
-5\) Testez votre application sur un device grâce à Ionic Dev App.
-
+6\) Testez votre application sur un device grâce à Ionic Dev App.
