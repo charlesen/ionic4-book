@@ -4,7 +4,10 @@
 
 ![](/assets/ducknote_note_details.png)
 
-2\) Créez la page **Profile** précédente et configurez là pour quelle soit dans le thème de l'application. Corrigez les bugs éventuels.
+2\) Créez la page **Profile** précédente et configurez là pour quelle soit dans le thème de l'application.
+Laissez libre cours à votre imagination en vous inspirant des composants Ionic : [https://ionicframework.com/docs/components](https://ionicframework.com/docs/components)
+
+Corrigez les bugs éventuels.
 
 Ajustez les fichiers **src/app/app.component.t**s et **src/app/app.component.html** pour obtenir le résultat suivant :
 
@@ -24,11 +27,8 @@ Pour plus d'informations, vous pouvez consulter la documentation complète à l'
 
 Que remarquez-vous ?
 
+4\) Testez d'autres composants
 
-4\) A l'aide des composants Ionic, créez une page de profil pour notre application. Laissez libre cours à votre imagination en vous inspirant des composants Ionic : [https://ionicframework.com/docs/components](https://ionicframework.com/docs/components)
+5\) Créez une page Settings et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
 
-5\) Testez d'autres composants
-
-6\) Créez une page Settings et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
-
-7\) Testez votre application depuis [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp).
+6\) Testez votre application depuis [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp).
