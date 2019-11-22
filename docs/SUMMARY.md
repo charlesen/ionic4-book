@@ -34,6 +34,33 @@
   * [Ionic storage](chap6/chap6-1.md)
   * [Création, édition et suppression de données](chap6/chap6-2.md)
   * [Exercez-vous](chap5/chap6-3.md)
+
+
+* [Chap 7 - Introduction au langage TypeScript, le futur de JavaScript](chap6/README.md)
+  * [Installation et premier script](chap7/chap7-1.md)
+  * [Types de base](chap7/chap7-2.md)
+  * [Les Classes et les méthodes](chap7/chap7-3.md)
+  * [Les itérateurs](chap7/chap7-4.md)
+  * [Les conditions](chap7/chap7-5.md)
+  * [Les constantes](chap7/chap7-6.md)
+  * [Exercez-vous](chap7/chap7-7.md)
+
+* [Chap 8 - Introduction au framework Angular](chap7/README.md)
+  * [Installation d'Angular CLI et Création d'un nouveau projet](chap7/chap7-1.md)
+  * [Structure et architecture d'un projet Angular](chap7/chap7-2.md)
+  * [Templates Angular](chap7/chap7-3.md)
+  * [Exercez-vous](chap7/chap7-4.md)
+
+* [Chap 8 - Architecture avancée d'une application Ionic : Composants, Directives, Providers, Services, Pipes, Modules, plugins natifs et persistance de données](chap8/README.md)
+  * [Composants](chap8/chap8-1.md)
+  * [Directives](chap8/chap8-2.md)
+  * [Services/Providers](chap8/chap8-3.md)
+  * [Pipes](chap8/chap8-4.md)
+  * [Modules](chap8/chap8-5.md)
+  * [Plugins natifs](chap8/chap8-6.md)
+  * [Persistance de données](chap8/chap8-7.md)
+  * [Exercez-vous](chap8/chap8-8.md)
+
 * [Bugs courants](annexe/README.md)
   * [Annexe 1 : Bugs courants et solutions](annexe/annexe1-2.md)
 * [Glossaire](GLOSSARY.md)

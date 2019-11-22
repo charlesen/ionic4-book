@@ -1,37 +1,45 @@
-## Installation d'Angular CLI et Création d'un nouveau projet
+## Installation et premier script
 
-```bash
-$ npm install -g @angular/cli # Rajouter "sudo" si nécessaire
+Ionic utilise une version _"interne"_ du compilateur TypeScript et pour nos tests nous allons devoir installer le package de manière globale.
+
+```
+> npm install -g typescript
 ```
 
-On va se mettre en dehors de notre projet DuckCoin, pour éviter de le polluer. Dans un dossier autre que celui de Duckcoin, saisir la commande suivante :
+Créons à présent un fichier à la racine du projet **demo\_typescript.ts** et tant qu'à faire ajoutons-y du contenu :
 
-```bash
-$ ng new duckweb # Cette commande va créer un nouveau dossier duckweb.
+**demo\_typescript.ts**
+
+```js
+function ditBonjour(person) {
+    return "Bonjour, " + person;
+}
+
+let user = "Charles";
+
+document.body.innerHTML = ditBonjour(user);
 ```
 
-Ça va mettre un peu de temps à se créer, mais pas de panique vous êtes sur la bonne voie ;-\).
-
-![](/assets/angular_create_screen1.png)
-
-
-
-Si vous rencontrez une exception à la création du projet \(sous Windows notamment\), n'hésitez pas à supprimer le cache npm et recréer votre projet :
+Il faut ensuite compiler ce code pour générer un fichier **.js** interprétable par le navigateur.
 
 ```bash
-$ rm -rf duckweb # Suppresion du dossier, uniquement si ça bug.
-$ npm cache clean --force
-$ ng new duckweb
+$ tsc demo_typescript.ts #compilation
+$ ls -l
+total 304
+-rw-rw-r--   1 charles charles   6180 avril 11 22:14 config.xml
+-rw-rw-r--   1 charles charles    131 avril 13 07:12 demo_typescript.js
+-rw-rw-r--   1 charles charles    133 avril 13 07:04 demo_typescript.ts
 ```
 
-Une fois la création terminée, on va pouvoir lancer notre projet :
+**demo\_typescript.js**
 
-```bash
-$ cd duckweb
-$ ng serve --open
+```js
+function ditBonjour(person) {
+    return "Bonjour, " + person;
+}
+var user = "Charles";
+document.body.innerHTML = ditBonjour(user);
 ```
 
-![](/assets/angular_launch.png)
-
-En avant d'aller plus loin découvrons un peu la structure, puis l'architecture d'un projet Angular.
+Bien évidemment le contenu du fichier **demo\_typescript.js **est strictement le même que celui du fichier **.ts**, car ce code est relativement simple.
 
