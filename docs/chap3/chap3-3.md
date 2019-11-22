@@ -8,7 +8,7 @@
 
 Ajustez les fichiers **src/app/app.component.t**s et **src/app/app.component.html** pour obtenir le résultat suivant :
 
-![](/docs/assets/screen_ducknote_menu.png)
+![](/assets/screen_ducknote_menu.png)
 
 Ionic utilise la bibliothèque d'iĉones _**ionicons**_, dont la documentation est disponible à l'adresse : [https://ionicframework.com/docs/v3/ionicons/](https://ionicframework.com/docs/v3/ionicons/)
 
@@ -33,4 +33,3 @@ Que remarquez-vous ?
 6\) Créez une page Setting et ajoutez à cette page un formulaire avec des éléments simples : nom, prénom, adresse,...Et tout autre information intéressante.
 
 8\) Testez votre application depuis [Ionic DevApp](https://ionicframework.com/docs/appflow/devapp).
-
