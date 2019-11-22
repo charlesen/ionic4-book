@@ -148,6 +148,8 @@ export class NotesService {
 
 Nous pouvons à présent appeler ce service dans n'importe qu'elle page, dont la page d'accueil.
 
+**src/app/home/home.page.ts**
+
 ```js
 import { Component } from '@angular/core';
 
@@ -198,7 +200,194 @@ Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'
 <!-- ... -->
 ```
 
+Editons de nouveau le src/app/home/home.page.ts pour créer la méthode permettant la sauvegarde d'une nouvelle note à partir du service Note :
+
+```js
+import { Component } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
+import { NotesService } from '../services/notes.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage implements OnInit {
+  constructor(public notesService: NotesService,
+    private alertCtrl: AlertController,
+    private navCtrl: NavController) { }
+
+  ngOnInit() {
+    this.notesService.load();
+  }
+
+  async addNote() {
+    this.alertCtrl.create({
+      header: 'Nouvelle note',
+      inputs: [
+        {
+          type: 'text',
+          name: 'title',
+          placeholder: 'Intitulé de la note...'
+        },
+        {
+          type: 'text',
+          name: 'content',
+          id: 'note-content',
+          placeholder: 'Saisissez votre texte ici...'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Annuler'
+        },
+        {
+          text: 'Ajouter',
+          handler: (data) => {
+            this.notesService.createNote(data.title, data.content);
+          }
+        }
+      ]
+    }).then((alert) => {
+      alert.present();
+    });
+  }
+
+}
+
+```
+
+Ce qui donne visuellement :
+
 ![](/assets/ducknote_addnote.png)
 
+
+
+Modifions à présent la page Note pour afficher les détails de notes issues de la base de données et non plus d'un tableau statique :
+
+```js
+import { Component, OnInit } from '@angular/core';
+
+// On importe cette classe
+import { ActivatedRoute } from '@angular/router';
+
+import { NotesService } from '../services/notes.service';
+
+
+// Cette interface permet de caractériser un objet note
+interface Note {
+  id: string;
+  title: string;
+  content: string;
+}
+
+@Component({
+  selector: 'app-note',
+  templateUrl: './note.page.html',
+  styleUrls: ['./note.page.scss'],
+})
+export class NotePage implements OnInit {
+  note: Note;
+  constructor(private route: ActivatedRoute,
+  public notesService: NotesService) {
+    // Initialisation d'une note à vide
+    this.note = {
+      id: '',
+      title: '',
+      content: ''
+    };
+  }
+
+  ngOnInit() {
+    // On récupère l'identifiant de la
+    let noteId = this.route.snapshot.paramMap.get('id');
+    this.note = this.notesService.getNote(noteId);
+  }
+
+}
+
+```
+
+Rajoutons à présent un bouton permettant la suppression d'une note. Après chaque suppression, on est redirigé vers la page d'accueil.
+
+**src/app/note/note.page.html**
+
+```
+<ion-header>
+  <ion-toolbar color="ducknote">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{note.title}}</ion-title>
+    <ion-buttons slot="end">
+
+      <!--  Un bouton d'ajout permettant la suppression d'une note -->
+      <ion-button (click)="deleteNote()">
+        <ion-icon slot="icon-only" name="remove"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  {{note.content}}
+</ion-content>
+
+```
+
+**src/app/note/note.page.ts**
+
+```
+import { Component, OnInit } from '@angular/core';
+
+// On importe cette classe
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { NotesService } from '../services/notes.service';
+
+
+// Cette interface permet de caractériser un objet note
+interface Note {
+  id: string;
+  title: string;
+  content: string;
+}
+
+@Component({
+  selector: 'app-note',
+  templateUrl: './note.page.html',
+  styleUrls: ['./note.page.scss'],
+})
+export class NotePage implements OnInit {
+  note: Note;
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    public notesService: NotesService) {
+    // Initialisation d'une note à vide
+    this.note = {
+      id: '',
+      title: '',
+      content: ''
+    };
+  }
+
+  ngOnInit() {
+    // On récupère l'identifiant de la
+    let noteId = this.route.snapshot.paramMap.get('id');
+    this.note = this.notesService.getNote(noteId);
+  }
+
+  deleteNote() {
+    // Redirection vers la page d'accueil
+    this.notesService.deleteNote(this.note);
+    this.router.navigate(['/home']);
+  }
+
+}
+```
+
 cd
+
+
 
