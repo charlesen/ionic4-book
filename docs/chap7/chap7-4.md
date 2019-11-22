@@ -68,7 +68,7 @@ for (let val of list) {
 }
 
 for (let idx in list) { // moyen mnémotechnique : "in" comme "in-dex"
-   console.log(idx); // "0", "1", "2", 
+   console.log(idx); // "0", "1", "2",
 }
 
 for (let idx in etudiant) {
@@ -225,24 +225,6 @@ La méthode donne accès dans son callback à chaque item du tableau depuis la v
 
 Avec cette méthode, vous n'aurez pas à vous inquiéter de l'index de la boucle \(en JavaScript classique\) ou d'utiliser la méthode push pour stocker vos éléments. De plus, la méthode renvoyant un Array, il est tout à fait possible d'appliquer une autre méthode sur celui-ci juste après la méthode map.
 
-#### Filter
-
-Cette méthode fait exactement ce que nom semble suggérer : à partir d'un tableau reçu en entrée, il le filtre en éliminant les éléments non désiré selon une condition déterminée.
-
-Reprenons notre liste de politiciens et ne retenons que ceux de moins de 50 ans. Grâce à la méthode filter, il suffit de faire :
-
-```js
-let politiciens_U50 = politiciens.filter((politicien) => politicien.age <= 50 );
-
-// (4) [{…}, {…}, {…}, {…}]
-// 0:{prenom: "Emmanuel", nom: "Macron", age: 40}
-// 1:{prenom: "Edouard", nom: "Philippe", age: 47}
-// 2:{prenom: "Bruno", nom: "Le Maire", age: 49}
-// 3:{prenom: "Virginie", nom: "Calmels", age: 47}
-// length:4
-// __proto__:Array(0)
-```
-
 #### Reduce
 
 Si la fonction **map** permet de créer un nouveau tableau en transformant chaque élément d'un tableau, et si **filter** permet quant à lui de créer un nouveau tableau en supprimant des éléments selon une condition donnée, la méthode **reduce** permet de prendre tous les éléments du tableau pour les "réduire" à une unique valeur.
@@ -273,4 +255,32 @@ politiciens.filter((politicien) => politicien.age <= 50 )
 ```
 
 
+#### Filter
 
+Cette méthode fait exactement ce que nom semble suggérer : à partir d'un tableau reçu en entrée, il le filtre en éliminant les éléments non désiré selon une condition déterminée.
+
+Reprenons notre liste de politiciens et ne retenons que ceux de moins de 50 ans. Grâce à la méthode filter, il suffit de faire :
+
+```js
+let politiciens_U50 = politiciens.filter((politicien) => politicien.age <= 50 );
+
+// (4) [{…}, {…}, {…}, {…}]
+// 0:{prenom: "Emmanuel", nom: "Macron", age: 40}
+// 1:{prenom: "Edouard", nom: "Philippe", age: 47}
+// 2:{prenom: "Bruno", nom: "Le Maire", age: 49}
+// 3:{prenom: "Virginie", nom: "Calmels", age: 47}
+// length:4
+// __proto__:Array(0)
+```
+
+#### Find
+
+Cette méthode permet de retrouver un élément d'une liste en fonction d'un critère donnée. On ne renvoie que le premier élément trouvé, même si la condition correspond à plusieurs items de la liste.
+Reprenons l'exemple de nos politiciens. Alors que la méthode **filter** renverrai plusieurs de moins de 50 ans, avec **find** on ne renverra que le premier élément.
+
+```js
+
+politiciens.find((politicien) => politicien.age <= 50 );
+
+// Renvoi {prenom: "Emmanuel", nom: "Macron", age: 40}
+```
