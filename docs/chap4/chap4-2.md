@@ -70,9 +70,5 @@ export class ListPage implements OnInit {
 }
 ```
 
-Qui donne :
-
-![](/assets/composant_list.png)
 
 Documentation : [https://ionicframework.com/docs/components/\#lists](https://ionicframework.com/docs/components/#lists)
-
