@@ -144,7 +144,6 @@ export class NotesService {
   }
 
 }
-
 ```
 
 Nous pouvons à présent appeler ce service dans n'importe qu'elle page, dont la page d'accueil.
@@ -168,7 +167,6 @@ export class HomePage implements OnInit {
   }
 
 }
-
 ```
 
 Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'accueil, qui ouvrira une boite de dialogue de création.
@@ -187,7 +185,7 @@ Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'
       <ion-button [routerLink]="['/profile']">
         <ion-icon slot="icon-only" name="contact"></ion-icon>
       </ion-button>
-      
+
       <!--  Un bouton d'ajout permettant la création d'une note -->
       <ion-button (click)="addNote()">
         <ion-icon slot="icon-only" name="add"></ion-icon>
@@ -200,7 +198,7 @@ Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'
 <!-- ... -->
 ```
 
+![](/assets/ducknote_addnote.png)
+
 cd
-
-
 
