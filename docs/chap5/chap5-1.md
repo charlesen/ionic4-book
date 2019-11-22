@@ -46,7 +46,7 @@ Ce composant est lui-même définit dans le fichier **src/app/app.component.ts. 
 
 ```js
 @Component({
-  selector: 'app-root', // Il ne vous dit rien ce tag html (selecteur) ? 
+  selector: 'app-root', // Il ne vous dit rien ce tag html (selecteur) ?
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
@@ -56,7 +56,7 @@ export class AppComponent {
   ];
 ```
 
-C'est ce composant qui permet d'appeler le module de routage, comme on peut le voir dans le fichier **src/app/app.component.ts** :
+C'est ce composant qui permet d'appeler le module de routage, comme on peut le voir dans le fichier **src/app/app.component.html** :
 
 ```html
 <ion-app>
@@ -68,7 +68,7 @@ C'est ce composant qui permet d'appeler le module de routage, comme on peut le v
 </ion-app>
 ```
 
-Ce module est défini dans le fichier **src/app/app-routing.module.ts. **On y retrouve toutes les routes de notre application :
+Module qui est défini dans le fichier **src/app/app-routing.module.ts. **On y retrouve toutes les routes de notre application :
 
 ```js
 import { NgModule } from '@angular/core';
@@ -97,7 +97,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ```
 
-* La première entrée permet de rediriger toutes les urls "vide" \(path:' '\), mal formées ou celle par défaut, vers la page d'accueil
+* La première entrée permet de rediriger toutes les urls "vides" \(path:' '\), mal formées ou celle par défaut, vers la page d'accueil
 * La deuxième entrée permet d'afficher la page d'accueil à partir de l'url **/home**.
 
 Dans la définition du routage, nous avons une clé _**loadChildren**_ dans laquelle nous fournissons un chemin vers le module de notre page. Ce fichier de module contient des informations et des importations pour la page. C'est en quelque sorte le moteur de la page, à l'image d'un moteur de voiture.
@@ -106,9 +106,4 @@ Grâce au tag **&lt;ion-router-outlet main&gt;&lt;/ion-router-outlet&gt;**, le r
 
 Pour plus d'information sur le routage Angular, n'hésitez pas à consulter la documentation officielle :
 
-* [https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/](https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/)
-
 * [https://angular.io/guide/router](https://angular.io/guide/router)
-
-
-

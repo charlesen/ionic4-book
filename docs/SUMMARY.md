@@ -34,7 +34,7 @@
 * [Chap 6 - Persistance des données](chap6/README.md)
   * [Ionic storage](chap6/chap6-1.md)
   * [Création, édition et suppression de données](chap6/chap6-2.md)
-  * [Exercez-vous](chap5/chap6-3.md)
+  * [Exercez-vous](chap6/chap6-3.md)
 
 
 * [Chap 7 - Introduction au langage TypeScript, le futur de JavaScript](chap7/README.md)

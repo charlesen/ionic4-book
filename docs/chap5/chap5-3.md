@@ -1,6 +1,9 @@
 ## Exercez-vous
 
 Notre application commence à prendre forme. N'hésitez pas à revenir sur les notions étudiées aux chapitres 3 et 4.
+Vous pouvez consulter les développements déjà effectués sur Github et ainsi vous mettre à niveau : https://github.com/charlesen/ducknote.
+
+Nous allons à présent mettre en application ce que nous avons étudié dans ce chapitre 5.
 
 1\) Créez la page de Login comme décrite dans ce chapitre 5 : _**Navigation entre les pages &gt; Ajout de nouvelles pages et navigation entre elles**_
 
@@ -235,7 +238,7 @@ Puis le fichier html :
 
 ```
 <ion-list>
-  <!-- ...Autres éléments de la liste --> 
+  <!-- ...Autres éléments de la liste -->
 
   <ion-menu-toggle auto-hide="false">
     <ion-button expand="block" color="ducknote" (click)="logout()">
@@ -249,4 +252,3 @@ Puis le fichier html :
 ![](/assets/ducknote_logout.png)
 
 Cliquez sur le bouton de Déconnexion. Que se passe t-il ?
-

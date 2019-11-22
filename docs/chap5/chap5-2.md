@@ -75,7 +75,9 @@ Comme prévu, en affichant la page de login \([http://localhost:8100/login](http
 | :--- | :--- |
 | ![](/assets/ducknote_login_1.png) | ![](/assets/page_accueil.png) |
 
-Pour le moment la page d'accueil reste quand même la page par défaut.Nous allons pouvoir faire en sorte que la page par défaut soit désormais la page de login. Pour cela, modifions notre table de routage comme ceci :
+Pour le moment la page d'accueil reste quand même la page par défaut.
+
+Mais nous allons pouvoir faire en sorte que la page par défaut soit désormais la page de login. Pour cela, modifions notre table de routage comme ceci :
 
 **src/app/app-routing.module.ts**
 
@@ -231,4 +233,3 @@ export class AuthGuard implements CanActivate {
 Voilà, on a désormais les bonnes redirections en fonction du statut de connexion. Beaucoup mieux.
 
 Attention cependant à ne pas considérer les gardiens comme des barrières de protection infaillibles, surtout si vous affichez des données ultra sensibles dans votre application. Priviligiez plutôt une authentification côté serveur forte, puis ajoutez les gardiens en complément de celle-ci.
-

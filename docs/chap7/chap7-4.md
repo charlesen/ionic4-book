@@ -275,8 +275,11 @@ let politiciens_U50 = politiciens.filter((politicien) => politicien.age <= 50 );
 
 #### Find
 
-Cette méthode permet de retrouver un élément d'une liste en fonction d'un critère donnée. On ne renvoie que le premier élément trouvé, même si la condition correspond à plusieurs items de la liste.
-Reprenons l'exemple de nos politiciens. Alors que la méthode **filter** renverrai plusieurs de moins de 50 ans, avec **find** on ne renverra que le premier élément.
+Cette méthode permet de retrouver un élément d'une liste en fonction d'un critère donné.
+
+On ne renvoie que le premier élément trouvé, même si la condition de filtrage correspond à plusieurs items de la liste.
+
+Reprenons l'exemple de nos politiciens. Alors que la méthode **filter** renverrait plusieurs politiciens de moins de 50 ans, avec **find** on ne renvoi que le premier élément.
 
 ```js
 
