@@ -254,14 +254,11 @@ export class HomePage implements OnInit {
   }
 
 }
-
 ```
 
 Ce qui donne visuellement :
 
 ![](/assets/ducknote_addnote.png)
-
-
 
 Modifions à présent la page Note pour afficher les détails de notes issues de la base de données et non plus d'un tableau statique :
 
@@ -305,7 +302,6 @@ export class NotePage implements OnInit {
   }
 
 }
-
 ```
 
 Rajoutons à présent un bouton permettant la suppression d'une note. Après chaque suppression, on est redirigé vers la page d'accueil.
@@ -333,12 +329,11 @@ Rajoutons à présent un bouton permettant la suppression d'une note. Après cha
 <ion-content class="ion-padding">
   {{note.content}}
 </ion-content>
-
 ```
 
 **src/app/note/note.page.ts**
 
-```
+```js
 import { Component, OnInit } from '@angular/core';
 
 // On importe cette classe
@@ -387,7 +382,5 @@ export class NotePage implements OnInit {
 }
 ```
 
-cd
-
-
+Voilà, nous venons d'implémenter notre premier service et il a clairement l'air de bien faire son travail. Nous aurons par la suite l'occasion de sauvegarder, puis récupérer des données via une API distante. Mais en attendant, célébrons cette petite victoire !
 
