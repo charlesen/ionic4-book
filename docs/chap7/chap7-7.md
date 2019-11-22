@@ -33,61 +33,32 @@
     ];
 ```
 
-Créer une nouvelle application que vous nommerez DuckTweet à partir du template Tabs.
+Créer une nouvelle application que vous nommerez **ducktweet** à partir du template Tabs et basé sur Angular.
+
+```
+$ ionic start ducktweet tabs
+```
 
 En vous basant sur ce qui a été fait précédemment avec la liste des notes, faites en sorte que l'on puisse visualiser la liste des dernièrs Tweet en Page d'accueil.
 
+2\) Utilisez les composants Ionic pour vous rapprocher le plus possible de l'application officielle Twitter
+
+![](/assets/ducktweet.jpg)
+
+3\) La date de création n'est pas trop jolie pour le moment. Nous allons donc utiliser un Pipe Date pour permettre un affichage beaucoup plus user-friendly. 
+
+A partir de la documentation officielle \([https://angular.io/api/common/DatePipe](https://angular.io/api/common/DatePipe)\), faites en sorte que la date s'affiche au format :** jj/mm/aaa. **Si besoin, n'hésitez pas à modifier le format du _**created\_at**_ pour qu'il corresponde au format attendu par le Pipe.
+
+4\) Créez une page de login avec un nom d'utilisateur et un E-mail. Faites en sorte qu'elle soit la page par défaut. Mettez en place le système de Guards présenté au [chapitre 5](/chap5/README.md).
+
+4\) Comme avec les notes, mettez en place un Service pour la gestion des Tweets, qui va donc nous permettre :
+
+* De créer de nouveaux tweets avec du texte et des images. Puis les stocker en base de données
+* D'afficher la liste de tous les derniers tweets
+* Afficher un tweet particulier
+* Supprimer un tweet
+
+5\) Testez votre application sur un device grâce à Ionic Dev App.
 
 
-2\) Le signe dollar \($\) de la liste est ajouté automatiquement grâce à un pipe Angular \(concept abordé au [chapitre 7](/chap7)\). Comment d'après la documentation suivante, est-il possible de remplacer le $ en € ? Puis € en DCK ? [https://angular.io/api/common/CurrencyPipe](https://angular.io/api/common/CurrencyPipe).
 
-![](/assets/transact_2.png)
-
-3\) Faites qu'en cliquant sur une ligne de la transaction, on affiche une fenêtre modale, avec le résumé de la transaction :
-
-[https://ionicframework.com/docs/components/\#modals](https://ionicframework.com/docs/components/#modals)
-
-**P.S :** il est possible de passer des paramètres à une fenêtre modale, puis de les récupérer dans la fenêtre concernée :
-
-Ouverture de la fenêtre avec passage de paramètres :
-
-```js
-import { ModalController } from 'ionic-angular';
-import { MaPageModal } from './modal/modal'; // la page modale est dans le même dossier que la principale
-
-export class MaPage {
-  constructor(public modalCtrl: ModalController) {
-  }
-
-  presentModal() {
-    let modal = this.modalCtrl.create(ModalPage, {'monParam':'Ceci est un paramètre'});
-    modal.present();
-  }
-}
-```
-
-Récupération des données dans la classe de la fenêtre :
-
-```js
-export class MaPageModal {
-  unParamVenuDeLoin : any;
-
-  constructor(
-    public platform: Platform,
-    public params: NavParams,
-    public viewCtrl: ViewController
-  ) {
-    this.unParamVenuDeLoin = this.params.get('monParam')
-  }
-
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
-}
-```
-
-## Annexes
-
-* Documentation sur les méthodes Map, filter et Reduce :
-  * [https://code.tutsplus.com/tutorials/how-to-use-map-filter-reduce-in-javascript--cms-2620](https://code.tutsplus.com/tutorials/how-to-use-map-filter-reduce-in-javascript--cms-26209)
-  * [https://scotch.io/tutorials/list-processing-with-map-filter-and-reduce](#)
