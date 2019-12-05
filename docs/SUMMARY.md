@@ -44,6 +44,7 @@
   * [Les itérateurs](chap7/chap7-4.md)
   * [Les conditions](chap7/chap7-5.md)
   * [Les constantes](chap7/chap7-6.md)
+  * [Deuxième Application : DuckTweet](chap7/chap7-6-2.md)
   * [Exercez-vous](chap7/chap7-7.md)
 
 <!-- * [Chap 8 - Introduction au framework Angular](chap8/README.md)
