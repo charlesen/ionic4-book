@@ -104,6 +104,6 @@ Dans la définition du routage, nous avons une clé _**loadChildren**_ dans laqu
 
 Grâce au tag **&lt;ion-router-outlet main&gt;&lt;/ion-router-outlet&gt;**, le routeur Angular remplacera toutes les entrées définies dans la table de routage par les informations du module associé \(HomePageModule, ProfilePageModule,...\).
 
-Pour plus d'information sur le routage Angular, n'hésitez pas à consulter la documentation officielle :
+Pour plus d'informations sur le routage Angular, n'hésitez pas à consulter la documentation officielle :
 
 * [https://angular.io/guide/router](https://angular.io/guide/router)

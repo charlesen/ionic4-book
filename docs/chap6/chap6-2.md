@@ -8,11 +8,11 @@ Grâce à Ionic Storage, nous allons pouvoir créer de nouveaux éléments, les 
 
 ### Création du Service Notes
 
-Pour éviter de faire du copier-coller de code partout dans l'application, nous allons utiliser la notion de Services ou Providers. Nous en parlerons plus en détails dans des chapitres ultérieurs.
+Pour éviter de faire du copier-coller de code partout dans l'application, nous allons utiliser la notion de **Services** ou **Providers**. Nous en parlerons plus en détails dans des chapitres ultérieurs.
 
 Un service est un «helper», une classe qui permet d'offrir une ou plusieurs fonctionnalités précises à une Page ou à un à composant.
 
-Les pages d'une application sont responsables de présenter à l'utilisateurs des données visuelles. Bien qu'ils soient tout à fait possible de mettre en œuvre au sein d'une page une logique métier dans les fichiers \* .page.ts, il est préférable de faire usage des services pour gérer cette partie là.
+Les pages d'une application sont responsables de présenter à l'utilisateur des données visuelles. Bien qu'ils soient tout à fait possible de mettre en œuvre au sein d'une page une logique métier dans les fichiers \* .page.ts, il est préférable de faire usage des services pour gérer cette partie là.
 
 Un service n'affiche donc rien à l'utilisateur. Il s'agit simplement d'un "assistant" utilisé par les composants ou les pages de notre application pour effectuer des opérations particulières. Nos pages pourront appeler les méthodes d'un service pour le faire fonctionner.
 
@@ -22,17 +22,18 @@ Les services sont ainsi le principal moyen de partager des données entre diffé
 
 Notre service Note implémentera différentes méthodes, à savoir :
 
-* createNote : permettant la création d'un note
-* deleteNote : pour la suppression d'un note
-* getNote : qui renverra une note en fonction de son identifiant unique
-* save : qui permet la sauvegarde de toutes les notes
-* load : permet le chargement des notes depuis Ionic storage
+* **createNote** : permettant la création d'un note
+* **deleteNote** : pour la suppression d'un note
+* **getNote** : qui renverra une note en fonction de son identifiant unique
+* **save** : qui permet la sauvegarde de toutes les notes
+* **load** : permet le chargement des notes depuis Ionic storage
 
 Créons à présent notre service en saisissant la commande :
 
 ```bash
 $ ionic g service services/Notes
 ```
+Qui va créer un dossier **src/app/service** (si non existant). On y retrouve le fichier **notes.service.ts**, contenant notre service.
 
 **src/app/services/notes.service.ts**
 
@@ -75,7 +76,8 @@ export class NotesService {
   **/
   load(): Promise<boolean> {
 
-    // Renvoie une promise pour nous permettre de savoir quand l'opération est OK
+    // Création d'une nouvelle promesse pour nous permettre de décider si l'opération est OK ou NON.
+    // C'est qui le PATRON ?!!!
     return new Promise((resolve) => {
 
       // Récupère les notes stockées en Base de données
@@ -86,8 +88,10 @@ export class NotesService {
           this.notes = notes;
         }
 
-        // Etat de chargement des données
+        // État de chargement des données
         this.loaded = true;
+
+        // L'opération est OK
         resolve(true);
 
       });
@@ -308,7 +312,7 @@ Rajoutons à présent un bouton permettant la suppression d'une note. Après cha
 
 **src/app/note/note.page.html**
 
-```
+```html
 <ion-header>
   <ion-toolbar color="ducknote">
     <ion-buttons slot="start">
@@ -382,5 +386,6 @@ export class NotePage implements OnInit {
 }
 ```
 
-Voilà, nous venons d'implémenter notre premier service et il a clairement l'air de bien faire son travail. Nous aurons par la suite l'occasion de sauvegarder, puis récupérer des données via une API distante. Mais en attendant, célébrons cette petite victoire !
+Voilà, nous venons d'implémenter notre premier service et il a clairement l'air de bien faire son travail.
 
+Nous aurons par la suite l'occasion de sauvegarder, puis récupérer des données via une API distante. Mais en attendant, célébrons cette petite victoire !
