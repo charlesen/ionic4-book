@@ -1,9 +1,9 @@
 ## Les conditions
 
-Comme en JavaScript. On retrouve les tradionnels "if..else"  et "switch...case" :
+Comme en JavaScript. On retrouve les traditionnels **"if..else"**  et **"switch...case"** :
 
-```js
-if(une_conditon) {  
+```javascript
+if (une_conditon) {  
    // La condition est vraie
 } else {
    // Elle est fausse  
@@ -12,7 +12,7 @@ if(une_conditon) {
 
 Et un switch-case :
 
-```js
+```javascript
 switch(meteo) {
    case 'soleil': {
       //Il fait beau
@@ -28,6 +28,3 @@ switch(meteo) {
    }
 }
 ```
-
-
-
