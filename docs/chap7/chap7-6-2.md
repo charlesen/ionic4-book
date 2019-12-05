@@ -162,10 +162,10 @@ N'hésitez pas à revenir sur ce [qui a été fait pour l'application DuckNote.]
 Nous aurons besoin des méthodes suivantes :
 
 -   **createTweet** : permettant la création d'un tweet
--   **deleteTweet** : pour la suppression d'un tweet
--   **getTweet** : qui renverra une note en fonction de son identifiant unique
 -   **save** : qui permet la sauvegarde de tous les tweets
+-   **getTweet** : qui renverra un tweet en fonction de son identifiant unique
 -   **load** : permet le chargement des tweets depuis Ionic storage
+-   **deleteTweet** : pour la suppression d'un tweet
 
 La création du service se fait en saisissant la commande :
 
@@ -206,60 +206,187 @@ Un tweet sera donc constitué :
 -   D'un contenu **(string)**
 -   De zéro ou plusieurs images **(photos)**
 
- Ajoutons présent les méthodes **createTweet** et **save**, permettant dans l'ordre :
+    Ajoutons présent les méthodes **createTweet** et **save**, permettant dans l'ordre :
 
 -   De créer un tweet
 -   D'ajouter le tweet créé à la liste de tous les tweets, avant sauvegarde de l'ensemble en base de données:
 
-    ```javascript
-    import { Injectable } from '@angular/core';
+```javascript
+import { Injectable } from '@angular/core';
 
-    // On importe le plugin storage pour pouvoir sauvegarder nos tweets
-    import { Storage } from '@ionic/storage';
+// On importe le plugin storage pour pouvoir sauvegarder nos tweets
+import { Storage } from '@ionic/storage';
 
-    // Cette interface permet de caractériser un objet tweet
-    interface Tweet {
-      id: string; // chaînes de caractères
-      content: string; // chaînes de caractères
-      photos: Array<string>; // Tableau de chaînes de caractères
-    }
+// Cette interface permet de caractériser un objet tweet
+interface Tweet {
+  id: string; // chaînes de caractères
+  content: string; // chaînes de caractères
+  photos: Array<string>; // Tableau de chaînes de caractères
+}
 
-    @Injectable({
-      providedIn: 'root'
-    })
-    export class TweetsService {
+@Injectable({
+  providedIn: 'root'
+})
+export class TweetsService {
 
-      public tweets: Tweet[] = [];
-      public loaded: boolean = false;
-      constructor(private storage: Storage) { }
+  public tweets: Tweet[] = [];
+  public loaded: boolean = false;
+  constructor(private storage: Storage) { }
 
-      createTweet(content, photos = []): void {
-        // Le champs content est obligatoire, mais pas celui stockant les photos ([])
+  createTweet(content, photos = []): void {
+    // Le champs content est obligatoire, mais pas celui stockant les photos ([])
 
-        // Création d'un identifiant unique pour la note
-        let id = Math.max(...this.tweets.map(note => parseInt(note.id)), 0) + 1;
+    // Création d'un identifiant unique pour le tweet
+    let id = Math.max(...this.tweets.map(tweet => parseInt(tweet.id)), 0) + 1;
 
-        this.tweets.push({
-          id: id.toString(),
-          content: content,
-          photos: photos
-        });
+    this.tweets.push({
+      id: id.toString(),
+      content: content,
+      photos: photos
+    });
 
-        this.save();
+    this.save();
 
-      }
+  }
 
-      /**
-      ** Sauvegarde de tous les tweets en Base de données
-      **/
-      save(): void {
-        this.storage.set('tweets', this.tweets);
-      }
+  /**
+  ** Sauvegarde de tous les tweets en Base de données
+  **/
+  save(): void {
+    this.storage.set('tweets', this.tweets);
+  }
 
-    }
-    ```
-
-
+}
 ```
 
+#### Chargement des tweets
+
+Pour afficher la liste de tous les tweets, on un tweet en particulier, nous allons utiliser les méthodes :
+
+-   **load** : chargement de tous les tweets
+-   **getTweet** : renvoie d'un tweet en fonction de son identifiant
+
+```javascript
+/**
+** Chargement des tweets
+**/
+load(): Promise<boolean> {
+
+  // Création d'une nouvelle promesse pour nous permettre de décider
+  // si l'opération est OK ou NON.
+  return new Promise((resolve) => {
+
+    // Récupère les tweets stockées en Base de données
+    this.storage.get('tweets').then((tweets) => {
+
+      // On ajoute les valeurs à la liste uniquement si des données existent en BDD
+      if (tweets != null) {
+        this.tweets = tweets;
+      }
+
+      // État de chargement des données
+      this.loaded = true;
+
+      // L'opération est OK
+      resolve(true);
+
+    });
+
+  });
+
+}
+
+/**
+** Renvoie le tweet correspondant à l'identifiant id
+** @param id
+**/
+getTweet(id): Tweet {
+  return this.tweets.find(tweet => tweet.id === id);
+}
+```
+
+#### Suppression d'un tweet
+
+Nous allons simplement créer une méthode deleteTweet qui va retirer le tweet de la liste des éléments, avant de sauvegarder cette dernière.
+
+```javascript
+/**
+** Suppression d'un tweet en fonction de son ID
+** @param tweet
+**/
+deleteTweet(tweet): void {
+
+ // Récupération de l'index du tweet dans la liste des tweets
+ let index = this.tweets.indexOf(tweet);
+
+ // Puis suppression de l'élément et Sauvegarde de la nouvelle liste
+ if (index > -1) {
+   this.tweets.splice(index, 1);
+   this.save();
+ }
+
+}
+```
+
+Voilà ! À présent que notre service est en place, on va pouvoir l'appeler dans notre page d'accueil.
+
+#### Affichage des tweets
+
+ Appelons le service Tweet dans la page d'accueil
+
+ **src/app/tab1/tab1.page.ts**
+
+```javascript
+import { Component } from '@angular/core';
+import { TweetsService, Tweet } from '../services/tweets.service';
+
+@Component({
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss']
+})
+export class Tab1Page {
+  public tweets: Tweet[] = [];
+  constructor() {}
+
+}
+```
+
+Modifions le html pour afficher la liste des tweets et permettre l'ajout de nouveaux éléments via un bouton situé en entête.
+
+ **src/app/tab1/tab1.page.html**
+
+```html
+<ion-header>
+  <!-- On ajoute la nouvelle couleur ici -->
+  <ion-toolbar color="ducktweet">
+    <ion-title>
+      <!-- On modifie aussi le titre de la page-->
+      DuckTweet
+    </ion-title>
+    <ion-buttons slot="end">
+      <!--  Un bouton d'ajout permettant la création d'une tweet -->
+      <ion-button (click)="addTweet()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <!-- ...On rajoute nos tweets ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
+    <ion-card *ngFor="let tweet of tweetsService.tweets" [routerLink]="'/tweet/' + tweet.id" routerDirection="forward">
+      <ion-card-header>
+        <ion-card-title>{{tweet.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{tweet.content}}</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-item *ngIf="!tweetsService.tweets || tweetsService.tweets.length ==0">
+      Pas de tweets pour le moment
+    </ion-item>
+  </ion-list>
+</ion-content>
 ```

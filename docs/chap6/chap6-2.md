@@ -175,8 +175,9 @@ export class HomePage implements OnInit {
 }
 ```
 
-Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'accueil, qui ouvrira une boite de dialogue de création.
+Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'accueil, qui ouvrira une boite de dialogue de création d'une nouvelle note.
 
+**src/app/home/home.page.html**
 ```html
 <ion-header>
   <ion-toolbar color="ducknote"> <!-- On ajoute la nouvelle couleur ICI -->
@@ -202,6 +203,39 @@ Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'
 </ion-header>
 
 <!-- ... -->
+```
+
+Modifions le contenu de la balise <ion-content> comme ceci :
+
+**src/app/home/home.page.html**
+
+```html
+
+<!-- ... -->
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <img src="/assets/ducknote_hero.jpg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Pour ne rien oublier, où que vous soyez</ion-card-subtitle>
+      <ion-card-title>Essayez DuckNote</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Notez tout ce qui vous passe par la tête. Ajoutez des notes, des listes, des photos et des contenus audio.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ...On rajoute nos notes ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
+  <ion-card *ngFor="let note of notesService.notes" [routerLink]="'/note/' + note.id" routerDirection="forward">
+    <ion-card-header>
+      <ion-card-title>{{note.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{note.content}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
 ```
 
 Editons de nouveau le src/app/home/home.page.ts pour créer la méthode permettant la sauvegarde d'une nouvelle note à partir du service Note :
