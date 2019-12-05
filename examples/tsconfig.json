@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [
+      /* Permet d'utiliser le DOM (document) et la librairie standard inclus dans ES6 */
+      "dom",
+      "es6"
+    ]
+  },
+  /* On ne compile pas (exclusion) les fichiers du dossiers npm et  ceux des tests unitaires (spec.ts)*/
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
