@@ -1,75 +1,37 @@
-## Composants
-
-La majorité des développements sous Angular, et comme vous l'aurez compris, sous Ionic également \(Ionic étant en fin de compte un projet Angular\), est effectué au niveau des composants. Nous avons déjà étudier le composant Root, dont l'arborescence est la suivante :
-
-```js
-app.component.css
-app.component.html
-app.component.spec.ts
-app.component.ts
-app.module.ts
-```
-
-Nous avons aussi écrit un composant **Transaction** qui nous permettait d'afficher la liste de nos dernières transactions.
-
-![](/assets/render_appcompo.png)
-
-La création d'un nouveau composant se fait simplement en saisissant la commande suivante à la racine de votre projet ionic :
+## Installation d'Angular CLI et Création d'un nouveau projet
 
 ```bash
-$ ionic g component monComposant
-[OK] Generated a component named monComposant!
-
-
-src/components/moncomposant.css
-src/components/moncomposant.html
-src/components/moncomposant.spec.ts
-src/components/moncomposant.ts
-src/components/components.module.ts
+$ npm install -g @angular/cli # Rajouter "sudo" si nécessaire
 ```
 
-On voit ici qu'un module \(components.module.ts\) a aussi été créé. Rappelons que les modules sont chargés du bootstrapping \(démarrage\) d'un composant. C'est donc ce module qu'il faudra déclarer dans le module principal **src/app/app.module.ts **:
+On va se mettre en dehors de notre projet DuckCoin, pour éviter de le polluer. Dans un dossier autre que celui de Duckcoin, saisir la commande suivante :
 
-```js
-// Modules
-import { ComponentsModule } from '../components/components.module';
-
-// ...
-
-imports: [
-    BrowserModule,
-    HttpClientModule,
-    ComponentsModule, // Importer le module ici
-    IonicModule.forRoot(MyApp, {
-      // tabsPlacement: 'top',
-      backButtonText: 'Retour'
-    })
-],
-
-// ...
+```bash
+$ ng new duckweb # Cette commande va créer un nouveau dossier duckweb.
 ```
 
-Il faut également modifiez le fichier **src/components/components.module.ts** comme ceci  :
+Ça va mettre un peu de temps à se créer, mais pas de panique vous êtes sur la bonne voie ;-\).
 
-```js
-import { NgModule } from '@angular/core';
-import { IonicModule } from "ionic-angular"; // On rajoute cette ligne
-import { MonComposantComponent } from './components/components';
-@NgModule({
-    declarations: [MonComposantComponent],
-    imports: [IonicModule], // ...Et celle-ci
-    exports: [MonComposantComponent]
-})
-export class ComponentsModule {}
+![](/assets/angular_create_screen1.png)
+
+
+
+Si vous rencontrez une exception à la création du projet \(sous Windows notamment\), n'hésitez pas à supprimer le cache npm et recréer votre projet :
+
+```bash
+$ rm -rf duckweb # Suppresion du dossier, uniquement si ça bug.
+$ npm cache clean --force
+$ ng new duckweb
 ```
 
-Je vous rassure, vous n'aurez pas à faire tout cela à chaque création de composant, en fait l'intérêt de regrouper tout cela dans un module permet de créer de nouveaux composants, sans devoir les redéclarer dans toute l'application.
+Une fois la création terminée, on va pouvoir lancer notre projet :
 
-A présent vous pouvez appeler votre composant sous forme de tag dans n'importe quel fichier html de l'application.
-
-```js
-<moncomposant></moncomposant>
+```bash
+$ cd duckweb
+$ ng serve --open
 ```
 
+![](/assets/angular_launch.png)
 
+En avant d'aller plus loin découvrons un peu la structure, puis l'architecture d'un projet Angular.
 

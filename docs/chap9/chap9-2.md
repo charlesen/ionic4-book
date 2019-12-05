@@ -1,52 +1,75 @@
-## Débogage de l'application
+## Directives
 
-C'est sûrement la partie la moins drôle quand on développe en général, mais fort heureusement avec Ionic et Angular les choses sont un peu moins douloureuse, la plupart des bugs étant explicites et dans certains cas on indique même ce qu'il faut faire.
+Une directive est un élément qui va nous permettre d'étendre des fonctionnalité html. Il en existe différents types :
 
-Faisons le tour de quelques méthodes qui vont vous aider à debugger efficacement votre application mobile.
+* **Directive de type attribut** : vous en avez déjà vu, elles permettent de modifier du html. Citons par exemple _**text-center**_, une directive qui permet de centrer le contenu d'un élément, ou encore la directive _**padding**_, qui permet d'ajouter un padding à l'élément qui l'invoque.
+* **Directive de type composant** : oui au risque de vous embrouiller un peu, un composant est en réalité une directive, mais dotée d'un template html. La directive est en quelque sorte l'atome, le composant la molécule.
+* **Directive de type structure** : Ce type de directive est fait pour la manipulation du DOM et commence toujours par un **"\*"**. On peut citer parmi celles-ci deux que nous avons déjà utilisé à savoir **\*ngIf** et **\*ngFor**.
 
-### L’indétrônable console.log\(\) et son copain console.info\(\)
+la création d'une directive se fait simplement en saisissant la commande suivante :
 
-Vous avez du l'utiliser au moins une fois dans vos développements JavaScript.
+```bash
+$ ionic g directive maDirective
 
-La méthode de logging de l'objet Console vous permet d'afficher le contenu d'une variable, du texte, un message...bref, à peu près tout, de votre code source vers le navigateur web.
-
-```js
-console.log("Ceci est un message à mon navigateur web...Mayday ! Mayday !")
+[OK] Generated a directive named maDirective!
 ```
 
-### Inspection du code source
+Créons par exemple une directive que nous appelerons **bolder** et qui permettra de mettre en gras l'élément qui l’appellerait.
 
-La plupart des navigateurs dispose désormais d'un outil d'inspection de code source, disponible par exemple depuis la touche F12 ou clic-droit - **"Inspecter..."**.
+```bash
+$ ionic g directive bolder
 
-![](/assets/screen_console_1.png)
+[OK] Generated a directive named bolder                                                          !
+```
 
-Une application Ionic étant écrit en JavaScript, CSS et Html, vous n'aurez plus qu'à visualiser votre code et ajuster les choses au besoin : style CSS manquant ou non adapté, une image en 404,...
-
-![](/assets/screen_console_2.png)
-
-### Point d'arrêt \(Breakpoint\)
-
-Il est également possible d'ajouter des points d'arrêts dans votre code source. Très pratique quand on se demande pour un bout de code ne fonctionne pas et que l'on souhaite avancer pas à pas jusqu'à trouver la source du problème.
-
-Vous avez le choix d'ajouter ce point d'arrêt depuis votre navigateur ou alors depuis votre code source à l'aide du mot clé **"debugger"** :
+On déclare ensuite une fois pour toute le "module mère" de toutes les directives dans le module root **src/app/app.module.ts** :
 
 ```js
-let maVariable = "Je suis une variable";
-....
+// ...
+//Modules
+import {ComponentsModule} from '../components/components.module';
+import {DirectivesModule} from '../directives/directives.module';
+import { HttpClientModule } from '@angular/common/http';
 
-// L'exécution du code prendra fin ici...Pour avancer, faites F10 sur Chrome
-debugger;
+//...
 
-if (maVariable) {
-  alert(maVariable)
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ComponentsModule,
+    DirectivesModule, // ICI
+    IonicModule.forRoot(DuckCoinApp,{
+        // tabsPlacement: 'top',
+        backButtonText: 'Retour'
+    })
+  ],
+```
+
+Puis, on édite notre directive pour qu'il fasse ce que l'on souhaite, à savoir mettre du contenu en gras :
+
+```js
+import { Directive, ElementRef } from '@angular/core';
+
+/**
+ *  Directives.
+ */
+@Directive({
+  selector: '[bolder]' // Attribute selector
+})
+export class BolderDirective {
+
+  constructor(Element: ElementRef) {
+    Element.nativeElement.style.fontWeight = 'bolder';
+  }
+
 }
 ```
 
-### Logs de la console + Gestionnaire d'erreurs Ionic
+Il ne nous reste plus qu'à utiliser notre nouvelle directive sur du contenu en page d'accueil par exemple :
 
-Ces deux élément, assez vous indique souvent d'où vient le problème et surtout comment le résoudre. Il est parfois nécessaire de redémarrer votre projet depuis la console pour la recompilation permette un retour de bug plus explicite, voir, dans de rares cas, corrige le bug.
+```js
+<span bolder>mon texte en gras</span>
+```
 
-![](/assets/bug_ionic.png)
 
-![](/assets/ionic_bug_2.png)
 

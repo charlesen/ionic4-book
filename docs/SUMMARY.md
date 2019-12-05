@@ -47,21 +47,25 @@
   * [Deuxième Application : DuckTweet](chap7/chap7-6-2.md)
   * [Exercez-vous](chap7/chap7-7.md)
 
-<!-- * [Chap 8 - Introduction au framework Angular](chap8/README.md)
+* [Chap 8 - Introduction au framework Angular](chap8/README.md)
   * [Installation d'Angular CLI et Création d'un nouveau projet](chap8/chap8-1.md)
   * [Structure et architecture d'un projet Angular](chap8/chap8-2.md)
   * [Templates Angular](chap8/chap8-3.md)
-  * [Exercez-vous](chap9/chap8-4.md) -->
+  * [Exercez-vous](chap8/chap8-4.md)
 
-<!-- * [Chap 9 - Architecture avancée d'une application Ionic : Composants, Directives, Providers, Services, Pipes, Modules, plugins natifs et persistance de données](chap8/README.md)
+* [Chap 9 - Architecture avancée d'une application Ionic : Composants, Directives, Providers, Services, Pipes, Modules, plugins natifs et persistance de données](chap8/README.md)
   * [Composants](chap9/chap9-1.md)
   * [Directives](chap9/chap9-2.md)
   * [Services/Providers](chap9/chap9-3.md)
   * [Pipes](chap9/chap9-4.md)
   * [Modules](chap9/chap9-5.md)
   * [Plugins natifs](chap9/chap9-6.md)
-  * [Persistance de données](chap9/chap9-7.md)
-  * [Exercez-vous](chap9/chap9-8.md) -->
+  * [Exercez-vous](chap9/chap9-7.md)
+
+* [Chap 10 - Tests et débogages avancés](chap10/README.md)
+  * [Tester son application mobile](chap10/chap10-1.md)
+  * [Débogage de l'application](chap10/chap10-2.md)
+  * [Exercez-vous](chap10/chap10-3.md)
 
 * [Bugs courants](annexe/README.md)
   * [Annexe 1 : Bugs courants et solutions](annexe/annexe1-2.md)

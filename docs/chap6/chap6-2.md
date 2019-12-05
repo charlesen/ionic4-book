@@ -205,7 +205,7 @@ Ajoutons à présent un bouton d'ajout dans la barre de navigation de la page d'
 <!-- ... -->
 ```
 
-Modifions le contenu de la balise <ion-content> comme ceci :
+Modifions le contenu de la balise **ion-content** comme ceci :
 
 **src/app/home/home.page.html**
 
@@ -238,7 +238,7 @@ Modifions le contenu de la balise <ion-content> comme ceci :
 </ion-content>
 ```
 
-Editons de nouveau le src/app/home/home.page.ts pour créer la méthode permettant la sauvegarde d'une nouvelle note à partir du service Note :
+Éditons de nouveau le **src/app/home/home.page.ts** pour créer la méthode permettant la sauvegarde d'une nouvelle note à partir du service Note :
 
 ```js
 import { Component } from '@angular/core';

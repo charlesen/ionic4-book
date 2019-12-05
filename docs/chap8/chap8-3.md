@@ -1,58 +1,46 @@
-## Services/Providers
+## Templates Angular
 
-Comme nous l'avons vu, un composant permet d'afficher du contenu à plusieurs endroits à partir d'un code unique. C'est le cas par exemple du composant **&lt;transaction&gt;&lt;/transaction&gt;** que l'on peut appeler dans n'importe qu'elle template html de notre application.
+### \*ngFor
 
-Supposons que l'on souhaite récupérer la liste des dernières transactions sous forme de tableau comme c'est le cas dans la classe **TransactionComponent** :
+Permet de boucler sur les éléments d'un tableau à l'intérieur d'un template html.
 
-```js
-export class TransactionComponent {
-
-  transactions: any[] = [];
-
-  constructor(private http: HttpClient) {
-    this.http.get(`${apiUrl}/transactions`).subscribe(
-      data => {
-      this.transactions = data['transactions'];
-    }, err => {
-        console.log("Error occured.")
-    });
-  }
-
-}
-```
-
-Une première solution serait de copier le code de cette classe. Mais si une autre page souhaite également avoir accès à cette même liste, la copie alors apparaît comme une mauvaise solution.
-
-C'est là qu'interviennent les **Services**, qui sont en fait des bouts de codes métiers, des méthodes, qui peuvent appeler dans d'autres pages, sans devoir les réécrire. On code une fois, on les réutilise partout.
-
-Nous aurons par exemple besoin des services pour la gestion des sessions utilisateurs. En effet, à peu près toutes les pages de notre application auront besoin de s'assurer que notre utilisateur courant est bien connecté. Et pour ne pas dix mille fois implémenter la fonction vérifiant l'état de connexion d'un utilisateur, on va créer un service dédié à cela.
-
-```bash
-$ ionic g provider User
-
-[OK] Generated a provider named User!
-```
-
-Cette commande va créer un nouveau service **User**, dans lequel nous déclarerons un certain nombre de méthodes pour la gestion de l'authentification, la création de comptes utilisateur,...Il suffira ensuiye d'appeler ce service dans n'importe quel page de notre application 
+Supposons que l'on ait définit la liste des mois de l'année dans une liste :
 
 ```js
-export class MaPage {
+let months_of_year = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
+                      'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+```
 
-  isConneted: any[] = [];
-  userData;
+l'affichage de tous les éléments se fait simplement de la manière suivante :
 
-  constructor(private http: HttpClient, userProvider:User) {
-    this.isConnected = this.userProvider.getUserStatus();
-  }
-  
-  getUserData() {
-    this.userProvider.getUserData().subscribe(data => {
-        this.userData = data['transactions'];
-      }, err => {
-          console.log("Error occured.")
-      });
-  }
-}
+```js
+<div *ngFor="let month of months_of_year">
+   Mois de l'année : {{month}}
+</div>
+```
+
+### \*ngIf
+
+Comme vous pouvez le deviner,  \*ngIf est le _**"if...else"**_ adapté aux templates.
+
+```js
+<span *ngIf="isConnected">Je suis connecté.</span>
+```
+
+### Pipe
+
+Comme dans la plupart des moteurs de templates, Angular permet l'utilisation de pipes qui permettent de modifier une variable ou un contenu avant qu'il soit affiché. Le framework propose un certain nombre de pipes prêts à l'emploi, comme _titlecase_, _currency_,...Mais il est tout à fait possible de créer son propre pipe.
+
+```js
+<div>
+   <h2>{{ 'charles edou nze' | titlecase }}</h2>
+</div>
+```
+
+**titlecase** permet de mettre en capitale les premières lettres de chaque mot. Ce qui donnera le résultat suivant :
+
+```
+Charles Edou Nze
 ```
 
 
