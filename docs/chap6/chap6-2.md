@@ -22,8 +22,8 @@ Les services sont ainsi le principal moyen de partager des données entre diffé
 
 Notre service Note implémentera différentes méthodes, à savoir :
 
-* **createNote** : permettant la création d'un note
-* **deleteNote** : pour la suppression d'un note
+* **createNote** : permettant la création d'une note
+* **deleteNote** : pour la suppression d'une note
 * **getNote** : qui renverra une note en fonction de son identifiant unique
 * **save** : qui permet la sauvegarde de toutes les notes
 * **load** : permet le chargement des notes depuis Ionic storage
