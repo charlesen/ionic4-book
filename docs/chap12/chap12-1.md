@@ -1,273 +1,94 @@
-## Stencil
+## Publication sur le Google Play Store
 
-**Site internet :** [https://stenciljs.com/](https://stenciljs.com/)
+### Pré-requis
 
-![](/assets/stencil_1.png)
+* [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html)
+* [Android Studio](https://developer.android.com/studio/index.html)
 
-Les créateurs de ce projet le définissent comme _**"un outil pour construire des composants web modernes et des progressive web apps \(PWA\)"**_.
+### Création d'un Keystore
 
-Stencil veut tirer parti des principales nouvelles fonctionnalités disponibles dans les navigateurs telles que les **"Web Components"**[^1], une nouvelle spécification du W3C[^2] permettant la création de composants compatibles avec tous les frameworks. Ceux-ci fonctionnent aussi bien dans Angular, React, Ember, que Vue, il fonctionne aussi avec jQuery ou même sans framework du tout, car le coeur de Stencil est la création de simples éléments HTML.
+le keystore est utilisé pour signer une application Android et donc certifier qu'elle a bien été emise par nous. Nous allons utiliser un outil nommé **keytool** inclut dans le SDK de Java.
 
-Exemple de composant web, ici qui affichera le drapeau du pays précisé dans l'attribut "country".
+Depuis la racine de votre projet, lancez la commande suivante :
 
-```js
-<flag-icon country="fr"></flag-icon>
+```
+$ keytool -genkey -v -keystore duckcoin_app.keystore -alias duckcoin_app -keyalg RSA -keysize 2048 -validity 10000
+
+Entrez le mot de passe du fichier de clés :  
+Ressaisissez le nouveau mot de passe :
+Quels sont vos nom et prénom ?
+  [Unknown]:  EDOU NZE Charles
+Quel est le nom de votre unité organisationnelle ?
+Quel est le nom de votre entreprise ?
+Quel est le nom de votre ville de résidence ?
+Quel est le nom de votre état ou province ?
+Quel est le code pays à deux lettres pour cette unité ?
+Est-ce CN=EDOU NZE Charles, OU=Mobile-tuts, O=Mobile-tuts, L=Troyes, ST=Champagne-Ardenne, C=FR ?
 ```
 
-### Installation et prise en main
+Retenez bien le mot de passe saisi, car une fois que votre application sera publié sur le Google Play Store à l'aide de ce keystore, vous n'aurez pas d'autres choix que d'installer des mises à jour en vous basant sur celui-ci. Si vous perdez le fichier keystore, il vous suffira de le regénérer avec ce mot de passe. Si par contre vous perdez les deux et qu'une version de votre application existe déjà sur le store, vous ne pourrez plus la mettre à jour.
 
-Stencil utilise NodeJS et un certain nombre d'autres outils déjà présent si vous avez correctement installé Ionic.
+De plus, choisissez un alias assez a retenir. Le nom de votre application + **'\_app'** devrait suffire. Par exemple **duckcoin\_app**.
 
-Le démarrage d'un nouveau projet peut se faire en clonant un template exemple disponible sur github.
+La commande a généré un fichier duckcoin\_app.keystore à la racine du projet. Gardez le précieusement et à l'abri du vol, ce serait dommage qu'un parfait inconnu publie version falsifié de votre application et se faisant passer pour vous.
+
+### Création d'un package de production
+
+Pour créer un package Android prêt à la production, il vous suffit de saisir la commande suivante :
 
 ```bash
-$ git clone https://github.com/ionic-team/stencil-starter.git mon_app_stencil
-
-Clonage dans 'mon_app_stencil'...
-remote: Counting objects: 306, done.
-remote: Compressing objects: 100% (16/16), done.
-remote: Total 306 (delta 14), reused 17 (delta 10), pack-reused 279
-Réception d'objets: 100% (306/306), 329.35 KiB | 0 bytes/s, fait.
-Résolution des deltas: 100% (153/153), fait.
-Vérification de la connectivité... fait.
-
-$ cd mon_app_stencil
-$ git remote rm origin
-$ npm install
+$ ionic cordova build android --release
 ```
 
-Vous aurez besoin d'installer le plugin sass à l'intérieur du projet :
+Cette commande va générer un package **.apk** : **platforms/android/build/outputs/apk/monProjet.apk**.
+
+il faut ensuite signer ce package :
 
 ```bash
-$ npm install @stencil/sass --save-dev
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore duckcoin_app.keystore monProjet.apk duckcoin_app
 ```
 
-Et le déclarer dans le fichier de configuration :
-
-```js
-const sass = require('@stencil/sass');
-
-exports.config = {
-  plugins: [
-    sass()
-  ]
-};
-// ... suite du fichier de config
-```
-
-Il ne reste plus qu'à compiler tout cela, puis démarrer le projet :
+Une fois l'application signée, la dernière est la compression du paquet avec un outil inclut dans le SDK d'Android :
 
 ```bash
-$ npm start
+$ zipalign -v 4 monProjet.apk monProjetMini.apk
 ```
 
-![](/assets/stencil_app_1.png)
+Voilà. C'est ce fichier **monProjetMini.apk** que nous allons pouvons publier sur le store.
 
-### Création de composants
-
-Les composants créés avec Stencil sont simplement des classes écrites en TypeScript avec des décorateurs un peu spéciaux. La création d'un nouveau composant se fait à partir d'un fichier ayant l'extension .tsx.
-
-Dans le dossier **src/components**, créons le fichier **moncomposant.tsx **avec le contenu suivant :
-
-**src/components/moncomposant.tsx**
-
-```js
-import { Component, Prop, State } from '@stencil/core';
-
-@Component({
-  tag: 'mon-composant',
-  styleUrl: 'mon-composant.scss'
-})
-export class MonComposant {
-  // On déclare ici les propriétés du composants
-  @Prop() prenom: string;
-
-  @Prop() nom: string;
-
-  @State() isVisible: boolean = true;
-
-  render() {
-    return (
-      <p>
-        Salut, je m'appelle {this.prenom} {this.nom}
-      </p>
-    );
-  }
-}
-```
-
-Dans ce composant, nous déclarons un certains nombre d'attributs \(propriétés\) à l'aide du décorateur **Prop**.
-
-La méthode **render\(\)** permet de générer le contenu html. Ici on renverra simplement un paragraphe avec des valeurs des attributs **prenom** et **nom** du composant.
-
-Créons aussi le fichier scss associé :
-
-**src/components/moncomposant.scss**
-
-```js
-mon-composant {
-  background: #e43b00;
-  padding: 5px;
-  margin: 5px 0;
-  border-radius: 5px;
-  display: block;
-  color: #fff;
-}
-```
-
-Puis dans n'importe qu'elle fichier html, vous pourrez appeler ce composant comme n'importe quel autre tag html :
-
-```js
-<mon-composant prenom="Charles" nom="EDOU NZE"></mon-composant>
-```
-
-Ajoutons par exemple ce tag en page d'accueil :
-
-**src/components/app-home/app-home.tsx**
-
-```js
-import { Component } from '@stencil/core';
-
-
-@Component({
-  tag: 'app-home',
-  styleUrl: 'app-home.css'
-})
-export class AppHome {
-
-  render() {
-    return (
-      <div class='app-home'>
-        <p>
-          Ma première application avec Stencil
-          <mon-composant prenom="Charles" nom="EDOU NZE"></mon-composant>
-        </p>
-
-        <stencil-route-link url='/profile/stencil'>
-          <button>
-            Mon profil
-          </button>
-        </stencil-route-link>
-      </div>
-    );
-  }
-}
-```
-
-ce qui donne ceci :
-
-![](/assets/stencil_2.png)
-
-On peut aussi tout simplement rajouter ce composant au fichier **index.html** de l'application, après com :
+Vous pouvez également créer un fichier bash et faire toutes les étapes plus rapidement. Sous Linux, créez un fichier **package.sh** contenant les lignes suivante
 
 ```bash
-$ npm run build
-$ vi src/index.html # Choisissez votre éditeur préféré
+ionic cordova build android --release
+jarsigner -tsa http://timestamp.digicert.com -verbose -sigalg SHA1withRSA -digestalg SHA1 -storepass motDePasse -keystore duckcoin_app.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk monAlias
+zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk monProjetMini.apk
+
 ```
 
-```js
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Mon appli Stencil</title>
-  <meta name="Description" content="Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil!">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#16161d">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
-
-  <script src="/build/app.js"></script>
-
-  <link rel="apple-touch-icon" href="/assets/icon/icon.png">
-  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
-</head>
-<body>
-
-  <!--<my-app></my-app>-->
-  <mon-composant prenom="Charles" nom="EDOU NZE"></mon-composant>
-
-  <style>
-    body {
-      margin: 0px;
-      padding: 0px;
-      font-family: sans-serif;
-    }
-  </style>
-</body>
-</html>
-```
-
-On n'affichera plus que le composant :
-
-![](/assets/stencil_4.png)
-
-L'idée est de pouvoir réutiliser des composants créés dans d'autres projets, les partager ou faire évoluer ceux des autres. C'est toute la philosophie des Web Components.
-
-Kit de développement de PWA avec Ionic \(Ionic PWA Toolkit\)
-
-Si vous souhaitez partir sur un projet prêt à l'emploi pour votre prochain PWA, Ionic propose son propre kit, régulièrement mis à jour. Au moment où j'écris ces quelques lignes, le kit utilise la version 4 \(Alpha\) du framework Ionic et propose tout un tas de fonctionnalités intéressantes :
-
-* Le framework Stencil \(évidemment\), pour créer et charger facilement des composants Web standardisés
-
-* Le framework Ionic
-
-* Un système de routage
-
-* Notifications Push
-
-* Affichage d'un toast quand une nouvelle version du PWA est disponible
-
-* Tests unitaires
-
-* Pré-rendu
-
-* Configuration pour l'optimisation du chargement des pages \(lazy loading\)
-* Configuration pour l'optimisation du code
-* Polyfills chargé de manière sélective en fonction du support du navigateur
-* ES6 par défaut pour les nouveaux navigateurs, ES5 pour les anciens navigateurs
-* Tout ce dont vous avez besoin pour ajouter votre PWA à l'écran d'accueil \(Service worker, manifeste Web et méta-tags iOS\)
-* Composant ion-img pour un chargement rapide des images
-* Customisation des styles à l'aide de variables SCSS
-
-Pour installer le kit et commencer à développer dessus, il vous suffit de cloner les sources depuis le depot git :
+Il vous suffit ensuite de rendre executable ce fichier et de lancer le script.
 
 ```bash
-$ git clone https://github.com/ionic-team/ionic-pwa-toolkit.git mon-pwa
-$ cd mon-pwa
-$ git remote rm origin
+$ chmod u+x package.sh
+$ ./package.sh
 ```
 
-Vous pourrez ensuite démarrer l'application :
+### Google Play Store
 
-```bash
-$ npm install
-$ npm start
-```
+Une license délivrant le droit de publier sur le Google PlayStore coute 25 dollars pour un compte à vie. Pour se connecter il suffit simplement d'aller à cette adresse : [https://play.google.com/apps/publish/](https://play.google.com/apps/publish/). Cliquez ensuite sur le bouton "Créer une application" en haut en à droite :
 
-![](/assets/screen_pwa_toolkit.png)
+| ![](/assets/google_playstore.png) | ![](/assets/playstore_2.png) |
+| :--- | :--- |
+|  |  |
 
-Pour compiler une version de production, il suffit de faire :
+Remplissez le formulaire qui vous est proposé
 
-```bash
-$ npm run build
-```
+![](/assets/playstore_3.png)
 
-Il ne vous restera plus qu'à faire pointer nom de domaine sur le fichier **www/index.html**.
+et ajoutez des captures d'écran dans les formats recommandés, avant de valider le tout
 
-Vous pouvez également tester la version de production depuis votre navigateur en utilisant par exemple le logiciel **http-server** \(_**npm install http-server -g**_\).
+![](/assets/playstore_4.png)
 
-```
-$ http-server www
+Il faut ensuite aller dans l'onglet **"Versions de l'application"** et cliquez sur **"Gérer la production" &gt; "Créer une version"**. C'est ici que l'on va pouvoir uploader notre APK avant de le publier :
 
-Starting up http-server, serving www
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.2.146:8080
-Hit CTRL-C to stop the server
-```
-
-
+![](/assets/playstore_6.png)
 

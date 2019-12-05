@@ -384,9 +384,87 @@ Modifions le html pour afficher la liste des tweets et permettre l'ajout de nouv
         <p>{{tweet.content}}</p>
       </ion-card-content>
     </ion-card>
-    <ion-item *ngIf="!tweetsService.tweets || tweetsService.tweets.length ==0">
-      Pas de tweets pour le moment
+    <ion-item [hidden]="tweetsService.tweets.length > 0" class="ion-text-center ion-padding-top">
+      <ion-label>Aucun tweet. <br /> Soyez le premier à publier.</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
+
 ```
+
+Sans Tweet | Après le premier tweet
+---      | --- |
+![](/assets/ducktweet_5.png) | ![](/assets/ducktweet_6.png) |
+
+Créons à présent une page pour afficher le contenu de notre tweet.
+```bash
+$ ionic g page Tweet
+```
+
+Éditons-la pour qu'elle nous permette d'afficher correctement le contenu du tweet sur lequel on cliquera.
+
+**src/app/tweet/tweet.page.ts**
+
+```javascript
+
+import { Component, OnInit } from '@angular/core';
+
+// Routing
+import { ActivatedRoute } from '@angular/router';
+
+// Service
+import { TweetsService, Tweet } from '../services/tweets.service';
+
+@Component({
+  selector: 'app-tweet',
+  templateUrl: './tweet.page.html',
+  styleUrls: ['./tweet.page.scss'],
+})
+export class TweetPage implements OnInit {
+  tweet: Tweet;
+  constructor(private route: ActivatedRoute,
+    public tweetsService: TweetsService) {
+    // Initialisation d'un tweet à vide
+    this.tweet = {
+      id: '',
+      content: '',
+      create_at: '',
+      photos: []
+    };
+  }
+
+  ngOnInit() {
+    // On récupère l'identifiant de la
+    let tweetId = this.route.snapshot.paramMap.get('id');
+    this.tweet = this.tweetsService.getTweet(tweetId);
+  }
+
+}
+
+```
+
+On en fait de même pour la page HTML
+
+**src/app/tweet/tweet.page.ts**
+
+```html
+<ion-header>
+  <ion-toolbar color="ducktweet">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tweet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  {{tweet.content}}
+</ion-content>
+
+```
+
+Sans Tweet | Après le premier tweet
+---      | --- |
+![](/assets/ducktweet_6.png) | ![](/assets/ducktweet_7.png) |
+
+Voilà. N'hésitez pas à rajouter tout ce qui vous vient à l'esprit pour vous rapprocher le plus possible de la version originale de Twitter.

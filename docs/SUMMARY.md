@@ -53,7 +53,7 @@
   * [Templates Angular](chap8/chap8-3.md)
   * [Exercez-vous](chap8/chap8-4.md)
 
-* [Chap 9 - Architecture avancée d'une application Ionic : Composants, Directives, Providers, Services, Pipes, Modules, plugins natifs et persistance de données](chap8/README.md)
+* [Chap 9 - Architecture avancée d'une application Ionic : Composants, Directives, Providers, Services, Pipes, Modules, plugins natifs et persistance de données](chap9/README.md)
   * [Composants](chap9/chap9-1.md)
   * [Directives](chap9/chap9-2.md)
   * [Services/Providers](chap9/chap9-3.md)
@@ -66,6 +66,19 @@
   * [Tester son application mobile](chap10/chap10-1.md)
   * [Débogage de l'application](chap10/chap10-2.md)
   * [Exercez-vous](chap10/chap10-3.md)
+
+* [Chap 11 - Ionic et son écosystème : Cloud, Lab, View et Creator](chap11/README.md)
+  * [Ionic Appflow](chap11/chap11-1.md)
+  * [Ionic Lab](chap11/chap11-2.md)
+  * [Ionic View](chap11/chap11-3.md)
+  * [Ionic Creator](chap11/chap11-4.md)
+  * [Ionic market](chap11/chap11-5.md)
+
+* [Chap 12 - Publication sur les stores](chap12/README.md)
+  * [Publication sur le Google Play Store](chap12/chap12-1.md)
+  * [Publication sur l'Apple Store](chap12/chap12-2.md)
+  * [Publication automatisée avec Fastlane](chap12/chap12-3.md)
+
 
 * [Bugs courants](annexe/README.md)
   * [Annexe 1 : Bugs courants et solutions](annexe/annexe1-2.md)

@@ -33,5 +33,4 @@ $ ng serve --open
 
 ![](/assets/angular_launch.png)
 
-En avant d'aller plus loin découvrons un peu la structure, puis l'architecture d'un projet Angular.
-
+Avant d'aller plus loin, découvrons un peu la structure, puis l'architecture d'un projet Angular.
