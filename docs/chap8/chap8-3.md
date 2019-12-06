@@ -6,14 +6,14 @@ Permet de boucler sur les éléments d'un tableau à l'intérieur d'un template 
 
 Supposons que l'on ait définit la liste des mois de l'année dans une liste :
 
-```js
+```javascript
 let months_of_year = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
                       'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
 ```
 
 l'affichage de tous les éléments se fait simplement de la manière suivante :
 
-```js
+```html
 <div *ngFor="let month of months_of_year">
    Mois de l'année : {{month}}
 </div>
@@ -23,7 +23,7 @@ l'affichage de tous les éléments se fait simplement de la manière suivante :
 
 Comme vous pouvez le deviner,  \*ngIf est le _**"if...else"**_ adapté aux templates.
 
-```js
+```javascript
 <span *ngIf="isConnected">Je suis connecté.</span>
 ```
 
@@ -31,7 +31,7 @@ Comme vous pouvez le deviner,  \*ngIf est le _**"if...else"**_ adapté aux templ
 
 Comme dans la plupart des moteurs de templates, Angular permet l'utilisation de pipes qui permettent de modifier une variable ou un contenu avant qu'il soit affiché. Le framework propose un certain nombre de pipes prêts à l'emploi, comme _titlecase_, _currency_,...Mais il est tout à fait possible de créer son propre pipe.
 
-```js
+```javascript
 <div>
    <h2>{{ 'charles edou nze' | titlecase }}</h2>
 </div>
@@ -43,5 +43,4 @@ Comme dans la plupart des moteurs de templates, Angular permet l'utilisation de 
 Charles Edou Nze
 ```
 
-
-
+Plus d'informations sur les Pipes Angular : https://angular.io/guide/pipes 
