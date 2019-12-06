@@ -84,8 +84,13 @@ function shuffle(array) {
 // On appelle un tableau
 var cardArray = ['card1.jpg', 'card2.jpg', 'card3.jpg', 'card4.jpg'];
 
-// Affiche les cartes de manière aléatoire
-console.log(shuffle(cardArray));
+
+var card1 = shuffle(cardArray);
+var card2 = shuffle(cardArray);
+var cardPlateau = card1.concat(card2);
+
+// Affiche les cartes + leur doublons de manière aléatoire
+console.log(cardPlateau);
 
 ```
 
