@@ -1,8 +1,8 @@
 ## Exercez-vous
 
-1) Créez un nouveau projet comme expliqué précédemment
+1) Créez un nouveau projet comme expliqué au [Chapitre 8 - Installation d'Angular CLI et Création d'un nouveau projet](chap8/chap8-1.html).
 
-2) Que pouvez-vous remarquer dans l'arborescence de fichiers d'Angular...vis-à-vis de Ionic ?
+2) Que pouvez-vous remarquer dans l'arborescence de ce projet Angular...vis-à-vis de Ionic ?
 
 3) A l'aide de la commande suivante, générez un nouveau Composant nommé  **"feed"**, qui va nous permettre d'afficher un fil d'actualités (tweets, notifications,...) :
 
@@ -243,7 +243,7 @@ Une fois le bug corrigé, vous devriez obtenir un résultat proche de celui-ci :
 
 ![](/assets/duckweb_3.png)
 
-Grâce à l'utilisation du module http, vous pouvez facilement récupérer des données issues de sites ou applications distantes.
+Grâce à l'utilisation du module http, vous pourrez facilement récupérer des données issues de sites ou applications distantes.
 
 
 ### Pour aller plus loin
