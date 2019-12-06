@@ -4,7 +4,7 @@
 
 2) Que pouvez-vous remarquer dans l'arborescence de fichiers d'Angular...vis-à-vis de Ionic ?
 
-3) A l'aide de la commande suivante, générez un nouveau Composant nommé  **"feed"**, qui nous permettre d'afficher un fil d'actualités (tweets, notifications,...) :
+3) A l'aide de la commande suivante, générez un nouveau Composant nommé  **"feed"**, qui va nous permettre d'afficher un fil d'actualités (tweets, notifications,...) :
 
 ```bash
 $ ng g c feed
@@ -15,6 +15,35 @@ CREATE src/app/feed/feed.component.html (23 bytes)
 CREATE src/app/feed/feed.component.spec.ts (614 bytes)
 CREATE src/app/feed/feed.component.ts (262 bytes)
 UPDATE src/app/app.module.ts (467 bytes)
+```
+
+Vérifiez que le module général (app.module.ts) a bien été mis à jour. Sinon modifiez-le comme ceci :
+
+**src/app/app.module.ts**
+```javascript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FeedComponent } from './feed/feed.component'; // <--- On importe notre composant ici
+
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FeedComponent // <--- On déclare notre composant ici. Ainsi il sera disponible partout dans l'application
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 Que s'est-il passé ? Ouvrez le fichier **src/app/feed/feed.component.ts** et examinez-le.
