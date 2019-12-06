@@ -16,59 +16,69 @@ $ ionic g directive maDirective
 [OK] Generated a directive named maDirective!
 ```
 
-Créons par exemple une directive que nous appellerons **bolder** et qui permettra de mettre en gras l'élément qui l’appellerait.
+Créons par exemple une directive que nous appellerons **duckborder** et qui permettra de rajouter des marges au sein de l'élément qui l'invoque.
 
 ```bash
-$ ionic g directive bolder
+$ ionic g directive directives/duckbolder
 
-[OK] Generated a directive named bolder                                                          !
+> ng generate directive directives/duckbolder
+CREATE src/app/directives/duckbolder.directive.spec.ts (240 bytes)
+CREATE src/app/directives/duckbolder.directive.ts (149 bytes)
+UPDATE src/app/app.module.ts (1094 bytes)
+
+[OK] Generated directive!
+                                                         !
 ```
 
-On déclare ensuite une fois pour toute le "module mère" de toutes les directives dans le module root **src/app/app.module.ts** :
+Ionic (disons plutôt Angular) utilisant par défaut le *Lazy loading* (chargement de code uniquement si nécessaire pour augmenter les performances générales), on ne peut plus vraiment déclarer notre directive de manière globale dans le module **src/app/app.module.ts**.
 
-```js
+Pour être exploitable, la directive doit être appelée dans le module de la page ou du composant qui souhaite l'utiliser.
+
+Si l'on souhaite par exemple appeler notre directive dans une page nommée **FeedPage** affichant notre fil d'actualité, il suffit d'éditer le module de cette page comme ceci :
+
+**src/app/feed/feed.module.ts**
+
+```javascript
 // ...
-//Modules
-import {ComponentsModule} from '../components/components.module';
-import {DirectivesModule} from '../directives/directives.module';
-import { HttpClientModule } from '@angular/common/http';
+// On appelle la Directive ici
+// ...
 
-//...
+import { DuckborderDirective } from './../directives/duckborder.directive';
 
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ComponentsModule,
-    DirectivesModule, // ICI
-    IonicModule.forRoot(DuckTweetApp,{
-        // tabsPlacement: 'top',
-        backButtonText: 'Retour'
-    })
-  ],
+@NgModule({
+  // ..
+  declarations: [FeedPage, DuckBorderDirective] // <!-- On déclare la directive ici-->
+})
+export class Tab1PageModule {}
+
 ```
 
-Puis, on édite notre directive pour qu'il fasse ce que l'on souhaite, à savoir mettre du contenu en gras :
+Et puisqu'il a été appelé ici, il faut donc le retirer dans le fichier **src/app/app.module.ts**, s'il s'y trouve.
 
-```js
-import { Directive, ElementRef } from '@angular/core';
+Il ne reste plus qu'à éditer notre directive pour qu'il fasse ce que l'on souhaite, à savoir rajouter une bordure :
 
-/**
- *  Directives.
- */
+```javascript
+
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
 @Directive({
-  selector: '[bolder]' // Attribute selector
+  selector: '[appDuckborder]'
 })
-export class BolderDirective {
+export class DuckborderDirective {
 
-  constructor(Element: ElementRef) {
-    Element.nativeElement.style.fontWeight = 'bolder';
+  constructor(public element: ElementRef, public renderer: Renderer) {
+    console.log('ElementRef', element);
+    this.renderer.setElementStyle(this.element.nativeElement, 'border', '1px solid #000000');
   }
 
 }
+
 ```
 
-Il ne nous reste plus qu'à utiliser notre nouvelle directive dans le contenu html de notre page d'accueil par exemple :
+On peut ainsi utiliser notre nouvelle directive dans le contenu html de notre page d'accueil :
 
-```js
-<span bolder>mon texte en gras</span>
+```javascript
+<p appDuckborder>{{tweet.content}}</p>
 ```
+
+![](/assets/ionic_directive.png)
