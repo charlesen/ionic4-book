@@ -32,7 +32,7 @@ Chaque plugin possédant sa propre documentation il est recommandé de suivre le
 
 Une fois le plugin installé, il faut le déclarer dans le module principal de l'application :
 
-**src/app/app.module.ts **
+**src/app/app.module.ts**
 
 ```js
 ...
@@ -60,9 +60,9 @@ Ionic proposant un nombre assez vaste de composant, je vous propose de n'en étu
 
 L'application existe pour Android et iOS :
 
-* Google Play Store : [https://play.google.com/store/apps/details?id=com.ionicframework.view](https://play.google.com/store/apps/details?id=io.ionic.devapp&hl=en)
+* Google Play Store : [https://play.google.com/store/apps/details?id=io.ionic.devapp&hl=en](https://play.google.com/store/apps/details?id=io.ionic.devapp&hl=en)
 
-* Apple Store : [https://itunes.apple.com/us/app/ionic-view-test-share-ionic-apps/id1271789931](https://itunes.apple.com/us/app/ionic-devapp/id1233447133?ls=1&mt=8)
+* Apple Store : [https://apps.apple.com/us/app/ionic-devapp/id1233447133?ls=1](https://apps.apple.com/us/app/ionic-devapp/id1233447133?ls=1)
 
 Une fois l'application installée, vous devrez vous connecter avec vos identifiants Ionic PRO, et démarrer votre projet mobile :
 
@@ -70,7 +70,7 @@ Une fois l'application installée, vous devrez vous connecter avec vos identifia
 $ ionic serve -c
 ```
 
-Connectez ensuite votre téléphone au même réseau wi-fi que votre ordinateur, puis lancez Ionic Dev App pour voir apparaître Votre application DuckCoin.
+Connectez ensuite votre téléphone au même réseau wi-fi que votre ordinateur, puis lancez Ionic Dev App pour voir apparaître Votre application.
 
 ![](/assets/ionic_devapp_2.png)
 
@@ -80,7 +80,7 @@ Nous pouvons à présent tester quelques plugins natifs.
 
 **Documentation** : [https://ionicframework.com/docs/native/camera/](https://ionicframework.com/docs/native/camera/)
 
-Ce plugin permet de prendre une photo ou d'enregistrer une vidéo en utilisant l'objet **navigator.camera **introduit par l'HTML5.
+Ce plugin permet de prendre une photo ou d'enregistrer une vidéo en utilisant l'objet **navigator.camera** introduit avec l'arrivée du HTML5.
 
 ##### Installation
 
@@ -115,7 +115,7 @@ export class AppModule { }
 
 ##### Utilisation
 
-Nous allons appeler ce plugin depuis la page de profil de notre application DuckCoin. Il suffit d'éditer le fichier **src/pages/profile/profile.ts** comme ceci :
+Nous allons appeler ce plugin depuis la page de profil de notre application. Il suffit d'éditer le fichier **src/pages/profile/profile.ts** comme ceci :
 
 ```js
 // ...
@@ -326,8 +326,5 @@ Le plugin permet de récupérer les valeurs suivantes :
 * **this.device.uuid** : retourne l'identifiant unique du téléphone.
 * **this.device.version** : renvoie la version du système d'exploitation
 * **this.device.manufacturer** : retourne le nom du fabricant de l'appareil mobile
-* **this.device.isVirtual** : méthode permettant de savoir si l'application est utilisé depuis un émulateur de smartphone \(voir [Chapitre 9](/chap9)\)
+* **this.device.isVirtual** : méthode permettant de savoir si l'application est utilisé depuis un émulateur de smartphone
 * **this.device.serial** : renvoie le numéro de série de l'appareil
-
-
-

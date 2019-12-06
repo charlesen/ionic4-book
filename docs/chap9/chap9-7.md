@@ -1,32 +1,45 @@
 ## Exercez-vous
 
-1\) Créez un nouveau composant nommé "transaction" qui affichera la liste des dernières transactions de la blockchain. Cette liste est à récupérer à l'adresse : [https://duckcoin.charlesen.fr/transactions](https://duckcoin.charlesen.fr/transactions).
+1\) Revenons à notre application Ducktweet. Créez un nouveau composant nommé "feed" qui affichera la liste des derniers tweets créés.
 
-2\) Appelez ce nouveau composant dans l'onglet Portefeuille
+2\) Appelez ce nouveau composant dans l'onglet **Explorer** de l'application DuckTweet
 
-3\) Créez une directive que vous nommerez **"bigger"**. Celle-ci permettra d'augmenter la taille \(font-size\) de l’élément qui l'invoquerait.
+![](/assets/ducktweet_6.png)
 
-4\) Créez un Pipe que vous nommerez _**devise**_ que vous utiliserez dans votre liste de transactions pour convertir la valeur \(amount\) de chaque transaction en dollar, en Livre sterling et en tout autre monnaie qui vous viendrait à l'esprit.
+3\) Créez une directive que vous nommerez **"bigger"**. Celle-ci permettra d'augmenter la taille \(font-size\) de l’élément qui l'invoquerait. N'importe lequel.
+Créez autant de directive que nécessaire pour facilement customiser votre application.
+
+4\) Créez un Pipe que vous nommerez _**moment**_ que vous utiliserez dans votre liste de feeds pour afficher la date de création d'un tweet de la même façon que le plugin Javascript **Moment** (https://momentjs.com/).
+
 
 ```js
-{{transact.amount | devise:'dollar'}}
-{{transact.amount | devise:'pound'}}
+{{feed.create_at | moment}} // Renvoie "il y a quelques secondes"
 ```
 
-* **1 Livre sterling est égale 1,15 Euro**
-* **1 Dollar américain est égal à 0,88 Euro**
+```
+Exemples d'utilisation de la librairie MomentJS
 
-![](/assets/duckcoin_devise.png)
+moment("20111031", "YYYYMMDD").fromNow(); // il y a 8 ans
+moment("20120620", "YYYYMMDD").fromNow(); // il y a 7 ans
+moment().startOf('day').fromNow();        // il y a une heure
+moment().endOf('day').fromNow();          // dans un jour
+moment().startOf('hour').fromNow();       // il y a 19 minutes
 
-4\) Ajustons un peu notre page de login en enregistrant en base de données le login au clic sur le bouton de validation, et en l'affichant en page d'accueil de façon à ce que l'on ait ce message :
 
 ```
-Bonjour leLogin,
-Duckcoin, c'est la monnaie qui rend aimable, redonne le sourire et change la face du monde.
-Elle a été faite pour des gens sympas, juste comme toi.
-```
 
-**P.S. :** vous aurez sûrement besoin de ça ;-\) : [https://ionicframework.com/docs/developer-resources/forms/](https://ionicframework.com/docs/developer-resources/forms/)
+![](/assets/ducktweet_maquette.png)
 
-5\) Nous avons introduit les composants natifs proposés par Ionic [https://ionicframework.com/docs/native/](https://ionicframework.com/docs/native/). Utilisez un maximum d'entre eux et ajoutez-les à votre projet.
+4\) Nous avons introduit les composants natifs proposés par Ionic [https://ionicframework.com/docs/native/](https://ionicframework.com/docs/native/). Utilisez un maximum d'entre eux et ajoutez-les à votre projet.
 
+
+### Exercice avec 2 Points BONUS : DuckMemory
+
+Dans cet exercice, nous souhaitons réaliser un jeu de memory comme celui-ci : http://memory.charlesen.fr
+
+![](/assets/duckmemory.png)
+
+Le principe du jeu est relativement simple : **Cliquer sur une carte et trouver son double.**
+
+Si une paire est trouvée, c'est validé. Sinon, vous n'avez plus qu'à recommencer.
+Si vous réussissez à valider toutes les paires dans le temps imparti, vous avez remporté la partie.

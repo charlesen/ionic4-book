@@ -10,11 +10,11 @@ app.component.ts
 app.module.ts
 ```
 
-Nous avons aussi écrit un composant **Transaction** qui nous permettait d'afficher la liste de nos dernières transactions.
+Nous avons aussi écrit un composant **Feed** qui nous permettait d'afficher un fil d'actualités simple.
 
-![](/assets/render_appcompo.png)
+![](/assets/duckweb_3.png)
 
-La création d'un nouveau composant se fait simplement en saisissant la commande suivante à la racine de votre projet ionic :
+La création d'un nouveau composant se fait simplement en saisissant la commande suivante à la racine de votre projet ionic ou Angular :
 
 ```bash
 $ ionic g component monComposant
@@ -28,7 +28,9 @@ src/components/moncomposant.ts
 src/components/components.module.ts
 ```
 
-On voit ici qu'un module \(components.module.ts\) a aussi été créé. Rappelons que les modules sont chargés du bootstrapping \(démarrage\) d'un composant. C'est donc ce module qu'il faudra déclarer dans le module principal **src/app/app.module.ts **:
+On voit ici qu'un module \(components.module.ts\) a aussi été créé.
+
+Rappelons que les modules sont chargés du bootstrapping \(démarrage\) d'un composant. C'est donc ce module qu'il faudra éventuellement déclarer dans le module principal **src/app/app.module.ts **:
 
 ```js
 // Modules
@@ -70,6 +72,3 @@ A présent vous pouvez appeler votre composant sous forme de tag dans n'importe 
 ```js
 <moncomposant></moncomposant>
 ```
-
-
-

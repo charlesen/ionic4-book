@@ -2,9 +2,11 @@
 
 Une directive est un élément qui va nous permettre d'étendre des fonctionnalité html. Il en existe différents types :
 
-* **Directive de type attribut** : vous en avez déjà vu, elles permettent de modifier du html. Citons par exemple _**text-center**_, une directive qui permet de centrer le contenu d'un élément, ou encore la directive _**padding**_, qui permet d'ajouter un padding à l'élément qui l'invoque.
+* **Directive de type attribut** : vous en avez déjà vu, elles permettent de modifier du html. Citons par exemple _**color**_, une directive qui permet d'attribuer la couleur passée en paramètre à l'élément concerné, ou encore la directive _**padding**_, qui permet d'ajouter un padding à l'élément qui l'invoque.
+
 * **Directive de type composant** : oui au risque de vous embrouiller un peu, un composant est en réalité une directive, mais dotée d'un template html. La directive est en quelque sorte l'atome, le composant la molécule.
-* **Directive de type structure** : Ce type de directive est fait pour la manipulation du DOM et commence toujours par un **"\*"**. On peut citer parmi celles-ci deux que nous avons déjà utilisé à savoir **\*ngIf** et **\*ngFor**.
+
+* **Directive de type structure** : Ce type de directive est fait pour la manipulation du DOM et commence toujours par un **"\*"**. On peut citer parmi celles-ci deux que nous avons déjà utilisées à savoir **\*ngIf** et **\*ngFor**.
 
 la création d'une directive se fait simplement en saisissant la commande suivante :
 
@@ -14,7 +16,7 @@ $ ionic g directive maDirective
 [OK] Generated a directive named maDirective!
 ```
 
-Créons par exemple une directive que nous appelerons **bolder** et qui permettra de mettre en gras l'élément qui l’appellerait.
+Créons par exemple une directive que nous appellerons **bolder** et qui permettra de mettre en gras l'élément qui l’appellerait.
 
 ```bash
 $ ionic g directive bolder
@@ -38,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ComponentsModule,
     DirectivesModule, // ICI
-    IonicModule.forRoot(DuckCoinApp,{
+    IonicModule.forRoot(DuckTweetApp,{
         // tabsPlacement: 'top',
         backButtonText: 'Retour'
     })
@@ -65,11 +67,8 @@ export class BolderDirective {
 }
 ```
 
-Il ne nous reste plus qu'à utiliser notre nouvelle directive sur du contenu en page d'accueil par exemple :
+Il ne nous reste plus qu'à utiliser notre nouvelle directive dans le contenu html de notre page d'accueil par exemple :
 
 ```js
 <span bolder>mon texte en gras</span>
 ```
-
-
-
