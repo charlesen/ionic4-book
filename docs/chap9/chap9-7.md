@@ -128,6 +128,12 @@ export class FeedComponent implements OnInit {
   </ion-item>
 </ion-list>
 
+<ion-fab vertical="bottom" horizontal="end" class="ion-padding">
+  <ion-fab-button (click)="addTweet()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 
 ```
 
@@ -161,9 +167,11 @@ imports: [
 ]
 ```
 
+![](/assets/ducktweet_6.png)
+
 2\) Comme avec la page d'accueil, appelez ce nouveau composant dans l'onglet **Explorer**.
 
-![](/assets/ducktweet_6.png)
+![](/assets/ducktweet_8.png)
 
 3\) Créez une directive que vous nommerez **"bigger"**. Celle-ci permettra d'augmenter la taille \(font-size\) de l’élément qui l'invoquerait. N'importe lequel.
 Créez autant de directive que nécessaire pour facilement customiser votre application.
