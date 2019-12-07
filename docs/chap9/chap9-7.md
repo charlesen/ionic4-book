@@ -5,6 +5,7 @@
 On va le faire en deux étapes :
 - Création d'un module **components** qui stockera notre composant et tous ceux que l'on voudra créés à l'avenir
 - Création du composant
+
 ```bash
 $ ionic g module components
 $ ionic g component components/Feed
@@ -15,7 +16,6 @@ CREATE src/app/components/feed/feed.component.html (23 bytes)
 CREATE src/app/components/feed/feed.component.spec.ts (668 bytes)
 CREATE src/app/components/feed/feed.component.ts (260 bytes)
 [OK] Generated component!
-
 ```
 
 Modifions le ComponentsModule :
