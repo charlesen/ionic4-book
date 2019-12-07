@@ -17,36 +17,26 @@ CREATE src/app/feed/feed.component.ts (262 bytes)
 UPDATE src/app/app.module.ts (467 bytes)
 ```
 
-Vérifiez que le module général (app.module.ts) a bien été mis à jour. Sinon modifiez-le comme ceci :
+
+Vérifiez que le module général (app.module.ts) a bien été mis à jour. Sinon modifiez-le en important puis en ajoutant la classe du composant (FeedComponent) dans la liste des déclarations :
 
 **src/app/app.module.ts**
 ```javascript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+// ... Autres imports
+
 import { FeedComponent } from './feed/feed.component'; // <--- On importe notre composant ici
-
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent // <--- On déclare notre composant ici. Ainsi il sera disponible partout dans l'application
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  //... autres éléments
 })
 export class AppModule { }
 ```
-
-Que s'est-il passé ? Ouvrez le fichier **src/app/feed/feed.component.ts** et examinez-le.
+Ouvrez le fichier **src/app/feed/feed.component.ts** et examinez-le.
 
 4) Ouvrez le fichier **src/app/app.component.html**, et remplacez le contenu ci-dessous (on ne gardera que le logo d'Angular)
 
@@ -102,7 +92,9 @@ Retournez dans votre navigateur. Que s'est-il passé d'après vous ?
 
 6) Ouvrez le fichier **src/app/feed/feed.component.ts** , puis dans le constructeur, définissez  une liste de tweets dans une variable nommée feeds (on aurait pu l'appeler autrement).
 
-Une liste statique comme celle ci-dessous devrait suffire pour l'instant :
+Une liste statique devrait suffire pour le moment :
+
+**src/app/feed/feed.component.ts**
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -114,6 +106,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
+  // On déclare la liste de manière statique
   feeds: any = [
     { 'id': '1', 'content': 'Un tweet 1' },
     { 'id': '2', 'content': 'Un tweet 2' },
@@ -123,28 +116,34 @@ export class FeedComponent implements OnInit {
     { 'id': '6', 'content': 'Un tweet 6' },
     { 'id': '7', 'content': 'Un tweet 7' }
   ];
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
 ```
 
-Modifiez le fichier **src/app/feed/feed.component.html**, de manière à avoir le résultat suivant :
+Modifiez le fichier **src/app/feed/feed.component.html** pour obtenir le résultat suivant :
 
 ![](/assets/duckweb_2.png)
 
-Que pouvez-vous conclure sur le rôle d'un composant ? Comprenez-vous mieux comment fonctionne les composants Ionic ?
-
-7) Dans le fichier **src/app/feed/feed.component.ts**, ajoutez les lignes suivantes dans la partie dédiée aux imports :
+Vous pouvez utiliser la boucle **ngFor** pour afficher un à un les fils d'actualité.
 
 ```javascript
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+<div class="container">
+  <h3 class="text-center">Derniers tweets</h3>
+  <div class="text-center text-feed" *ngFor="let feed of feeds">
+    <p>({{feed.content}})</p>
+  </div>
+</div>
 ```
 
-Puis modifiez le fichier comme ceci :
+Que pouvez-vous conclure sur le rôle d'un composant ? Comprenez-vous mieux comment fonctionne les composants Ionic ?
+
+7) Nous avons afficher des données statique et souhaitons à présent récupérer des données distantes. Nous allons utiliser le site [RandomUser](https://randomuser.me), qui affiche des profils utilisateurs de manière aléatoire.
+
+Dans le fichier **src/app/feed/feed.component.ts**, apportez les ajustements suivants :
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -160,10 +159,11 @@ const apiUrl = 'https://randomuser.me/api/';
 export class FeedComponent implements OnInit {
 
   feeds: any = [];
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // On récupère du contenu via une requête Http Get (10 items)
+    // On récupère les profils aléatoires via une requête Http Get (10 items)
     this.http
       .get(`${apiUrl}`,
         {
@@ -173,7 +173,7 @@ export class FeedComponent implements OnInit {
           observe: 'response'
         })
       .subscribe(data => {
-        console.log(data)
+        // On affecte le résultats à notre variable feed
         this.feeds = data['body']['results'];
       }, (error) => {
         console.log(error);
@@ -184,7 +184,9 @@ export class FeedComponent implements OnInit {
 
 ```
 
-Puis le fichier html
+Adaptons aussi un peu le fichier html
+
+**src/app/feed/feed.component.html**
 ```html
 <div class="container">
   <h3 class="text-center">Fil d'actualité</h3>
@@ -217,25 +219,26 @@ Un peu de CSS et le tour est joué
 }
 ```
 
-
 Une petite minute...Vous devriez avoir planté normalement. Savez-vous pourquoi ?
 
-    No provider for HttpClient!
+```
+No provider for HttpClient!
+```
 
 Dans le fichier **src/app/app.module.ts** ajoutez les lignes suivantes :
 
 ```javascript
+
+// ...
+
+// Import du module HTTP
 import { HttpClientModule } from '@angular/common/http';
 // ...
 imports: [
-    BrowserModule,
-    HttpClientModule,
     // ...
-    IonicModule.forRoot(MyApp, {
-      // tabsPlacement: 'top',
-      backButtonText: 'Retour'
-    })
-  ],
+    HttpClientModule, // <!-- On déclare le module HTTP -->
+    // ...
+],
 // ...
 ```
 

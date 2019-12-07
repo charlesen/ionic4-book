@@ -1,10 +1,167 @@
 ## Exercez-vous
 
-1\) Revenons à notre application Ducktweet. Créez un nouveau composant nommé "feed" qui affichera la liste des derniers tweets créés.
+1\) Revenons à notre application Ducktweet. Créez un nouveau composant **Feed** qui affichera la liste des derniers tweets créés.
 
-Inspirez-vous de ce qui a été fait au [Chapitre 8 - Installation d'Angular CLI et Création d'un nouveau projet](chap8/chap8-1.html).
+On va le faire en deux étapes :
+- Création d'un module **components** qui stockera notre composant et tous ceux que l'on voudra créés à l'avenir
+- Création du composant
+```bash
+$ ionic g module components
+$ ionic g component components/Feed
 
-2\) Appelez ce nouveau composant dans l'onglet **Explorer** de l'application DuckTweet
+> ng generate component components/Feed
+CREATE src/app/components/feed/feed.component.scss (0 bytes)
+CREATE src/app/components/feed/feed.component.html (23 bytes)
+CREATE src/app/components/feed/feed.component.spec.ts (668 bytes)
+CREATE src/app/components/feed/feed.component.ts (260 bytes)
+[OK] Generated component!
+
+```
+
+Modifions le ComponentsModule :
+
+```javascript
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+
+// On importe le composant
+import { FeedComponent } from './feed/feed.component';
+
+@NgModule({
+  declarations: [FeedComponent],
+  exports: [FeedComponent],
+  imports: [
+    IonicModule,
+    CommonModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class ComponentsModule { }
+
+```
+
+
+Éditons le composant pour qu'il appelle le service Tweet que nous avons créé.
+
+**src/app/components/feed/feed.component.ts**
+```javascript
+
+import { Component, OnInit } from '@angular/core';
+
+// Import du composant Alert
+import { AlertController } from '@ionic/angular';
+
+// Import du service Tweet
+import { TweetsService } from './../../services/tweets.service';
+
+@Component({
+  selector: 'app-feed',
+  templateUrl: './feed.component.html',
+  styleUrls: ['./feed.component.scss'],
+})
+export class FeedComponent implements OnInit {
+
+  constructor(
+    public tweetsService: TweetsService,
+    private alertCtrl: AlertController) { }
+
+  ngOnInit() {
+    this.tweetsService.load();
+  }
+
+  /**
+  ** Méthode pour ajouter un Tweet
+  **/
+  async addTweet() {
+    this.alertCtrl.create({
+      header: 'Nouveau tweet',
+      inputs: [
+        {
+          type: 'text',
+          name: 'content',
+          id: 'post-content',
+          placeholder: 'Saisissez votre texte ici...'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Annuler'
+        },
+        {
+          text: 'Ajouter',
+          handler: (data) => {
+            this.tweetsService.createTweet(data.content);
+          }
+        }
+      ]
+    }).then((alert) => {
+      alert.present();
+    });
+  }
+
+}
+
+
+```
+
+**src/app/components/feed/feed.component.html**
+```html
+
+<ion-list lines="none">
+  <!-- ...On rajoute nos tweets ICI à l'aide d'une boucle for (ngFor, comme aNGular For) -->
+  <ion-card *ngFor="let tweet of tweetsService?.tweets" [routerLink]="'/tweet/' + tweet.id" routerDirection="forward">
+    <ion-item>
+      <ion-label>@charles
+        <small>{{tweet.create_at | date:'d/M/yy'}}</small>
+      </ion-label>
+      <ion-note slot="end">
+        <ion-icon name="heart-empty" size="large"></ion-icon>
+      </ion-note>
+    </ion-item>
+    <ion-card-content>
+      <p appDuckborder>{{tweet.content}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-item [hidden]="tweetsService?.tweets.length > 0" class="ion-text-center ion-padding-top">
+    <ion-label>Aucun tweet. <br /> Soyez le premier à publier.</ion-label>
+  </ion-item>
+</ion-list>
+
+
+```
+
+Pour afficher notre composant dans une page, il vous faudra déclarer le module ComponentsModule créé précédemment dans le module de la page concernée. Dans les versions précédente d'Ionic (Angular), il est possible de déclarer simplement ce module ComponentsModule dans le module principal (app.module.ts).
+
+Mais afin de respecter le lazy loading (chargement de code uniquement si nécessaire), il est nécessaire désormais de déclarer nos composants de cette manière. Un peu laborieux, mais cela permet d'avoir de meilleurs performances sur mobile.
+
+Pour donc afficher le composant Feed en Page d'accueil , il faut effectuer les ajustements suivants dans la balise **ion-content** :
+
+**src/app/tab1/tab1.page.html**
+```html
+<!-- ... -->
+
+<ion-content>
+  <app-feed></app-feed>
+</ion-content>
+
+```
+
+**src/app/tab1/tab1.module.ts**
+```javascript
+// Import du module
+import { ComponentsModule } from './../components/components.module';
+
+//... Autres lignes de code
+
+imports: [
+  // ... Autres éléments
+  ComponentsModule,
+  // ...
+]
+```
+
+2\) Comme avec la page d'accueil, appelez ce nouveau composant dans l'onglet **Explorer**.
 
 ![](/assets/ducktweet_6.png)
 
