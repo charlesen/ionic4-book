@@ -69,7 +69,7 @@ J'ai effectué ces modifications depuis un Samsung Galaxy A5, mais les noms de m
 
 Il vous suffit ensuite de lancer la commande suivante et d'attendre bien patiemment le lancement \(quelques secondes\) :
 
-```
+```bash
 $ ionic cordova run android
 
 
@@ -96,7 +96,7 @@ LAUNCH SUCCESS
      Did you know you can live-reload changes from your app with --livereload?
 ```
 
-Une fois que vous avez démarré votre, il est possible de la visualiser en même temps depuis votre navigateur Google Chrome. Pratique lorsque l'on se rend compte qu'un bug, qui n'apparaissait pas durant les tests sur le web, apparait subitement lorsque l'on passe sur mobile. On est pas toujours à l'abri de ce genre d'écart en les tests en local et ceux effectués sur une machine réelle.
+Une fois que vous avez démarré votre, il est possible de la visualiser en même temps depuis votre navigateur Google Chrome. Pratique lorsque l'on se rend compte qu'un bug, qui n'apparaissait pas durant les tests sur le web, apparaît subitement lorsque l'on passe sur mobile. On est pas toujours à l'abri de ce genre d'écart en les tests en local et ceux effectués sur une machine réelle.
 
 Dans Chrome, ouvrez l'inspecteur \(F12\), puis cliquez sur le menu avec les trois petits point verticaux en haut à droite \(voir image ci-dessous\) et allez dans **More tools &gt; Remote devices**
 
@@ -104,17 +104,15 @@ Dans Chrome, ouvrez l'inspecteur \(F12\), puis cliquez sur le menu avec les troi
 
 Sélectionnez votre appareil mobile et cliquez sur **Inspect** pour visualiser votre application
 
+
 ![](/assets/screen_debug_android_1.png)![](/assets/screen_debug_android_2.png)
+
+N'hésitez pas à consulter la documentation officielle constamment mise à jour : https://ionicframework.com/docs/building/android 
+
 
 #### iOS
 
 Il est également possible de tester votre application depuis votre smarphone iOS.
-
-Il vous suffit de lancer votre projet depuis Xcode de la manière suivante :
-
-```bash
-$ open platforms/ios/Votre_Appli.xcodeproj
-```
 
 Si vous n'avez pas encore ajouté iOS comme plateforme cible, il n y aura pas de dossier platform/ios. Il vous suffira, pour l'avoir , de lancer la commane suivante :
 
@@ -122,17 +120,24 @@ Si vous n'avez pas encore ajouté iOS comme plateforme cible, il n y aura pas de
 $ ionic cordova platform add ios
 ```
 
-Une fois votre projet ouvert dabs Xcode, connectez votre iPhone à votre Mac et acceptez de faire confiance à votre ordinateur si demandé. Puis à droite du bouton play, choissiez à partir de quelle appareil votre application sera lancée.
+Il vous suffit de lancer votre projet depuis Xcode de la manière suivante :
+
+```bash
+$ open platforms/ios/Votre_Appli.xcodeproj
+```
+
+Une fois votre projet ouvert dans Xcode, connectez votre iPhone à votre Mac et acceptez de faire confiance à votre ordinateur si demandé.
+
+Puis à droite du bouton play, choissiez à partir de quelle appareil votre application sera lancée.
 
 ![](/assets/running_ios.png)
 
-Par défaut, ce sont les emulateurs qui s'affichent, mais en cliquant sur la liste des devices, vous pourrez sélectionner votre appareil mobile fraichement connecté en USB.
+Par défaut, ce sont les émulateurs qui s'affichent, mais en cliquant sur la liste des devices, vous pourrez sélectionner votre appareil mobile fraîchement connecté en USB.
 
-Une fois la connection effectuée, il ne vous restera plus qu'à cliquer sur le bouton play pour démarrer vos tests ou alors de lancer la commande suivante :
+Une fois la connexion effectuée, il ne vous restera plus qu'à cliquer sur le bouton play pour démarrer vos tests ou alors de lancer la commande suivante :
 
 ```bash
 $ ionic cordova run ios --device
 ```
 
-
-
+N'hésitez pas à consulter la documentation officielle constamment mise à jour : https://ionicframework.com/docs/building/ios

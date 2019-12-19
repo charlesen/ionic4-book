@@ -1,10 +1,10 @@
 ## Ionic Appflow
 
-Nous avons déjà parlé et avons même créé un compte au [chapitre 3](/chap3).
+Nous en avons déjà parlé et avons même créé un compte au [chapitre 3](/chap3).
 
-Ionic Appflow va vous permette (dans sa version payante) de compiler votre projet sans devoir vous inquiéter de l'installation des packages nécessaires pour chaque plateforme cible \(Android, iOS\).
+Ionic Appflow va vous permettre de tester votre application avec Ionic Dev App, ou de compiler votre projet (dans sa version payante) sans devoir vous inquiéter de l'installation des packages nécessaires pour chaque plateforme cible \(Android, iOS\).
 
-Pour pusher votre application sur le cloud, il vous suffira de faire :
+Pour pusher votre application sur le cloud Ionic, il vous suffira d'utiliser un workflow Git classique :
 
 ```bash
 $ git add .

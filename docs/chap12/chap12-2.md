@@ -106,19 +106,19 @@ Toujours dans Xcode, non loin du bouton de compilation \(icon play\) , changez l
 
 Une fois l'Upload effectué, vous devriez voir s'afficher cette popup avec un message le message **"Upload Successful"**.
 
-![](/assets/ios_distribution_002.png) 
+![](/assets/ios_distribution_002.png)
 
-#### Depuis Ionic PRO
+#### Depuis Ionic Appflow (payant)
 
-Dans Ionic PRO, allez dans **Code &gt; Builds**, puis cliquez sur le bouton en forme de package à droite \(celui du milieu sur l'image ci-dessous\) pour compiler votre projet.
+Dans votre [tableau de bord Ionic Appflow](https://dashboard.ionicframework.com/), allez dans **Deploy &gt; Builds**, puis cliquez sur le bouton en forme de package à droite \(celui du milieu sur l'image ci-dessous\) pour compiler votre projet.
 
 Une fois la compilation terminée, téléchargez le fichier IPA.
 
 ![](/assets/ionic_build.png)
 
-Si vous disposez d'un ordinateur Mac, un **ionic cordova run ios --device** devrait vous permettre de tester votre application depuis votre smartphone et s'assurer que la configuration s'est bien passée avant d'exporter votre application au format IPA.
+Si vous disposez d'un ordinateur Mac, un **ionic cordova run ios --device** devrait vous permettre de tester votre application depuis votre smartphone et vous assurer qu'il n y a aucune erreur lié à la spécificité de l'OS, avant d'exporter votre application au format IPA.
 
-Pour plus d'informations sur les étapes annexes, n'hésitez pas à visite les pages suivantes :
+Pour plus d'informations sur les étapes annexes, n'hésitez pas à visiter les pages suivantes :
 
 * Packaging iOS : [https://ionicframework.com/docs/pro/package/ios.html](https://ionicframework.com/docs/pro/package/ios.html)
 * Build Ionic : [https://ionicframework.com/docs/cli/cordova/build/](https://ionicframework.com/docs/cli/cordova/build/)
@@ -144,6 +144,3 @@ N'hésitez surtout à visitez la page [https://ionic.mobiletuto.com/chap11/](htt
 * iOS Platform Guide \(Cordova\) : [https://cordova.apache.org/docs/fr/8.x/guide/platforms/ios/index.ht](https://cordova.apache.org/docs/fr/8.x/guide/platforms/ios/index.html)
 * Distribute Your App \(Doc Apple Officielle\) : [https://help.apple.com/xcode/mac/current/\#/dev8b4250b57](https://help.apple.com/xcode/mac/current/#/dev8b4250b57)
 * Deploying Capacitor Applications to iOS development distribution [https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)
-
-
-

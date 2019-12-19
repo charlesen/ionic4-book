@@ -5,6 +5,9 @@ Comme nous l'avons vu, un composant permet d'afficher du contenu à plusieurs en
 Supposons que l'on souhaite récupérer la liste des dernières feeds sous forme de tableau comme c'est le cas dans la classe **FeedComponent** :
 
 ```js
+
+const apiUrl='https://monsuperapi.io';
+
 export class FeedComponent {
 
   feeds: any[] = [];
@@ -33,7 +36,7 @@ $ ionic g provider User
 [OK] Generated a provider named User!
 ```
 
-Cette commande va créer un nouveau service **User**, dans lequel nous déclarerons un certain nombre de méthodes pour la gestion de l'authentification, la création de comptes utilisateur,...Il suffira ensuite d'appeler ce service dans n'importe quelle page de notre application
+Cette commande va créer un nouveau service **User**, dans lequel nous déclarerons un certain nombre de méthodes pour la gestion de l'authentification, la création de comptes utilisateur,...Il suffira ensuite d'appeler ce service dans n'importe quelle page de notre application.
 
 ```js
 export class MaPage {
@@ -54,3 +57,5 @@ export class MaPage {
   }
 }
 ```
+
+N'hésitez pas à vous inspirer du service Tweet que nous avons créé au [chapitre 7 : Mise en place du service Tweet](/chap7/chap7-6-2.html#mise-en-place-du-service-tweet) 

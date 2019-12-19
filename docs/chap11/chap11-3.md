@@ -6,7 +6,7 @@ Url : [https://ionicframework.com/docs/appflow/devapp/](https://ionicframework.c
 
 Une fois l'application téléchargée, il vous suffit de l'ouvrir, de vous connecter avec vos identifiants Ionic Appflow, pour voir s'afficher vos différentes applications
 
-![](/assets/ducknote_devapp1.png) | ![](/assets/ducknote_devapp2.png)
+![](/assets/ionic_dev_app.png) | ![](/assets/ducknote_devapp2.png)
 --- | ---
 **Vue de toutes les applications disponibles** | **Application depuis Ionic DevApp** |
 

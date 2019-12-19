@@ -32,56 +32,62 @@ CREATE src/app/components/feed/feed.component.ts (260 bytes)
 
 ```
 
-Il faut ensuite de modifier notre module \(components.module.ts\) de la manière suivante (Certaines version de Ionic et Angular font ce travail pour vous):
+Il faut ensuite modifier le module \(components.module.ts\) de la manière suivante (Certaines versions de Ionic et Angular font ce travail pour vous):
 
 **src/app/components/components.module.ts**
 
 ```javascript
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
+
 import { FeedComponent } from './feed/feed.component';
 
+
 @NgModule({
+  declarations: [FeedComponent],
+  exports: [FeedComponent],
   imports: [
-    CommonModule,
-    IonicModule.forRoot(),
+    IonicModule, // Module Ionic
+    CommonModule, // Module Angular
   ],
-  declarations: [
-    FeedComponent
-  ],
-  exports: [
-    FeedComponent
-  ],
-  entryComponents: [],
+  // Pour appeler les composants Ionic (Web components)
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }
+
 ```
+- **IonicModule** : Contient tous les éléments de base de Ionic
+- **CommonModule** : Contient tous les éléments de base d'Angular : **directives**, **pipes**, **NgIf**,...
+- **CUSTOM_ELEMENTS_SCHEMA** : permet l'affichage des composants Ionic dans des composants personnalisés.
 
-Chaque fois que vous devrez créér un composant, il vous suffira de le rajouter directement dans le fichier **src/app/components/components.module.ts**.
+Chaque fois que vous devrez créer un composant, il vous suffira de le rajouter directement dans le fichier **src/app/components/components.module.ts**.
 
-Rappelons que les modules sont chargés du bootstrapping \(démarrage\) de composants. C'est donc ce module qu'il faudra éventuellement déclarer dans le module principal **src/app/app.module.ts**:
+Rappelons que les modules sont chargés du bootstrapping \(démarrage\) de composants. C'est donc ce module qu'il faudra éventuellement déclarer dans le module principal de la page ou de composant qui l'appelle.
+
+Si l'on souhaite par exemple appeler ce nouveau composant dans une page nommée **Page1** (src/page1/page1.page.html), il suffit de modifier le module src/page1/page1.module.ts comme ceci :
+
+**src/page1/page1.module.ts**:
 
 ```js
 // Modules
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './../components/components.module';
 
 // ...
 
 imports: [
-    BrowserModule,
-    HttpClientModule,
-    ComponentsModule, // Importer le module ici
-    IonicModule.forRoot()
+    //..
+    ComponentsModule, // On importe le module du composant
+    // ...
 ],
 
 // ...
 ```
 
-Je vous rassure, vous n'aurez pas à faire tout cela à chaque création de composant, en fait l'intérêt de regrouper tout cela dans un module permet de créer de nouveaux composants, sans devoir les redéclarer dans toute l'application.
+Une fois que c'est fait, vous pourrez appeler votre composant sous forme de tag dans le fichier html de votre page.
 
-À présent vous pouvez appeler votre composant sous forme de tag dans n'importe quel fichier html de l'application.
+**src/page1/page1.page.html**:
 
 ```js
 <moncomposant></moncomposant>

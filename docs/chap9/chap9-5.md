@@ -1,6 +1,6 @@
 ## Modules
 
-Un module angular permet de regrouper en un seul endroit des composants, des directives, des pipes et des services de l'application. Vous n'aurez pas nécessairement besoin de créer des modules manuellement, car la création par exemple d'un composant le fera pour vous.
+Un module angular permet de regrouper en un seul endroit des composants, des directives, des pipes et des services d'une application.
 
 Prenons par exemple le module racine de notre application défini comme ceci :
 
@@ -47,3 +47,11 @@ C'est ici que seront déclarés tous les services utilisés dans l'application.
 ### Bootstrap
 
 On déclare ici le composant principal de l'application
+
+
+Avec certaines versions de Ionic, vous n'aurez pas nécessairement besoin de créer des modules manuellement.
+Mais si vous souhaitez créer un nouveau module, il suffit de faire :
+
+```javascript
+$ ionic g module leNomDuModule
+```

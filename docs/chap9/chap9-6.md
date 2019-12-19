@@ -115,7 +115,7 @@ export class AppModule { }
 
 ##### Utilisation
 
-Nous allons appeler ce plugin depuis la page de profil de notre application. Il suffit d'éditer le fichier **src/pages/profile/profile.ts** comme ceci :
+Nous allons appeler ce plugin depuis la page de profil de notre application. Il suffit d'éditer le fichier **src/app/profile/profile.page.ts** comme ceci :
 
 ```js
 // ...
@@ -127,7 +127,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 @IonicPage()
 @Component({
   selector: 'page-profile',
-  templateUrl: 'profile.html',
+  templateUrl: 'profile.page.html',
 })
 export class ProfilePage {
   image : any;
@@ -161,7 +161,7 @@ export class ProfilePage {
 }
 ```
 
-On peut ensuite appeler cette fonction depuis le fichier **src/pages/profile/profile.html**
+On peut ensuite appeler cette fonction depuis le fichier **src/app/profile/profile.page.html**
 
 ```js
 <ion-header>

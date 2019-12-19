@@ -174,11 +174,11 @@ imports: [
 ![](/assets/ducktweet_8.png)
 
 3\) Créez une directive que vous nommerez **"bigger"**. Celle-ci permettra d'augmenter la taille \(font-size\) de l’élément qui l'invoquerait. N'importe lequel.
-Créez autant de directive que nécessaire pour facilement customiser votre application.
+Créez autant de directives que nécessaire pour facilement customiser votre application.
 
 **Corrigez les bugs éventuels :-).**
 
-4\) Créez un Pipe que vous nommerez _**moment**_ que vous utiliserez dans votre liste de feeds pour afficher la date de création d'un tweet de la même façon que le plugin Javascript **Moment** (https://momentjs.com/).
+4\) Créez un Pipe que vous nommerez _**moment**_ . Vous l'utiliserez dans votre liste de feeds pour afficher la date de création d'un tweet de la même façon que le plugin Javascript **Moment** (https://momentjs.com/).
 
 
 ```js
@@ -258,6 +258,8 @@ var cardPlateau = card1.concat(card2);
 console.log(cardPlateau);
 
 ```
+
+Il n y a pas de recommandation particulière pour la création de ce jeu, mais l'utilisation d'un composant est vivement recommandée :-).
 
 Vous aurez également besoin des [grids Ionic](https://ionicframework.com/docs/api/grid) :
 - Grid : https://ionicframework.com/docs/api/grid

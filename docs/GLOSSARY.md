@@ -53,11 +53,18 @@ ES6 a introduit le concept de modules en javascript. Avec les modules, les class
 ## Ionicons
 Ionicons est un projet open-source utilisé et créé par Ionic. Il comprend un ensemble d'icônes inspirés d'iOS, du Material Design (utilisé dans les projets Google), des icônes pour les réseaux sociaux, ainsi qu'un large éventail d'icônes couramment utilisés. Ionicons est inclus par défaut dans les distributions ioniques, mais ils peuvent être utilisés dans n'importe quel autre projet.
 
+## JSX
+
+Cette extension syntaxique de JavaScript (JSX = JavaScript XML) permet d'écrire des tags HTML et les intégrer au DOM, sans faire appel aux méthodes createElement et/ou appendChild.
+
 ## Karma
 Karma est un utilitaire de tests unitaires. Il permet l'exécution depuis un navigateur de vos différents cas de test, écrits dans n'importe quel cadre de test. Karma a été écrit à l'origine pour une utilisation dans Angular 1 et est présent dans les versions plus récentes du Framework.
 
 ## Module
 Les modules en JavaScript sont de petits bouts de codes indépendants, réutilisables ou simplement du code volontairement isolé de la portée globale.
+
+## Lazy loading
+Concept technique qui consiste à ne charger du code ou du contenu uniquement quand c'est nécessaire.
 
 ## Live Reload
 Live Reload (rechargement en temps réel) est un outil qui recharge automatiquement votre navigateur lorsqu'il détecte des changements. Il surveille des repertoires ou fichiers spécifiques et lorsque ceux-ci sont mis à jour, il déclenche un rechargement complet du navigateur. Dans le cas où l'on a du CSS qui est modifié, le chargement du dossier injectera simplement le CSS modifié au lieu de recharger toute la page.
